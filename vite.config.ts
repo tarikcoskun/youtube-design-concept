@@ -8,6 +8,7 @@ import { resolve } from "path"
 
 export default defineConfig({
   plugins: [Vue()],
+  base: "./",
   resolve: {
     alias: [
       { find: "~", replacement: resolve(__dirname, ".") },
