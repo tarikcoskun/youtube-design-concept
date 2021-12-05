@@ -8,7 +8,6 @@ import { resolve } from "path"
 
 export default defineConfig({
   plugins: [Vue()],
-  base: "./avdans-youtube-concept/",
   resolve: {
     alias: [
       { find: "~", replacement: resolve(__dirname, ".") },
