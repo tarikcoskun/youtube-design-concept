@@ -1,0 +1,156 @@
+@import "channel-view.scss";
+@import "utility.scss";
+
+body { overflow-x: hidden; background: var(--bg); }
+header {
+  position: fixed; left: 0;
+
+  &.navigation {
+    top: 0;
+    z-index: 100;
+    max-height: 72px;
+    padding: 20px 32px;
+    background: var(--bg);
+    width: calc(100% - 60px);
+    display: flex; align-items: center; justify-content: space-between;
+    aside {
+      &.brand {
+        display: flex; align-items: center; gap: 16px;
+        img { width: 48px; border-radius: 50%; }
+      }
+
+      &.search {
+        width: 42%;
+        cursor: text;
+        border-width: 2px;
+        position: relative;
+        padding: 10px 20px;
+        border-radius: 6px;
+        border-style: solid;
+        background: #F4F4F8;
+        border-color: transparent;
+        transform: translateX(-50%);
+        transition-duration: 150ms;
+        transition-property: background, color;
+        position: absolute; left: 50%; right: 50%;
+        display: flex; align-items: center; gap: 16px;
+
+        svg path, input::placeholder { color: #A8A8A8; font-weight: 500; }
+        input {
+          height: 100%;
+          font-size: 16px;
+          background: transparent;
+          width: calc(100% - 108px);
+          position: absolute; left: 54px; top: 0;
+          &:focus { outline: none; }
+        }
+        &:focus-within {
+          border-image: linear-gradient(to right,
+            #EDEDF5 0 54px,
+            var(--text-primary) 54px calc(100% - 54px),
+            #EDEDF5 calc(100% - 54px) 100%) 0 0 100% 0;
+        }
+        &:hover, &:focus-within {
+          background: var(--shadow);
+          svg path, input::placeholder { color: var(--text-primary); }
+        }
+      }
+      &.links {
+        font-weight: 500;
+        display: flex; align-items: center; gap: 28px;
+        img { border-radius: 50%; }
+      }
+      .action-icon { cursor: pointer; }
+    }
+  }
+
+  &.sidebar {
+    top: 72px;
+    width: 240px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: var(--bg);
+    padding: 16px 16px 16px 0;
+    max-height: calc(100vh - 96px);
+    display: flex; gap: 16px; flex-direction: column;
+
+    a.create-video {
+      margin: 0 32px;
+      width: max-content;
+      display: flex; align-items: center; gap: 8px;
+      svg path { transition: 150ms color; color: red; }
+    }
+    aside.links {
+      display: flex; flex-direction: column;
+      a {
+        overflow: hidden;
+        padding: 10px 32px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        transition-duration: 150ms;
+        border-radius: 0 36px 36px 0;
+        font-size: 18px; font-weight: 600;
+        transition-property: box-shadow, color;
+        display: flex; align-items: center; gap: 16px;
+        svg, img { width: 26px; }
+        img { border-radius: 50%; }
+        &:hover, &:focus {
+          color: var(--title-primary);
+          box-shadow: 0 4px 8px var(--shadow);
+          svg path { color: red; }
+        }
+      }
+      div.subscriptions { padding-top: 24px; }
+      label { font-size: 16px; font-weight: 600; margin: 10px 32px; }
+    }
+    &.sidebar-compact {
+      padding: 0;
+      width: 100px;
+      max-height: calc(100vh - 64px);
+      aside.links {
+        a {
+          border-radius: 0;
+          padding: 16px 8px;
+          flex-direction: column; gap: 8px;
+          font-size: 12px; font-weight: 500;
+          svg { width: 28px; }
+        }
+        div.subscriptions { display: none; }
+      }
+    }
+    &::-webkit-scrollbar {
+      width: 3px;
+      &-thumb { background: transparent; }
+    }
+    &:hover { &::-webkit-scrollbar-thumb { background: var(--text-primary); } }
+  }
+}
+
+// Mobile
+@media only screen and (max-width: 768px) {
+  header {
+    &.navigation { display: none; }
+    &.sidebar {
+      padding: 0;
+      aside.links {
+        gap: 0;
+        a {
+          border-radius: 0;
+          padding: 8px !important;
+          flex-direction: column; gap: 8px;
+          font-size: 12px; font-weight: 500;
+          svg { width: 28px; }
+        }
+      }
+      a.create-video { display: none !important; }
+      width: 100% !important;
+      bottom: 0 !important; top: unset !important;
+      aside.links {
+        flex-direction: row !important;
+        a { width: 100%; }
+        div.subscriptions { display: none; }
+        a.create, a.history, a.watch-later { display: none !important; }
+      }
+    }
+  }
+}

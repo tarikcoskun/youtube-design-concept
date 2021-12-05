@@ -1,0 +1,40 @@
+@import "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700";
+
+html {
+  --bg: #FFFFFF;
+  --shadow: #00000016;
+  --text-primary: #727272;
+  --title-primary: #000000;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    &-thumb { background: var(--text-primary); }
+  }
+
+  * {
+    text-decoration: none;
+    color: var(--text-primary);
+    padding: 0; margin: 0; border: 0;
+    font: 20px "Inter", sans-serif; font-weight: 400;
+    &::selection { background: var(--shadow); }
+  }
+}
+
+.button {
+  cursor: pointer;
+  padding: 8px 24px;
+  border-radius: 36px;
+  transition: 0.15s opacity;
+  background: var(--bg);
+  box-shadow: 0 4px 8px var(--shadow);
+  color: var(--title-primary); font-weight: 600; font-size: 18px;
+  &:hover { opacity: 0.75 !important; }
+}
+
+@media only screen and (min-width: 768px) {
+  main {
+    padding-top: 72px;
+    &.sidebar { padding-left: 256px; }
+    &.sidebar-compact { padding-left: 100px; }
+  }
+}
