@@ -1,7 +1,11 @@
 @import "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700";
+@import "https://fonts.googleapis.com/icon?family=Material+Icons+Outlined";
 
 html {
   --bg: #FFFFFF;
+  --hover: #E9E9E9;
+  --button: #FFFFFF;
+  --search: #F4F4F8;
   --shadow: #00000016;
   --text-primary: #727272;
   --title-primary: #000000;
@@ -29,6 +33,18 @@ html {
   box-shadow: 0 4px 8px var(--shadow);
   color: var(--title-primary); font-weight: 600; font-size: 18px;
   &:hover { opacity: 0.75 !important; }
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    --bg: #000000;
+    --hover: #202020;
+    --button: #101010;
+    --search: #101010;
+    --shadow: #00000016;
+    --text-primary: #bebebe;
+    --title-primary: #FFFFFF;
+  }
 }
 
 @media only screen and (min-width: 768px) {

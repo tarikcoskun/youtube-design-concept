@@ -1,7 +1,5 @@
 <script lang="ts" setup>
 import { ref } from "vue"
-import Play from "@/icons/Play.vue"
-import Search from "@/icons/Search.vue"
 import { videos, getReadableDate } from "@/utils"
 
 const subscribed = ref<Boolean>(true)
@@ -20,7 +18,7 @@ const subscribed = ref<Boolean>(true)
             <p class="sub-count">100,000 subscribers</p>
           </aside>
 
-          <a class="button subscribe" :style="{ background: subscribed ? 'white': 'red', color: subscribed ? 'var(--title-primary)': 'white' }" @click="subscribed = !subscribed">{{ subscribed ? "SUBSCRIBED": 'SUBSCRIBE' }}</a>
+          <a class="button subscribe" :style="{ background: subscribed ? 'var(--button)': 'red', color: subscribed ? 'var(--title-primary)': 'white' }" @click="subscribed = !subscribed">{{ subscribed ? "SUBSCRIBED": 'SUBSCRIBE' }}</a>
         </div>
       </section>
 
@@ -31,12 +29,12 @@ const subscribed = ref<Boolean>(true)
         <a class="tab">COMMUNITY</a>
         <a class="tab">CHANNELS</a>
         <a class="tab">ABOUT</a>
-        <a class="tab search"><Search width="28" /></a>
+        <a class="tab search"><i class="material-icons-outlined">search</i></a>
       </section>
 
       <section class="home">
         <aside class="season">
-          <label>Latest uploads <span class="play"><Play width="36" /> PLAY ALL</span></label>
+          <label>Latest uploads</label>
           <div class="videos">
             <a v-for="video in videos" class="video" :href="`https://youtu.be/${video.id}`" target="_blank">
               <img class="thumbnail" :src="`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`" alt="thumbnail" draggable="false">
