@@ -1,3 +1,5 @@
+@import "utility.scss";
+
 section.channel-view {
   figure.banner {
     height: calc(100vw/6);
@@ -9,25 +11,25 @@ section.channel-view {
   section {
     &.channel-info {
       padding: 0 80px;
-      display: flex; gap: 8px; align-items: center;
+      @include flex($align: center, $gap: 8px);
 
       img.avatar {
-        border-radius: 50%;
         margin-top: -64px;
+        border-radius: 50%;
         width: 128px; height: 128px;
-        border: 10px solid var(--bg);
       }
 
       div.sub-info {
         width: 100%;
-        display: flex; justify-content: space-between; align-items: center;
+        @include flex($justify: space-between, $align: center);
 
         aside.left {
-          display: flex; flex-direction: column; gap: 4px;
-          h1.name { color: var(--title-primary); font-size: 22px; font-weight: 600; }
-          p.sub-count { font-size: 18px; font-weight: 500; }
+          @include flex($direction: column, $gap: 6px);
+          h1.name { color: var(--title); font-size: 22px; font-weight: 600; }
+          p.subscribers { font-size: 18px; font-weight: 500; }
         }
-        a.subscribe { cursor: pointer; padding: 12px 24px; }
+
+        a.subscribe { padding: 12px 24px; }
       }
     }
 
@@ -35,16 +37,17 @@ section.channel-view {
       padding: 0 20px;
       margin: 24px 80px 0;
       border-bottom: 2px solid var(--hover);
-      display: flex; justify-content: space-between;
+      @include flex($justify: space-between);
 
       a.tab {
         cursor: pointer;
-        padding-bottom: 8px;
         position: relative;
+        padding-bottom: 8px;
         font-size: 18px; font-weight: 600;
 
         &.active {
           color: red;
+
           &::after {
             content: "";
             display: block;
@@ -60,18 +63,10 @@ section.channel-view {
 
     &.home {
       padding: 24px 80px;
-      display: flex; flex-direction: column;
+      @include flex($direction: column);
 
       aside.season {
-        label {
-          color: var(--title-primary); font-weight: 600;
-          display: flex; align-items: center; gap: 16px;
-
-          span.play {
-            font-weight: 600;
-            display: flex; align-items: center; gap: 4px;
-          }
-        }
+        label { color: var(--title); font-weight: 600; }
 
         div.videos {
           padding: 12px 0;
@@ -80,15 +75,15 @@ section.channel-view {
 
           a.video {
             flex: 0 0 25%;
-            display: flex; flex-direction: column;
+            @include flex($direction: column);
 
             img.thumbnail { aspect-ratio: 16/9; object-fit: cover; }
             div.details {
-              display: flex; flex-direction: column;
+              @include flex($direction: column);
 
               h1.title {
                 padding: 12px 0 8px 0;
-                color: var(--title-primary); font-size: 16px; font-weight: 600;
+                color: var(--title); font-size: 16px; font-weight: 600;
                 overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
               }
 
@@ -113,15 +108,13 @@ section.channel-view {
         border-width: 4px !important;
         width: 72px !important; height: 72px !important;
       }
+
       div.sub-info {
         aside.left {
-          h1.name {
-            font-size: 18px !important;
-          }
-          p.sub-count {
-            font-size: 14px !important;
-          }
+          h1.name { font-size: 18px !important; }
+          p.subscribers { font-size: 14px !important; }
         }
+
         a.subscribe {
           font-size: 16px;
           padding: 8px 12px !important;
@@ -129,26 +122,30 @@ section.channel-view {
         }
       }
     }
+
     &.tabs {
       display: none !important;
       // Will be changed in the future
     }
+
     &.home {
       padding: 16px 16px 80px !important;
       aside.season {
-        label span.play { display: none !important; }
         div.videos {
           grid-template-columns: minmax(0, 1fr) !important;
+
           a.video {
             gap: 12px;
             flex-direction: row !important;
-            img.thumbnail { width: 45vw !important; }
+
             div.details h1.title {
               padding: 0 !important;
               white-space: normal !important;
               overflow: hidden;
               display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;
             }
+
+            img.thumbnail { width: 45vw; }
           }
         }
       }

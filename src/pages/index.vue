@@ -15,10 +15,10 @@ const subscribed = ref<Boolean>(true)
         <div class="sub-info">
           <aside class="left">
             <h1 class="name">Avdan</h1>
-            <p class="sub-count">100,000 subscribers</p>
+            <p class="subscribers">100,000 subscribers</p>
           </aside>
 
-          <a class="button subscribe" :style="{ background: subscribed ? 'var(--button)': 'red', color: subscribed ? 'var(--title-primary)': 'white' }" @click="subscribed = !subscribed">{{ subscribed ? "SUBSCRIBED": 'SUBSCRIBE' }}</a>
+          <a class="button subscribe" :style="{ background: subscribed ? 'var(--button)': 'red', color: subscribed ? 'var(--title)': 'white' }" @click="subscribed = !subscribed">{{ subscribed ? "SUBSCRIBED": 'SUBSCRIBE' }}</a>
         </div>
       </section>
 

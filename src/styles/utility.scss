@@ -1,26 +1,38 @@
 @import "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700";
 @import "https://fonts.googleapis.com/icon?family=Material+Icons+Outlined";
 
+$light-bg: #ffffff;
+$light-text: #505050;
+$light-shadow: #0505250a;
+$light-search: #f4f4f8;
+$light-hover: #eeeef0;
+
+$dark-bg: #000000;
+$dark-text: #d0d0d0;
+$dark-hover: #202020;
+$dark-button: #101010;
+
+:root {
+  --bg: #{$light-bg};
+  --text: #{$light-text};
+  --title: #{$dark-bg};
+  --shadow: #{$light-shadow};
+  --button: #{$light-bg};
+  --search: #{$light-search};
+  --hover: #{$light-hover};
+}
+
 html {
-  --bg: #FFFFFF;
-  --hover: #E9E9E9;
-  --button: #FFFFFF;
-  --search: #F4F4F8;
-  --shadow: #00000016;
-  --text-primary: #727272;
-  --title-primary: #000000;
-
-  &::-webkit-scrollbar {
-    width: 4px;
-    &-thumb { background: var(--text-primary); }
-  }
-
   * {
     text-decoration: none;
-    color: var(--text-primary);
+    color: var(--text);
     padding: 0; margin: 0; border: 0;
     font: 20px "Inter", sans-serif; font-weight: 400;
     &::selection { background: var(--shadow); }
+    &::-webkit-scrollbar {
+      width: 4px;
+      &-thumb { background: var(--text); }
+    }
   }
 }
 
@@ -31,19 +43,26 @@ html {
   transition: 0.15s opacity;
   background: var(--bg);
   box-shadow: 0 4px 8px var(--shadow);
-  color: var(--title-primary); font-weight: 600; font-size: 18px;
+  color: var(--title); font-weight: 600; font-size: 18px;
   &:hover { opacity: 0.75 !important; }
 }
 
+@mixin flex($align: unset, $justify: unset, $direction: row, $gap: 0) {
+  gap: $gap;
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
 @media (prefers-color-scheme: dark) {
-  html {
-    --bg: #000000;
-    --hover: #202020;
-    --button: #101010;
-    --search: #101010;
-    --shadow: #00000016;
-    --text-primary: #bebebe;
-    --title-primary: #FFFFFF;
+  :root {
+    --bg: #{$dark-bg};
+    --text: #{$dark-text};
+    --title: #{$light-bg};
+    --button: #{$dark-button};
+    --search: #{$dark-button};
+    --hover: #{$dark-hover};
   }
 }
 
