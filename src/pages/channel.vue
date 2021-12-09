@@ -55,6 +55,7 @@ watchEffect(() => {
       <section class="community tab-page" v-else-if="activeTab?.innerText === 'COMMUNITY'">
         <label>Community</label>
         <div class="container">
+
         </div>
       </section>
 

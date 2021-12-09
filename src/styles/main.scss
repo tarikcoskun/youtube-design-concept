@@ -129,13 +129,30 @@ header {
       padding: 0;
       width: 100px;
       max-height: calc(100vh - 64px);
+
       aside {
-        &.links {
-          a {
-            border-radius: 0;
-            padding: 16px 8px;
-            flex-direction: column; gap: 8px;
-            font-size: 12px; font-weight: 500;
+        &.links a {
+          border-radius: 0;
+          padding: 16px 8px;
+          position: relative;
+          flex-direction: column; gap: 8px;
+          font-size: 12px; font-weight: 500;
+
+          &:hover, &:focus, &.router-link-exact-active {
+            color: red !important;
+            box-shadow: none !important;
+            background: transparent !important;
+            i { color: red; }
+          }
+
+          &.router-link-exact-active::after {
+            content: "";
+            display: block;
+            background: red;
+            font-weight: 700;
+            width: 5px; height: 60%;
+            border-bottom-left-radius: 4px; border-top-left-radius: 4px;
+            position: absolute; top: 50%; right: 0; transform: translateY(-50%);
           }
         }
 
@@ -157,14 +174,14 @@ header {
   header {
     &.navigation {
       gap: 16px;
-      position: relative; // May be changed in the future
+      position: relative;
       padding: 12px !important;
       width: calc(100% - 24px) !important;
 
       aside {
         &.brand {
-          img.mobile-logo { display: block; }
           i, svg { display: none; }
+          img.mobile-logo { display: block; }
         }
 
         &.search {
@@ -190,7 +207,6 @@ header {
 
     &.sidebar {
       padding: 0;
-
       width: 100% !important;
       bottom: 0 !important; top: unset !important;
 
@@ -226,6 +242,7 @@ header {
 
             i { font-size: 24px; }
           }
+
           div.subscriptions { display: none; }
           a.create, a.history, a.watch-later { display: none !important; }
         }

@@ -3,7 +3,8 @@
 section.home-page {
   section {
     &.watch-later {
-      padding: 16px 16px 64px;
+      padding: 8px 16px 16px;
+      border-bottom: 1px solid var(--hover);
 
       div.videos {
         padding-top: 16px;
@@ -16,11 +17,9 @@ section.home-page {
       padding: 16px 16px 32px;
       @include flex($direction: column);
 
-      div.container {
-        div.videos {
-          display: grid; gap: 36px 12px;
-          grid-template-columns: repeat(4, minmax(0, 1fr));
-        }
+      div.container div.videos {
+        display: grid; gap: 36px 12px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
     }
   }
@@ -35,6 +34,7 @@ section.home-page {
       label { padding: 0 12px; }
 
       &.watch-later {
+        border-bottom: none;
         padding-top: 8px !important;
 
         div.videos {
@@ -44,7 +44,6 @@ section.home-page {
 
           a.video {
             width: 60vw;
-
             a.creator-details img.avatar { display: none; }
           }
 
@@ -57,6 +56,7 @@ section.home-page {
 
       &.home-content {
         margin-bottom: 64px !important;
+
         div.videos {
           gap: 0 !important;
           grid-template-columns: minmax(0, 1fr) !important;
