@@ -3,7 +3,7 @@
 
 $light-bg: #ffffff;
 $light-text: #505050;
-$light-shadow: #0505250a;
+$light-shadow: #05052520;
 $light-search: #f4f4f8;
 $light-hover: #eeeef0;
 
@@ -47,6 +47,8 @@ html {
   &:hover { opacity: 0.75 !important; }
 }
 
+i, img, svg { user-select: none; }
+
 @mixin flex($align: unset, $justify: unset, $direction: row, $gap: 0) {
   gap: $gap;
   display: flex;
@@ -66,10 +68,16 @@ html {
   }
 }
 
+// PC
 @media only screen and (min-width: 768px) {
   main {
     padding-top: 72px;
     &.sidebar { padding-left: 256px; }
     &.sidebar-compact { padding-left: 100px; }
   }
+}
+
+// Mobile
+@media only screen and (max-width: 768px) {
+  main { padding-top: 68px; }
 }

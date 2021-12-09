@@ -1,5 +1,6 @@
 @import "utility.scss";
 @import "channel.scss";
+@import "home.scss";
 
 body { overflow-x: hidden; background: var(--bg); }
 header {
@@ -15,10 +16,7 @@ header {
     @include flex($align: center, $justify: space-between);
 
     aside {
-      &.brand {
-        @include flex($align: center, $gap: 16px);
-        img { width: 48px; border-radius: 50%; }
-      }
+      &.brand { @include flex($align: center, $gap: 16px); }
 
       &.search {
         width: 42%;
@@ -89,7 +87,7 @@ header {
     }
 
     aside {
-      @include flex($direction: column, $gap: 2px);
+      @include flex($direction: column, $gap: 3px);
 
       a {
         overflow: hidden;
@@ -104,7 +102,7 @@ header {
 
         i { font-size: 26px; transition: 200ms color; }
         img { width: 26px; border-radius: 50%; }
-        &:hover, &:focus {
+        &.router-link-exact-active, &:hover, &:focus {
           background: var(--button);
           color: var(--title);
           box-shadow: 0 4px 8px var(--shadow);
@@ -145,7 +143,34 @@ header {
 // Mobile
 @media only screen and (max-width: 768px) {
   header {
-    &.navigation { display: none; }
+    &.navigation {
+      position: absolute; // Will be changed in the future
+      padding: 12px !important;
+      width: calc(100% - 24px) !important;
+
+      aside {
+        &.brand {
+          width: 58px;
+
+          svg {
+            position: absolute;
+            & path:not([fill=red]):not([fill=white]) { display: none; }
+          }
+
+          i { display: none; }
+        }
+
+        &.search {
+          transform: unset;
+          width: 100% !important;
+          left: inherit !important;
+          padding: 8px 12px !important;
+          position: relative !important;
+        }
+
+        &.links { display: none; }
+      }
+    }
     &.sidebar {
       padding: 0;
 

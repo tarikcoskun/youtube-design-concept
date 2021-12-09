@@ -8,14 +8,12 @@ const subscribed = ref<Boolean>(true)
 watchEffect(() => {
   document.querySelectorAll("a.tab")?.forEach((tab: Element) => tab.classList.remove("active"))
   activeTab.value?.classList.add("active")
-
-  console.log(`Set tab to: ${activeTab.value?.innerText}`)
 })
 </script>
 
 <template>
   <main>
-    <section class="channel-view">
+    <section class="channel">
       <figure class="banner"></figure>
 
       <section class="channel-info">
@@ -44,7 +42,7 @@ watchEffect(() => {
         <aside class="container">
           <label>Uploads</label>
           <div class="videos">
-            <a v-for="video in videos" class="video" :href="`https://youtu.be/${video.id}`" target="_blank">
+            <a v-for="video in videos.slice(0, 8)" class="video" :href="`https://youtu.be/${video.id}`" target="_blank">
               <img class="thumbnail" :src="`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`" alt="thumbnail" draggable="false">
               <div class="details">
                 <h1 class="title" :title="video.title">{{ video.title }}</h1>
@@ -83,7 +81,7 @@ watchEffect(() => {
         <aside class="container">
           <label>Season 3</label>
           <div class="videos">
-            <a v-for="video in videos" class="video" :href="`https://youtu.be/${video.id}`" target="_blank">
+            <a v-for="video in videos.slice(0, 8)" class="video" :href="`https://youtu.be/${video.id}`" target="_blank">
               <img class="thumbnail" :src="`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`" alt="thumbnail" draggable="false">
               <div class="details">
                 <h1 class="title" :title="video.title">{{ video.title }}</h1>
