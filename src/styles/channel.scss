@@ -79,7 +79,7 @@ section.channel {
       div.container div.videos {
         padding: 12px 0;
         display: grid; gap: 12px;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(var(--base-columns), minmax(0, 1fr));
 
         a.video a.creator-details, span.dot { display: none; }
       }
@@ -88,7 +88,7 @@ section.channel {
 }
 
 // Mobile
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 700px) {
   section {
     figure {
       &.banner { height: calc(100vw/3.5) !important; }
@@ -140,8 +140,6 @@ section.channel {
       &.about div.columns { flex-direction: column !important; gap: 16px !important; }
 
       div.container div.videos {
-        grid-template-columns: minmax(0, 1fr) !important;
-
         a.video {
           gap: 12px !important;
           flex-direction: row !important;

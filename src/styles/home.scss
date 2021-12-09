@@ -9,7 +9,7 @@ section.home-page {
       div.videos {
         padding-top: 16px;
         display: grid; gap: 36px 12px;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(var(--base-columns), minmax(0, 1fr));
       }
     }
 
@@ -19,14 +19,14 @@ section.home-page {
 
       div.container div.videos {
         display: grid; gap: 36px 12px;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(var(--base-columns), minmax(0, 1fr));
       }
     }
   }
 }
 
 // Mobile
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 700px) {
   section.home-page {
     section {
       padding: 0 !important;
@@ -59,7 +59,6 @@ section.home-page {
 
         div.videos {
           gap: 0 !important;
-          grid-template-columns: minmax(0, 1fr) !important;
 
           a.video {
             img.thumbnail { border-radius: 0 !important; }

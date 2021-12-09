@@ -20,6 +20,8 @@ $dark-button: #101010;
   --button: #{$light-bg};
   --search: #{$light-search};
   --hover: #{$light-hover};
+  --base-columns: 1;
+  --util-columns: 1;
 }
 
 html {
@@ -69,11 +71,18 @@ label { color: var(--title); font-size: 18px; font-weight: 600; }
   }
 }
 
-// PC
-@media only screen and (min-width: 768px) {
+// Tablet
+@media only screen and (min-width: 750px) {
+  :root { --base-columns: 3; }
+
   main {
     padding-top: 72px;
     &.sidebar { padding-left: 256px; }
     &.sidebar-compact { padding-left: 100px; }
   }
+}
+
+// PC
+@media only screen and (min-width: 1000px) {
+  :root { --base-columns: 4; --util-columns: 2; }
 }

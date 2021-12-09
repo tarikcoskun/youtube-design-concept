@@ -60,7 +60,7 @@ a.video {
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 800px) {
   a.video {
     flex: 0 0 25%;
     @include flex($direction: column);
