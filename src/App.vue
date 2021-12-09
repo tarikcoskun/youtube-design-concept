@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref } from "vue"
-import Youtube from "@/icons/YouTube.vue"
+import Youtube from "@/components/YouTube.vue"
 
 const sidebar = ref<Boolean>(true)
 const search = ref<HTMLInputElement>()

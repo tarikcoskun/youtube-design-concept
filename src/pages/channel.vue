@@ -1,6 +1,7 @@
 <script lang="ts" setup>
+import { videos } from "@/utils"
 import { ref, watchEffect } from "vue"
-import { videos, getReadableDate } from "@/utils"
+import Video from "@/components/Video.vue"
 
 const activeTab = ref<HTMLElement>()
 const subscribed = ref<Boolean>(true)
@@ -14,9 +15,8 @@ watchEffect(() => {
 <template>
   <main>
     <section class="channel">
-      <figure class="banner"></figure>
-
-      <section class="channel-info">
+      <figure class="banner" />
+      <figure class="channel-info">
         <img class="avatar" src="/avdan.png" alt="Avatar" draggable="false">
         <div class="sub-info">
           <aside class="left">
@@ -25,7 +25,7 @@ watchEffect(() => {
           </aside>
           <a class="button subscribe" :style="{ background: subscribed ? 'var(--button)': 'red', color: subscribed ? 'var(--title)': 'white' }" @click="subscribed = !subscribed">{{ subscribed ? "SUBSCRIBED": 'SUBSCRIBE' }}</a>
         </div>
-      </section>
+      </figure>
 
       <section class="tabs" @click="($event.target as HTMLElement).tagName === 'A' && (activeTab = $event.target as HTMLElement)">
         <a class="tab active">HOME</a>
@@ -37,56 +37,63 @@ watchEffect(() => {
         <a class="tab search"><i class="material-icons-outlined">search</i></a>
       </section>
 
-      <section class="videos" v-if="activeTab?.innerText === 'VIDEOS'">
+      <section class="videos tab-page" v-if="activeTab?.innerText === 'VIDEOS'">
+        <label>Uploads</label>
         <div class="container">
-          <label>Uploads</label>
           <div class="videos">
-            <a v-for="video in videos.slice(0, 8)" class="video" :href="`https://youtu.be/${video.id}`" target="_blank">
-              <img class="thumbnail" :src="`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`" alt="thumbnail" draggable="false">
-              <div class="details">
-                <h1 class="title" :title="video.title">{{ video.title }}</h1>
-                <span class="views">{{ getReadableDate(video.publishedAt as unknown as Date) }}</span>
-              </div>
-            </a>
+            <Video v-for="video in videos.slice(0, 8)" :video="video" />
           </div>
         </div>
       </section>
 
-      <section class="playlists" v-else-if="activeTab?.innerText === 'PLAYLISTS'">
+      <section class="playlists tab-page" v-else-if="activeTab?.innerText === 'PLAYLISTS'">
+        <label>Playlists</label>
         <div class="container">
-          <label>Playlists</label>
         </div>
       </section>
 
-      <section class="community" v-else-if="activeTab?.innerText === 'COMMUNITY'">
+      <section class="community tab-page" v-else-if="activeTab?.innerText === 'COMMUNITY'">
+        <label>Community</label>
         <div class="container">
-          <label>Community</label>
         </div>
       </section>
 
-      <section class="playlists" v-else-if="activeTab?.innerText === 'CHANNELS'">
+      <section class="channels tab-page" v-else-if="activeTab?.innerText === 'CHANNELS'">
+        <label>Channels</label>
         <div class="container">
-          <label>Channels</label>
+          <p>This channel doesn't feature any other channels</p>
         </div>
       </section>
 
-      <section class="playlists" v-else-if="activeTab?.innerText === 'ABOUT'">
-        <div class="container">
-          <label>About</label>
+      <section class="about tab-page" v-else-if="activeTab?.innerText === 'ABOUT'">
+        <div class="columns">
+          <aside>
+            <label>About</label>
+            <div class="container">
+              <p>Welcome to Avdan's Alternate Tech Universe.</p>
+                <p>Designer, as a hobby.</p>
+                <p>Creating videos since July 2017.</p>
+                <br />
+                <p>You can contact me for business inquiries from the e-mail address down below:</p>
+                <p>business.avdan@gmail.com</p>
+            </div>
+          </aside>
+
+          <aside>
+            <label>Stats</label>
+            <div class="container">
+              <p>Joined 21 December 2013</p>
+              <p>30,000,000 views</p>
+            </div>
+          </aside>
         </div>
       </section>
 
-      <section class="home" v-else>
+      <section class="home tab-page" v-else>
+        <label>Season 3</label>
         <div class="container">
-          <label>Season 3</label>
           <div class="videos">
-            <a v-for="video in videos.slice(0, 8)" class="video" :href="`https://youtu.be/${video.id}`" target="_blank">
-              <img class="thumbnail" :src="`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`" alt="thumbnail" draggable="false">
-              <div class="details">
-                <h1 class="title" :title="video.title">{{ video.title }}</h1>
-                <span class="views">{{ getReadableDate(video.publishedAt as unknown as Date) }}</span>
-              </div>
-            </a>
+            <Video v-for="video in videos.slice(0, 8)" :video="video" />
           </div>
         </div>
       </section>

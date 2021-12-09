@@ -8,36 +8,36 @@ section.channel {
     background-size: cover;
   }
 
-  section {
-    &.channel-info {
-      padding: 0 72px;
-      @include flex($align: center, $gap: 16px);
+  figure.channel-info {
+    padding: 0 72px;
+    @include flex($align: center, $gap: 16px);
 
-      img.avatar {
-        margin-top: -64px;
-        border-radius: 50%;
-        width: 128px; height: 128px;
-      }
-
-      div.sub-info {
-        width: 100%;
-        @include flex($justify: space-between, $align: center);
-
-        aside.left {
-          @include flex($direction: column, $gap: 4px);
-          h1.name { color: var(--title); font-size: 22px; font-weight: 600; }
-          p.subscribers { font-size: 18px; font-weight: 500; }
-        }
-
-        a.subscribe { padding: 12px 24px; }
-      }
+    img.avatar {
+      margin-top: -64px;
+      border-radius: 50%;
+      width: 128px; height: 128px;
     }
 
+    div.sub-info {
+      width: 100%;
+      @include flex($justify: space-between, $align: center);
+
+      aside.left {
+        @include flex($direction: column, $gap: 4px);
+        h1.name { color: var(--title); font-size: 22px; font-weight: 600; }
+        p.subscribers { font-size: 18px; font-weight: 500; }
+      }
+
+      a.subscribe { padding: 12px 24px; }
+    }
+  }
+
+  section {
     &.tabs {
       padding: 0 20px;
       margin: 24px 72px 0;
       border-bottom: 1px solid var(--hover);
-      @include flex($justify: space-between);
+      @include flex($gap: 16px);
 
       a.tab {
         cursor: pointer;
@@ -61,33 +61,30 @@ section.channel {
       }
     }
 
-    &.home, &.videos, &.playlists, &.community, &.channels, &.about {
+    &.tab-page {
       padding: 24px 72px;
       @include flex($direction: column);
 
+      &.about {
+        div.columns {
+          @include flex($justify: space-between);
+
+          aside div.container {
+            padding-top: 16px;
+            @include flex($direction: column, $gap: 6px);
+          }
+        }
+      }
+
+      label { font-size: 20px; padding-bottom: 16px; }
+      p { font-size: 18px; }
       div.container {
         div.videos {
           padding: 12px 0;
           display: grid; gap: 12px;
           grid-template-columns: repeat(4, minmax(0, 1fr));
 
-          a.video {
-            flex: 0 0 25%;
-            @include flex($direction: column);
-
-            img.thumbnail { aspect-ratio: 16/8.9; object-fit: cover; border-radius: 4px; }
-            div.details {
-              @include flex($direction: column);
-
-              h1.title {
-                padding: 12px 0 8px 0;
-                color: var(--title); font-size: 16px; font-weight: 600;
-                overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-              }
-
-              span { font-size: 16px; font-weight: 500; }
-            }
-          }
+          a.video a.creator-details, span.dot { display: none; }
         }
       }
     }
@@ -98,8 +95,7 @@ section.channel {
 @media only screen and (max-width: 768px) {
   section {
     figure.banner { height: calc(100vw/3.5) !important; }
-
-    &.channel-info {
+    figure.channel-info {
       padding: 16px !important;
 
       img.avatar {
@@ -123,6 +119,7 @@ section.channel {
     }
 
     &.tabs {
+      gap: 0 !important;
       overflow-x: auto;
       max-width: 100vw;
       margin: 0 !important;

@@ -1,6 +1,6 @@
 import moment from "moment"
 
-interface Video {
+export interface Video {
   id:          string
   title:       string
   avatar:      string
@@ -87,13 +87,6 @@ export const videos: Video[] = [
   {
     publisher: "Fireship",
     avatar: "fireship",
-    id: "zQnBQ4tB3ZA",
-    title: "TypeScript in 100 Seconds",
-    publishedAt: "2020-11-24T21:00:00Z"
-  },
-  {
-    publisher: "Fireship",
-    avatar: "fireship",
     id: "akDIJa0AP5c",
     title: "Sass in 100 Seconds",
     publishedAt: "2021-04-26T21:00:00Z"
@@ -104,5 +97,12 @@ export const videos: Video[] = [
     id: "emFMHH2Bfvo",
     title: "SVG in 100 Seconds",
     publishedAt: "2021-03-23T21:00:00Z"
+  },
+  {
+    publisher: "Fireship",
+    avatar: "fireship",
+    id: "zQnBQ4tB3ZA",
+    title: "TypeScript in 100 Seconds",
+    publishedAt: "2020-11-24T21:00:00Z"
   }
 ]

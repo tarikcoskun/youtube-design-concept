@@ -1,6 +1,7 @@
 <script lang="ts" setup>
+import { videos } from "@/utils"
 import { ref, watchEffect } from "vue"
-import { videos, getReadableDate } from "@/utils"
+import Video from "@/components/Video.vue"
 
 const activeTag = ref<HTMLElement>()
 
@@ -33,7 +34,7 @@ const featured = [
       </section>
 
       <section class="featured-creators">
-        <label>TODAY'S FEATURED CREATORS</label>
+        <label>FEATURED CREATORS</label>
         <div class="container">
           <figure class="channel-info" v-for="creator in featured">
             <img class="avatar" :src="`/${creator.avatar}.png`" draggable="false">
@@ -52,20 +53,7 @@ const featured = [
         <label>POPULAR VIDEOS</label>
         <div class="container">
           <div class="videos">
-            <a v-for="video in videos" class="video" :href="`https://youtu.be/${video.id}`" target="_blank">
-              <img class="thumbnail" :src="`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg` " alt="thumbnail" draggable="false">
-              <div class="details">
-                <h1 class="title" :title="video.title">{{ video.title }}</h1>
-                <footer class="bottom">
-                  <router-link to="/c" class="creator-details">
-                    <img class="avatar" :src="`/${video.avatar}.png`" :alt="video.publisher">
-                    <h1 class="name">{{ video.publisher }}</h1>
-                  </router-link>
-                  <span class="dot">•</span>
-                  <span class="views">{{ getReadableDate(video.publishedAt as unknown as Date) }}</span>
-                </footer>
-              </div>
-            </a>
+            <Video v-for="video in videos" :video="video" />
           </div>
         </div>
       </section>

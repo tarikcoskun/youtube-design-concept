@@ -1,43 +1,25 @@
 @import "utility.scss";
 
 section.home-page {
-  section.home-content {
-    padding: 16px 16px 32px;
-    @include flex($direction: column);
+  section {
+    &.watch-later {
+      padding: 16px 16px 64px;
 
-    div.container {
       div.videos {
+        padding-top: 16px;
         display: grid; gap: 36px 12px;
         grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
 
-        a.video {
-          flex: 0 0 25%;
-          @include flex($direction: column);
+    &.home-content {
+      padding: 16px 16px 32px;
+      @include flex($direction: column);
 
-          img.thumbnail { aspect-ratio: 16/8.9; object-fit: cover; border-radius: 4px; }
-          div.details {
-            @include flex($direction: column);
-
-            h1.title {
-              padding: 8px 0;
-              color: var(--title); font-size: 16px; font-weight: 600;
-              overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-            }
-
-            span.views { font-size: 16px; font-weight: 500; }
-          }
-
-          footer.bottom {
-            @include flex($align: center);
-
-            a.creator-details {
-              @include flex($align: center, $gap: 8px);
-              img.avatar { border-radius: 36px; width: 24px; height: 24px; }
-              h1.name { color: var(--title); font-size: 16px; font-weight: 500; }
-            }
-
-            span.dot { font-size: 12px; margin: 0 4px; }
-          }
+      div.container {
+        div.videos {
+          display: grid; gap: 36px 12px;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
         }
       }
     }
@@ -46,20 +28,48 @@ section.home-page {
 
 // Mobile
 @media only screen and (max-width: 768px) {
-  section.home-content {
-    margin: 0 !important;
-    padding: 0 0 64px !important;
+  section.home-page {
+    section {
+      padding: 0 !important;
 
-    div.videos {
-      gap: 0 !important;
-      grid-template-columns: minmax(0, 1fr) !important;
+      label { padding: 0 12px; }
 
-      a.video {
-        img.thumbnail { border-radius: 0 !important; }
-        div.details {
-          padding: 12px;
-          h1.title { padding: 0 0 8px !important; }
-          footer.bottom a.creator-details img.avatar { width: 36px !important; height: 36px!important; }
+      &.watch-later {
+        padding-top: 8px !important;
+
+        div.videos {
+          display: flex;
+          overflow-x: scroll;
+          padding: 12px 12px;
+
+          a.video {
+            width: 60vw;
+
+            a.creator-details img.avatar { display: none; }
+          }
+
+          &::-webkit-scrollbar {
+            height: 4px;
+            &-thumb { background: var(--title); }
+          }
+        }
+      }
+
+      &.home-content {
+        margin-bottom: 64px !important;
+        div.videos {
+          gap: 0 !important;
+          grid-template-columns: minmax(0, 1fr) !important;
+
+          a.video {
+            img.thumbnail { border-radius: 0 !important; }
+            div.details {
+              padding: 12px;
+
+              h1.title { padding: 0 0 8px !important; }
+              footer.bottom a.creator-details img.avatar { width: 36px !important; height: 36px !important; }
+            }
+          }
         }
       }
     }
