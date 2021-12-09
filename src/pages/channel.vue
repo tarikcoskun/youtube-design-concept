@@ -21,9 +21,8 @@ watchEffect(() => {
         <div class="sub-info">
           <aside class="left">
             <h1 class="name">Avdan</h1>
-            <p class="subscribers">100,000 subscribers</p>
+            <p class="subscribers">195K subs</p>
           </aside>
-
           <a class="button subscribe" :style="{ background: subscribed ? 'var(--button)': 'red', color: subscribed ? 'var(--title)': 'white' }" @click="subscribed = !subscribed">{{ subscribed ? "SUBSCRIBED": 'SUBSCRIBE' }}</a>
         </div>
       </section>
@@ -39,7 +38,7 @@ watchEffect(() => {
       </section>
 
       <section class="videos" v-if="activeTab?.innerText === 'VIDEOS'">
-        <aside class="container">
+        <div class="container">
           <label>Uploads</label>
           <div class="videos">
             <a v-for="video in videos.slice(0, 8)" class="video" :href="`https://youtu.be/${video.id}`" target="_blank">
@@ -50,35 +49,35 @@ watchEffect(() => {
               </div>
             </a>
           </div>
-        </aside>
+        </div>
       </section>
 
       <section class="playlists" v-else-if="activeTab?.innerText === 'PLAYLISTS'">
-        <aside class="container">
+        <div class="container">
           <label>Playlists</label>
-        </aside>
+        </div>
       </section>
 
       <section class="community" v-else-if="activeTab?.innerText === 'COMMUNITY'">
-        <aside class="container">
+        <div class="container">
           <label>Community</label>
-        </aside>
+        </div>
       </section>
 
       <section class="playlists" v-else-if="activeTab?.innerText === 'CHANNELS'">
-        <aside class="container">
+        <div class="container">
           <label>Channels</label>
-        </aside>
+        </div>
       </section>
 
       <section class="playlists" v-else-if="activeTab?.innerText === 'ABOUT'">
-        <aside class="container">
+        <div class="container">
           <label>About</label>
-        </aside>
+        </div>
       </section>
 
       <section class="home" v-else>
-        <aside class="container">
+        <div class="container">
           <label>Season 3</label>
           <div class="videos">
             <a v-for="video in videos.slice(0, 8)" class="video" :href="`https://youtu.be/${video.id}`" target="_blank">
@@ -89,7 +88,7 @@ watchEffect(() => {
               </div>
             </a>
           </div>
-        </aside>
+        </div>
       </section>
     </section>
   </main>

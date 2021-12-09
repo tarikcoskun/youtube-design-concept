@@ -11,7 +11,7 @@ section.channel {
   section {
     &.channel-info {
       padding: 0 72px;
-      @include flex($align: center, $gap: 8px);
+      @include flex($align: center, $gap: 16px);
 
       img.avatar {
         margin-top: -64px;
@@ -42,7 +42,7 @@ section.channel {
       a.tab {
         cursor: pointer;
         position: relative;
-        padding: 0 12px 8px;
+        padding: 0 16px 8px;
         font-size: 16px; font-weight: 600;
 
         &.active {
@@ -65,9 +65,7 @@ section.channel {
       padding: 24px 72px;
       @include flex($direction: column);
 
-      aside.container {
-        label { color: var(--title); font-weight: 600; }
-
+      div.container {
         div.videos {
           padding: 12px 0;
           display: grid; gap: 12px;
@@ -100,6 +98,7 @@ section.channel {
 @media only screen and (max-width: 768px) {
   section {
     figure.banner { height: calc(100vw/3.5) !important; }
+
     &.channel-info {
       padding: 16px !important;
 
@@ -142,7 +141,8 @@ section.channel {
 
     &.home, &.videos, &.playlists, &.community, &.channels, &.about {
       padding: 16px 16px 72px !important;
-      aside.container {
+
+      div.container {
         div.videos {
           grid-template-columns: minmax(0, 1fr) !important;
 

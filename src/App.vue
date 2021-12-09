@@ -18,13 +18,13 @@ const search = ref<HTMLInputElement>()
       <aside class="search" @click="search?.focus()">
         <i class="material-icons-outlined">search</i>
         <input ref="search" type="text" placeholder="Search">
-        <img class="mobile-avatar" src="/avdan.png" width="32" draggable="false">
+        <img class="mobile-avatar" src="/me.png" width="32" draggable="false">
       </aside>
 
       <aside class="links">
         <i class="material-icons-outlined action-icon">apps</i>
         <i class="material-icons-outlined action-icon">notifications</i>
-        <img class="action-icon" src="/avdan.png" width="32" draggable="false">
+        <img class="action-icon" src="/me.png" width="32" draggable="false">
       </aside>
     </header>
 
@@ -40,7 +40,7 @@ const search = ref<HTMLInputElement>()
         <router-link class="home" to="/">
           <i class="material-icons-outlined">home</i> Home
         </router-link>
-        <router-link class="explore" to="/dummypath">
+        <router-link class="explore" to="/explore">
           <i class="material-icons-outlined">explore</i> Explore
         </router-link>
         <router-link class="history" to="/dummypath">
@@ -63,11 +63,14 @@ const search = ref<HTMLInputElement>()
           <img src="/avdan.png" draggable="false"> Avdan
         </router-link>
         <router-link to="/dummypath">
-          <img src="/pewdiepie.png" draggable="false"> PewDiePie
+          <img src="/avdan-alt2.png" draggable="false"> Avdan
         </router-link>
-        <a href="https://youtu.be/dQw4w9WgXcQ">
-          <img src="/rickastley.png" draggable="false"> Rick Astley
-        </a>
+        <router-link to="/dummypath">
+          <img src="/avdan-alt.png" draggable="false"> Avdan
+        </router-link>
+        <router-link to="/dummypath">
+          <img src="/iphonedo.png" draggable="false"> iPhonedo
+        </router-link>
         <router-link to="/dummypath">
           <img src="/linustechtips.png" draggable="false"> Linus Tech Tips
         </router-link>

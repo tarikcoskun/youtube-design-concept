@@ -1,4 +1,5 @@
 @import "utility.scss";
+@import "explore.scss";
 @import "channel.scss";
 @import "home.scss";
 
@@ -120,7 +121,8 @@ header {
         }
       }
 
-      label { font-size: 16px; font-weight: 600; margin: 4px 32px; }
+      &.subscriptions a img { box-shadow: 0 4px 8px var(--shadow); }
+      label { font-size: 16px; margin: 4px 32px; }
     }
 
     &.sidebar-compact {

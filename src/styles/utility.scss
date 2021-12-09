@@ -48,6 +48,7 @@ html {
 }
 
 i, img, svg { user-select: none; }
+label { color: var(--title); font-size: 18px; font-weight: 600; }
 
 @mixin flex($align: unset, $justify: unset, $direction: row, $gap: 0) {
   gap: $gap;
