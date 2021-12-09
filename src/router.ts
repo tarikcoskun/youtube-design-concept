@@ -13,6 +13,11 @@ const routes: RouteRecordRaw[] = [
     alias: "/c",
     name: "channel",
     component: Channel
+  },
+  {
+    path: "/dummypath",
+    name: "literally any other path",
+    component: Home
   }
 ]
 

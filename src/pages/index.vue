@@ -34,10 +34,10 @@ watchEffect(() => {
             <div class="details">
               <h1 class="title" :title="video.title">{{ video.title }}</h1>
               <footer class="bottom">
-                <div class="creator-details">
+                <router-link to="/c" class="creator-details">
                   <img class="avatar" :src="`/${video.avatar}.png`" :alt="video.publisher">
                   <h1 class="name">{{ video.publisher }}</h1>
-                </div>
+                </router-link>
                 <span class="dot">•</span>
                 <span class="views">{{ getReadableDate(video.publishedAt as unknown as Date) }}</span>
               </footer>

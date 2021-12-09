@@ -16,7 +16,15 @@ header {
     @include flex($align: center, $justify: space-between);
 
     aside {
-      &.brand { @include flex($align: center, $gap: 16px); }
+      &.brand {
+        @include flex($align: center, $gap: 16px);
+
+        img.mobile-logo {
+          display: none;
+          width: 42px;
+          height: 42px;
+        }
+      }
 
       &.search {
         width: 42%;
@@ -34,6 +42,8 @@ header {
         position: absolute; left: 50%; right: 50%;
         @include flex($align: center, $gap: 16px);
 
+        img.mobile-avatar { border-radius: 36px; display: none; position: absolute; right: 12px; }
+
         i, input::placeholder { color: #A8A8A8; font-weight: 500; }
         input {
           height: 100%;
@@ -47,8 +57,8 @@ header {
         &:focus-within {
           border-image: linear-gradient(to right,
             var(--hover) 0 54px,
-            var(--text 54px calc(100% - 54px),
-            var(--hover) calc(100% - 54px) 100%) 0 0 100% 0);
+            var(--text) 54px calc(100% - 54px),
+            var(--hover) calc(100% - 54px) 100%) 0 0 100% 0;
         }
 
         &:hover, &:focus-within {
@@ -144,28 +154,32 @@ header {
 @media only screen and (max-width: 768px) {
   header {
     &.navigation {
-      position: absolute; // Will be changed in the future
+      gap: 16px;
+      position: absolute; // May be changed in the future
       padding: 12px !important;
       width: calc(100% - 24px) !important;
 
       aside {
         &.brand {
-          width: 58px;
-
-          svg {
-            position: absolute;
-            & path:not([fill=red]):not([fill=white]) { display: none; }
-          }
-
-          i { display: none; }
+          img.mobile-logo { display: block; }
+          i, svg { display: none; }
         }
 
         &.search {
+          background: var(--bg);
+          box-shadow: 0 4px 8px var(--shadow);
           transform: unset;
           width: 100% !important;
           left: inherit !important;
           padding: 8px 12px !important;
           position: relative !important;
+
+          &:hover, &:focus-within {
+            border-image: initial !important;
+            background: var(--bg) !important;
+          }
+
+          img.mobile-avatar { display: block !important; }
         }
 
         &.links { display: none; }
@@ -174,28 +188,41 @@ header {
     &.sidebar {
       padding: 0;
 
-      aside.links {
-        gap: 0;
-
-        a {
-          border-radius: 0;
-          padding: 6px !important;
-          flex-direction: column; gap: 4px;
-          font-size: 12px; font-weight: 500;
-
-          i { font-size: 24px; }
-        }
-      }
-
       width: 100% !important;
       bottom: 0 !important; top: unset !important;
 
       aside {
         &.subscriptions { display: none; }
         &.links {
-          flex-direction: row !important;
+          flex-direction: row !important; gap: 0;
 
-          a { width: 100%; }
+          a {
+            width: 100%;
+            border-radius: 0;
+            position: relative;
+            padding: 8px !important;
+            flex-direction: column; gap: 4px;
+            font-size: 10px; font-weight: 500;
+
+            &.router-link-exact-active, &:hover, &:focus {
+              color: red !important;
+              box-shadow: none !important;
+              background: transparent !important;
+              i { color: red; }
+
+              &::before {
+                content: "";
+                display: block;
+                background: red;
+                font-weight: 700;
+                width: 60%; height: 5px;
+                border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;
+                position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+              }
+            }
+
+            i { font-size: 24px; }
+          }
           div.subscriptions { display: none; }
           a.create, a.history, a.watch-later { display: none !important; }
         }

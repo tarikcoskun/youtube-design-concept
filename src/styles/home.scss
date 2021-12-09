@@ -55,15 +55,11 @@ section.homepage {
             footer.bottom {
               @include flex($align: center);
 
-              div.creator-details {
+              a.creator-details {
                 @include flex($align: center, $gap: 8px);
 
-                img.avatar {
-                  border-radius: 36px;
-                  width: 24px; height: 24px;
-                }
-
-                h1.name { font-size: 16px; font-weight: 500; }
+                img.avatar { border-radius: 36px; width: 24px; height: 24px; }
+                h1.name { color: var(--title); font-size: 16px; font-weight: 500; }
               }
 
               span.dot { font-size: 12px; margin: 0 4px; }
@@ -98,6 +94,7 @@ section.homepage {
             padding: 12px;
 
             h1.title { padding: 0 0 8px !important; }
+            footer.bottom a.creator-details img.avatar { width: 36px !important; height: 36px !important; }
           }
         }
       }
