@@ -1,5 +1,5 @@
-@import "channel-view.scss";
 @import "utility.scss";
+@import "channel.scss";
 
 body { overflow-x: hidden; background: var(--bg); }
 header {
@@ -65,7 +65,7 @@ header {
         img { border-radius: 50%; }
       }
 
-      i.action-icon { font-size: 32px; cursor: pointer; }
+      .action-icon { font-size: 32px; cursor: pointer; }
     }
   }
 
@@ -138,7 +138,7 @@ header {
       &-thumb { background: transparent; }
     }
 
-    &:hover { &::-webkit-scrollbar-thumb { background: var(--text); } }
+    &:hover { &::-webkit-scrollbar-thumb { background: var(--hover); } }
   }
 }
 

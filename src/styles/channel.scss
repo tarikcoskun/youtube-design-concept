@@ -42,7 +42,7 @@ section.channel-view {
       a.tab {
         cursor: pointer;
         position: relative;
-        padding-bottom: 8px;
+        padding: 0 12px 8px;
         font-size: 18px; font-weight: 600;
 
         &.active {
@@ -53,7 +53,7 @@ section.channel-view {
             display: block;
             background: red;
             font-weight: 700;
-            width: 150%; height: 7px;
+            width: 100%; height: 8px;
             border-top-left-radius: 4px; border-top-right-radius: 4px;
             position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
           }
@@ -65,7 +65,7 @@ section.channel-view {
       padding: 24px 80px;
       @include flex($direction: column);
 
-      aside.season {
+      aside.container {
         label { color: var(--title); font-weight: 600; }
 
         div.videos {
@@ -99,7 +99,7 @@ section.channel-view {
 // Mobile
 @media only screen and (max-width: 768px) {
   section {
-    figure.banner { height: calc(100vw/3.5) !important; }
+    figure.banner { height: calc(100vw/3.5) !important; margin-top: 45px; }
     &.channel-info {
       padding: 16px !important;
 
@@ -124,13 +124,26 @@ section.channel-view {
     }
 
     &.tabs {
-      display: none !important;
-      // Will be changed in the future
+      overflow-x: auto;
+      max-width: 100vw;
+      margin: 0 !important;
+      padding: 0 !important;
+      background: var(--bg);
+      border-bottom: none !important;
+      position: fixed; top: 0; left: 0;
+
+      a.tab {
+        padding: 12px !important;
+        &.search { display: none; }
+        &.active::after { height: 5px !important; }
+      }
+
+      &::-webkit-scrollbar { display: none; }
     }
 
-    &.home {
+    &.home, &.videos, &.playlists, &.community, &.channels, &.about {
       padding: 16px 16px 80px !important;
-      aside.season {
+      aside.container {
         div.videos {
           grid-template-columns: minmax(0, 1fr) !important;
 

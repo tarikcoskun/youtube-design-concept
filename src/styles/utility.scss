@@ -31,7 +31,7 @@ html {
     &::selection { background: var(--shadow); }
     &::-webkit-scrollbar {
       width: 4px;
-      &-thumb { background: var(--text); }
+      &-thumb { background: var(--hover); }
     }
   }
 }

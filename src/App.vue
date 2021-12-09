@@ -11,7 +11,7 @@ const search = ref<HTMLInputElement>()
     <header class="navigation">
       <aside class="brand">
         <i class="material-icons-outlined action-icon" @click="sidebar = !sidebar">menu</i>
-        <Youtube width="100" />
+        <Youtube class="action-icon" @click="$router.push('/')" width="100" />
       </aside>
 
       <aside class="search" @click="search?.focus()">
