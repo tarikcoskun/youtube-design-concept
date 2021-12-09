@@ -26,7 +26,7 @@ watchEffect(() => {
         <a class="tag">Fireship</a>
       </section>
 
-      <section class="allvideos">
+      <section class="home-content">
       <aside class="container">
         <div class="videos">
           <a v-for="video in videos" class="video" :href="`https://youtu.be/${video.id}`" target="_blank">

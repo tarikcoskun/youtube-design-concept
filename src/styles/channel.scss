@@ -43,7 +43,7 @@ section.channel {
         cursor: pointer;
         position: relative;
         padding: 0 12px 8px;
-        font-size: 18px; font-weight: 600;
+        font-size: 16px; font-weight: 600;
 
         &.active {
           color: red;
@@ -53,7 +53,7 @@ section.channel {
             display: block;
             background: red;
             font-weight: 700;
-            width: 100%; height: 6px;
+            width: 75%; height: 6px;
             border-top-left-radius: 4px; border-top-right-radius: 4px;
             position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
           }
@@ -129,8 +129,7 @@ section.channel {
       margin: 0 !important;
       padding: 0 !important;
       background: var(--bg);
-      border-bottom: none !important;
-      position: fixed; top: 0; left: 0;
+      position: sticky; top: 0; left: 0;
 
       a.tab {
         padding: 12px !important;

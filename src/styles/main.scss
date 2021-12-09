@@ -155,7 +155,7 @@ header {
   header {
     &.navigation {
       gap: 16px;
-      position: absolute; // May be changed in the future
+      position: relative; // May be changed in the future
       padding: 12px !important;
       width: calc(100% - 24px) !important;
 
@@ -185,6 +185,7 @@ header {
         &.links { display: none; }
       }
     }
+
     &.sidebar {
       padding: 0;
 

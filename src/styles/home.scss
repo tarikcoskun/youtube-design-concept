@@ -4,8 +4,8 @@ section.homepage {
   section {
     &.tags {
       width: 100%;
+      overflow-x: auto;
       padding: 8px 12px;
-      overflow-x: hidden;
       background: var(--bg);
       display: flex; gap: 12px;
       position: fixed; top: 72px;
@@ -21,9 +21,11 @@ section.homepage {
         &:hover { background: var(--hover); }
         &.active { background: red; color: white; font-weight: 600; }
       }
+
+      &::-webkit-scrollbar { display: none; }
     }
 
-    &.allvideos {
+    &.home-content {
       margin: 64px 0 32px;
       padding: 0 12px;
       @include flex($direction: column);
@@ -75,10 +77,10 @@ section.homepage {
 @media only screen and (max-width: 768px) {
   section {
     &.tags {
-      display: none !important; // Will be changed in the future
+      top: 0 !important;
     }
 
-    &.allvideos {
+    &.home-content {
       margin: 0 !important;
       padding: 0 !important;
       margin-bottom: 64px !important;
