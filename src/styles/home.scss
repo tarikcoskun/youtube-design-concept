@@ -44,7 +44,7 @@ section.homepage {
               @include flex($direction: column);
 
               h1.title {
-                padding: 12px 0 8px 0;
+                padding: 8px 0;
                 color: var(--title); font-size: 16px; font-weight: 600;
                 overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
               }
@@ -88,15 +88,16 @@ section.homepage {
       margin-bottom: 64px !important;
 
       div.videos {
+        gap: 0 !important;
         grid-template-columns: minmax(0, 1fr) !important;
 
         a.video {
-          img.thumbnail {
-            border-radius: 0 !important;
-          }
+          img.thumbnail { border-radius: 0 !important; }
 
           div.details {
-            padding: 0 12px;
+            padding: 12px;
+
+            h1.title { padding: 0 0 8px !important; }
           }
         }
       }
