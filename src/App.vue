@@ -2,8 +2,8 @@
 import { ref } from "vue"
 import Youtube from "@/icons/YouTube.vue"
 
-const sidebar = ref<Boolean>(true);
-const search = ref<HTMLInputElement | null>(null);
+const sidebar = ref<Boolean>(true)
+const search = ref<HTMLInputElement>()
 </script>
 
 <template>

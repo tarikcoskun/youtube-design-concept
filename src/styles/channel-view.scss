@@ -61,7 +61,7 @@ section.channel-view {
       }
     }
 
-    &.home {
+    &.home, &.videos, &.playlists, &.community, &.channels, &.about {
       padding: 24px 80px;
       @include flex($direction: column);
 
