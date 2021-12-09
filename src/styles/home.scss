@@ -19,7 +19,7 @@ section.homepage {
         background: var(--search);
 
         &:hover { background: var(--hover); }
-        &.active { background: red; color: var(--bg); font-weight: 600; }
+        &.active { background: red; color: white; font-weight: 600; }
       }
     }
 
