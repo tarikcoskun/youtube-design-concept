@@ -43,7 +43,7 @@ function toggleSidebar() {
       <aside class="brand">
         <i class="material-icons-outlined action-icon menu" @click="toggleSidebar">menu</i>
         <Youtube class="action-icon pc-logo" @click="$router.push('/')" width="100" />
-        <img class="action-icon mobile-logo" src="/favicon.png">
+        <img class="action-icon mobile-logo" src="/favicon.png" @click="$router.push('/')">
       </aside>
 
       <aside class="search" @click="search?.focus()">
