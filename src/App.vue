@@ -19,10 +19,18 @@ watch(route, () => {
 function toggleSidebar() {
   if (isWatchPage.value) {
     floatingSidebar.value = !floatingSidebar.value
+    let main = document.querySelector("main")
     let sidebar = document.querySelector("header.sidebar-floating")
 
-    if (sidebar?.classList.contains("sidebar-open")) sidebar?.classList.remove("sidebar-open")
-    else sidebar?.classList.add("sidebar-open")
+    if (sidebar?.classList.contains("sidebar-open")) {
+
+      main?.classList.remove("sidebar-open")
+      sidebar?.classList.remove("sidebar-open")
+    }
+    else {
+      main?.classList.add("sidebar-open")
+      sidebar?.classList.add("sidebar-open")
+    }
   }
 
   else sidebar.value = !sidebar.value

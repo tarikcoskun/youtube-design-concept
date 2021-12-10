@@ -158,9 +158,7 @@ header {
     &.sidebar-floating {
       display: none;
 
-      &.sidebar-open {
-        display: flex;
-      }
+      &.sidebar-open { display: flex; }
     }
 
     &::-webkit-scrollbar {
