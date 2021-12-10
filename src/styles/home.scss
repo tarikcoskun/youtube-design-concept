@@ -14,8 +14,8 @@ section.home-page {
 
         &::-webkit-scrollbar {
           height: 4px;
-          &-thumb { background: red; }
-          &-track { background: var(--hover); }
+          &-thumb { background: red; border-radius: 36px; }
+          &-track { background: var(--hover); border-radius: 36px; }
         }
       }
     }

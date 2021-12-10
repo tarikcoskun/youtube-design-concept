@@ -33,7 +33,7 @@ html {
     &::selection { background: var(--shadow); }
     &::-webkit-scrollbar {
       width: 4px;
-      &-thumb { background: var(--hover); }
+      &-thumb { background: var(--hover); border-radius: 36px; }
     }
   }
 }
@@ -90,7 +90,7 @@ label { color: var(--title); font-size: 18px; font-weight: 600; }
       content: "";
       z-index: 100;
       display: block;
-      background: #00000090;
+      background: #00000050;
       width: 100%; height: 100%;
       position: fixed; top: 0; left: 256px;
       backdrop-filter: blur(12px);
