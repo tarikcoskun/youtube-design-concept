@@ -86,7 +86,7 @@ function toggleSidebar() {
       </aside>
 
       <aside class="subscriptions">
-        <label>SUBCRIPTIONS</label>
+        <label>SUBSCRIPTIONS</label>
         <router-link to="/c?name=Avdan">
           <img src="/avdan.png" draggable="false"> Avdan
         </router-link>

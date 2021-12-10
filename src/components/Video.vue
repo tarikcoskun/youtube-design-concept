@@ -30,6 +30,7 @@ defineProps({
 
 <style lang="scss" scoped>
 @import "@/styles/utility.scss";
+
 a.video {
   flex: 0 0 25%;
   @include flex($direction: column);

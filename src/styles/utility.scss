@@ -3,7 +3,7 @@
 
 $light-bg: #ffffff;
 $light-text: #505050;
-$light-shadow: #05052520;
+$light-shadow: #05052516;
 $light-search: #f4f4f8;
 $light-hover: #eeeef0;
 
@@ -50,6 +50,7 @@ html {
 }
 
 i, img, svg { user-select: none; }
+i { font-family: "Material Icons Outlined" }
 label { color: var(--title); font-size: 18px; font-weight: 600; }
 
 @mixin flex($align: unset, $justify: unset, $direction: row, $gap: 0) {

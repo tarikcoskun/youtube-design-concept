@@ -3,6 +3,7 @@ import { videos } from "@/utils"
 import { useRoute } from "vue-router"
 import { ref, watchEffect } from "vue"
 import Video from "@/components/Video.vue"
+import CommunityPost from "@/components/CommunityPost.vue"
 
 let activeTab = ref<HTMLElement>()
 let subscribed = ref<Boolean>(true)
@@ -58,7 +59,8 @@ watchEffect(() => {
       <section class="community tab-page" v-else-if="activeTab?.innerText === 'COMMUNITY'">
         <label>Community</label>
         <div class="container">
-          <CommunityPost />
+          <CommunityPost :name="channel" content="Well hello there" />
+          <CommunityPost :name="channel" content="Here we go again<br /><br />Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam consequatur numquam esse odit eos provident porro, dignissimos, harum sapiente a, quis dolorum voluptas reprehenderit quos aliquam? Totam alias fugit ab nesciunt modi quisquam iusto maxime tenetur obcaecati? Fuga sunt dolorem asperiores in adipisci, nostrum, ipsum beatae impedit cumque vel ipsa natus error, iste sit est?" />
         </div>
       </section>
 

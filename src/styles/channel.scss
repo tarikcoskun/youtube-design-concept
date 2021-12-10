@@ -75,6 +75,10 @@ section.channel {
         }
       }
 
+      &.community div.container {
+        @include flex($direction: column, $gap: 16px);
+      }
+
       div.container div.videos {
         padding: 12px 0;
         @include grid($gap: 12px);
@@ -139,6 +143,12 @@ section.channel {
       padding: 16px 16px 72px !important;
 
       &.about div.columns { flex-direction: column !important; gap: 16px !important; }
+
+      &.community {
+        padding: 16px 0 72px !important;
+
+        label { padding: 0 16px; }
+      }
 
       div.container div.videos a.video {
         gap: 12px !important;
