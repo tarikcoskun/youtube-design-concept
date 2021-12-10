@@ -1,6 +1,7 @@
 ### 🌐 Avdan's YouTube Concept
 
-This is the website version of YouTube concept design made by [Avdan](https://youtube.com/Avdan)
+This is the clone of the YouTube concept design made by [Avdan](https://youtube.com/Avdan)
+[See the concept video](https://youtu.be/4vu1bxiJOCQ)
 
 ### 🤝 Contributing
 
