@@ -3,9 +3,9 @@
 section.channel {
   figure.banner {
     height: calc(100vw/6);
-    background: url("/avdan-banner.png") no-repeat;
-    background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
   figure.channel-info {
@@ -19,6 +19,7 @@ section.channel {
     }
 
     div.sub-info {
+      padding-top: 8px;
       width: 100%;
       @include flex($justify: space-between, $align: center);
 

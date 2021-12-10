@@ -98,7 +98,14 @@ label { color: var(--title); font-size: 18px; font-weight: 600; }
   }
 }
 
-// PC
 @media only screen and (min-width: 1000px) {
   :root { --base-cols: 4; --util-cols: 2; }
+}
+
+@media only screen and (min-width: 1600px) {
+  :root { --base-cols: 5; --util-cols: 2; }
+}
+
+@media only screen and (min-width: 1900px) {
+  :root { --base-cols: 6; --util-cols: 2; }
 }

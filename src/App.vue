@@ -77,9 +77,6 @@ function toggleSidebar() {
         <router-link class="history" to="/dummypath">
           <i class="material-icons-outlined">history</i> History
         </router-link>
-        <router-link class="watch-later" to="/dummypath">
-          <i class="material-icons-outlined">watch_later</i> Watch later
-        </router-link>
         <router-link class="subscriptions" to="/dummypath">
           <i class="material-icons-outlined">subscriptions</i> Subscriptions
         </router-link>
@@ -90,20 +87,11 @@ function toggleSidebar() {
 
       <aside class="subscriptions">
         <label>SUBCRIPTIONS</label>
-        <router-link to="/c">
+        <router-link to="/c?name=Avdan">
           <img src="/avdan.png" draggable="false"> Avdan
         </router-link>
-        <router-link to="/dummypath">
-          <img src="/avdan-alt2.png" draggable="false"> Avdan
-        </router-link>
-        <router-link to="/dummypath">
-          <img src="/avdan-alt.png" draggable="false"> Avdan
-        </router-link>
-        <router-link to="/dummypath">
-          <img src="/iphonedo.png" draggable="false"> iPhonedo
-        </router-link>
-        <router-link to="/dummypath">
-          <img src="/linustechtips.png" draggable="false"> Linus Tech Tips
+        <router-link to="/c?name=Fireship">
+          <img src="/fireship.png" draggable="false"> Fireship
         </router-link>
       </aside>
     </header>

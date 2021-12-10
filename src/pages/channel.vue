@@ -1,10 +1,13 @@
 <script lang="ts" setup>
 import { videos } from "@/utils"
+import { useRoute } from "vue-router"
 import { ref, watchEffect } from "vue"
 import Video from "@/components/Video.vue"
 
 let activeTab = ref<HTMLElement>()
 let subscribed = ref<Boolean>(true)
+
+const channel = useRoute().query.name
 
 watchEffect(() => {
   document.querySelectorAll("a.tab")?.forEach((tab: Element) => tab.classList.remove("active"))
@@ -15,12 +18,12 @@ watchEffect(() => {
 <template>
   <main>
     <section class="channel">
-      <figure class="banner" />
+      <figure class="banner" :style="`background-image: url(/${(channel as string).toLowerCase()}-banner.png)`" />
       <figure class="channel-info">
-        <img class="avatar" src="/avdan.png" alt="Avatar" draggable="false">
+        <img class="avatar" :src="`/${(channel as string)?.toLowerCase()}.png`" alt="Avatar" draggable="false">
         <div class="sub-info">
           <aside class="left">
-            <h1 class="name">Avdan</h1>
+            <h1 class="name">{{ channel }} </h1>
             <p class="subscribers">195K subs</p>
           </aside>
           <a class="button subscribe" :style="{ background: subscribed ? 'var(--button)': 'red', color: subscribed ? 'var(--title)': 'white' }" @click="subscribed = !subscribed">{{ subscribed ? "SUBSCRIBED": 'SUBSCRIBE' }}</a>
@@ -41,7 +44,7 @@ watchEffect(() => {
         <label>Uploads</label>
         <div class="container">
           <div class="videos">
-            <Video v-for="video in videos['Avdan']" :video="video" />
+            <Video v-for="video in videos[channel as ('Avdan' | 'Fireship')]" :video="video" />
           </div>
         </div>
       </section>
@@ -94,7 +97,7 @@ watchEffect(() => {
         <label>Season 3</label>
         <div class="container">
           <div class="videos">
-            <Video v-for="video in videos['Avdan']" :video="video" />
+            <Video v-for="video in videos[channel as ('Avdan' | 'Fireship')]" :video="video" />
           </div>
         </div>
       </section>

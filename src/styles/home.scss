@@ -8,9 +8,13 @@ section.home-page {
       div.videos {
         padding: 16px 0;
         overflow-x: scroll;
-        @include flex($gap: 36px 12px);
+        display: grid; gap: 36px 12px;
+        grid-template-columns: repeat(6, 1fr);
 
-        a.video { width: 0; }
+        a.video {
+          width: 16vw;
+          a.creator-details img.avatar { display: none; }
+        }
 
         &::-webkit-scrollbar {
           height: 4px;
@@ -39,10 +43,7 @@ section.home-page {
         div.videos {
           padding: 16px;
 
-          a.video {
-            width: 60vw;
-            a.creator-details img.avatar { display: none; }
-          }
+          a.video { width: 60vw; }
         }
       }
 

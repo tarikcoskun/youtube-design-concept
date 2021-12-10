@@ -75,11 +75,11 @@ header {
 
   &.sidebar {
     top: 72px;
-    width: 240px;
     overflow-y: auto;
     overflow-x: hidden;
     background: var(--bg);
     padding: 16px 16px 16px 0;
+    width: 240px; height: 100vh;
     max-height: calc(100vh - 96px);
     @include flex($direction: column, $gap: 16px);
 
@@ -253,4 +253,9 @@ header {
       a.create-video { display: none !important; }
     }
   }
+}
+
+section.not-found {
+  height: calc(100vh - 72px);
+  @include flex($align: center, $justify: center);
 }

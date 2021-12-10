@@ -1,6 +1,7 @@
 import { RouteRecordRaw, createRouter, createWebHistory } from "vue-router"
 import Home from "@/pages/index.vue"
 import Watch from "@/pages/watch.vue"
+import NotFound from "@/pages/404.vue"
 import Explore from "@/pages/explore.vue"
 import Channel from "@/pages/channel.vue"
 
@@ -30,7 +31,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: "/dummypath",
     name: "literally any other path",
-    component: Home
+    component: NotFound
   }
 ]
 

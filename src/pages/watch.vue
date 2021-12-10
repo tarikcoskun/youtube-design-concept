@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useRoute } from "vue-router";
+import { useRoute } from "vue-router"
 import Video from "@/components/Video.vue"
 import { videos, getReadableDate, Video as VideoType } from "@/utils"
 
