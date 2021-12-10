@@ -42,10 +42,10 @@ for (const [channel, vids] of Object.entries(videos)) {
           </div>
           <hr>
           <figure class="channel-info">
-            <img class="avatar" :src="`/${video.publisher.toLowerCase()}.png`" draggable="false">
+            <img class="avatar" :src="`/${video.publisher.toLowerCase()}.png`" draggable="false" @click="$router.push(`/c?name=${video.publisher}`)">
             <div class="sub-info">
               <aside class="left">
-                <h1 class="name">{{ video.publisher }}</h1>
+                <h1 class="name" @click="$router.push(`/c?name=${video.publisher}`)">{{ video.publisher }}</h1>
                 <p class="subscribers">195K subs</p>
               </aside>
               <a class="button subscribe">SUBSCRIBE</a>

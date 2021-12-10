@@ -39,6 +39,7 @@ section.explore-page {
           @include flex($align: center, $gap: 16px);
 
           img.avatar {
+            cursor: pointer;
             border-radius: 50%;
             width: 72px; height: 72px;
             box-shadow: 0 4px 8px var(--shadow);
@@ -51,8 +52,8 @@ section.explore-page {
             aside.left {
               @include flex($direction: column, $gap: 4px);
 
-              h1.name { color: var(--title); font-size: 18px; font-weight: 600; }
               p.subscribers { font-size: 14px; font-weight: 500; }
+              h1.name { color: var(--title); font-size: 18px; font-weight: 600; cursor: pointer; }
             }
 
             a.subscribe {

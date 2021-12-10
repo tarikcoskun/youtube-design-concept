@@ -17,7 +17,7 @@ defineProps({
     <div class="details">
       <h1 class="title" :title="video.title">{{ video.title }}</h1>
       <footer class="bottom" v-if="video.publisher">
-        <router-link to="/c" class="creator-details">
+        <router-link :to="`/c?name=${video.publisher}`" class="creator-details">
           <img class="avatar" :src="`/${video.publisher.toLowerCase()}.png`" :alt="video.publisher">
           <h1 class="name">{{ video.publisher }}</h1>
         </router-link>

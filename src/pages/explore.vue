@@ -13,11 +13,11 @@ watchEffect(() => {
 const featured = [
   {
     name: "Avdan",
-    avatar: "avdan-alt"
+    avatar: "avdan"
   },
   {
-    name: "iPhonedo",
-    avatar: "iphonedo"
+    name: "Fireship",
+    avatar: "fireship"
   }
 ]
 </script>
@@ -37,10 +37,10 @@ const featured = [
         <label>FEATURED CREATORS</label>
         <div class="container">
           <figure class="channel-info" v-for="creator in featured">
-            <img class="avatar" :src="`/${creator.avatar}.png`" draggable="false">
+            <img class="avatar" :src="`/${creator.avatar}.png`" draggable="false" @click="$router.push(`/c?name=${creator.name}`)">
             <div class="sub-info">
               <aside class="left">
-                <h1 class="name">{{ creator.name }}</h1>
+                <h1 class="name" @click="$router.push(`/c?name=${creator.name}`)">{{ creator.name }}</h1>
                 <p class="subscribers">195K subs</p>
               </aside>
               <a class="button subscribe">SUBSCRIBE</a>
