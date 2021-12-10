@@ -7,7 +7,7 @@ import Video from "@/components/Video.vue";
   <main>
     <section class="home-page">
       <section class="watch-later">
-        <label>EXPLORE</label>
+        <label>WATCH LATER</label>
         <div class="videos">
           <Video v-for="video in videos['Fireship']" :video="video" />
         </div>
