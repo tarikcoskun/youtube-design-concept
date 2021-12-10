@@ -34,7 +34,7 @@ section.watch {
               font-weight: 600;
               @include flex($align: center, $gap: 8px);
 
-              &.share i { transform: rotateY(180deg); }
+              &.share i { transform: rotateY(180deg); z-index: -1; }
             }
           }
         }
@@ -77,7 +77,9 @@ section.watch {
 
       section {
         &.tabs {
+          z-index: 10;
           place-items: center;
+          background: var(--bg);
           box-shadow: 0 6px 6px var(--shadow);
           @include grid($cols: 2);
 
@@ -107,6 +109,8 @@ section.watch {
 
         &.suggested-content {
           padding: 16px;
+          overflow-y: scroll;
+          max-height: calc(100vh - 72px - 52px);
 
           div.videos {
             padding-top: 16px;
@@ -157,12 +161,16 @@ section.watch {
 
     aside {
       &.video {
-        iframe.video-frame { border-radius: 0 !important; }
+        iframe.video-frame {
+          align-self: flex-start;
+          position: sticky; top: 0;
+          border-radius: 0 !important;
+        }
 
         figure.details {
-          h1.title { font-size: 20px !important; }
           padding: 0 16px;
 
+          h1.title { font-size: 20px !important; }
           div.bottom {
             flex-direction: column !important;
             padding: 16px 0 !important;

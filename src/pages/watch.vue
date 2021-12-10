@@ -1,18 +1,27 @@
 <script lang="ts" setup>
+import { useRoute } from "vue-router";
 import Video from "@/components/Video.vue"
-import { videos, getReadableDate } from "@/utils"
+import { videos, getReadableDate, Video as VideoType } from "@/utils"
+
+const id = useRoute().query.v
+let video: VideoType
+
+for (const [channel, vids] of Object.entries(videos)) {
+  const findVideo = vids.find(video => video.id === id)
+  if (findVideo) { video = findVideo; break }
+}
 </script>
 
 <template>
   <main>
     <section class="watch">
       <aside class="video">
-        <iframe class="video-frame" src="https://www.youtube.com/embed/4vu1bxiJOCQ?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+        <iframe class="video-frame" :src="`https://www.youtube.com/embed/${id}?autoplay=1`" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
 
         <figure class="details">
-          <h1 class="title">iOS 13 Concept</h1>
+          <h1 class="title">{{ video.title }}</h1>
           <div class="bottom">
-            <span class="views">250K views &nbsp;•&nbsp; {{ getReadableDate("2020-11-24T18:00:00Z" as unknown as Date) }}</span>
+            <span class="views">250K views &nbsp;•&nbsp; {{ getReadableDate(video.publishedAt as unknown as Date) }}</span>
             <aside>
               <a class="like">
                 <i class="material-icons-outlined">thumb_up</i> 10K
@@ -33,10 +42,10 @@ import { videos, getReadableDate } from "@/utils"
           </div>
           <hr>
           <figure class="channel-info">
-            <img class="avatar" src="/avdan.png" draggable="false">
+            <img class="avatar" :src="`/${video.publisher}.png`" draggable="false">
             <div class="sub-info">
               <aside class="left">
-                <h1 class="name">Avdan</h1>
+                <h1 class="name">{{ video.publisher }}</h1>
                 <p class="subscribers">195K subs</p>
               </aside>
               <a class="button subscribe">SUBSCRIBE</a>
@@ -54,7 +63,7 @@ import { videos, getReadableDate } from "@/utils"
         <section class="suggested-content">
           <label>Up Next</label>
           <div class="videos">
-            <Video v-for="video in videos['Avdan'].slice(0, 4)" :video="video" />
+            <Video v-for="video in videos['Avdan']" :video="video" />
           </div>
         </section>
       </aside>
