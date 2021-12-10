@@ -3,7 +3,7 @@ import { videos } from "@/utils"
 import { ref, watchEffect } from "vue"
 import Video from "@/components/Video.vue"
 
-const activeTag = ref<HTMLElement>()
+let activeTag = ref<HTMLElement>()
 
 watchEffect(() => {
   document.querySelectorAll("a.tag")?.forEach((tab: Element) => tab.classList.remove("active"))
@@ -53,7 +53,7 @@ const featured = [
         <label>POPULAR VIDEOS</label>
         <div class="container">
           <div class="videos">
-            <Video v-for="video in videos" :video="video" />
+            <Video v-for="video in [...videos['Avdan'], ...videos['Fireship']]" :video="video" />
           </div>
         </div>
       </section>

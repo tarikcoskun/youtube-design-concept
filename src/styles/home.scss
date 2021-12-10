@@ -3,24 +3,28 @@
 section.home-page {
   section {
     &.watch-later {
-      padding: 8px 16px 16px;
-      border-bottom: 1px solid var(--hover);
+      padding: 0 16px;
 
       div.videos {
-        padding-top: 16px;
-        display: grid; gap: 36px 12px;
-        grid-template-columns: repeat(var(--base-columns), minmax(0, 1fr));
+        padding: 16px 0;
+        overflow-x: scroll;
+        @include flex($gap: 36px 12px);
+
+        a.video { width: 0; }
+
+        &::-webkit-scrollbar {
+          height: 4px;
+          &-thumb { background: red; }
+          &-track { background: var(--hover); }
+        }
       }
     }
 
     &.home-content {
-      padding: 16px 16px 32px;
+      padding: 16px;
       @include flex($direction: column);
 
-      div.container div.videos {
-        display: grid; gap: 36px 12px;
-        grid-template-columns: repeat(var(--base-columns), minmax(0, 1fr));
-      }
+      div.container div.videos { @include grid($gap: 36px 12px); }
     }
   }
 }
@@ -31,25 +35,13 @@ section.home-page {
     section {
       padding: 0 !important;
 
-      label { padding: 0 12px; }
-
       &.watch-later {
-        border-bottom: none;
-        padding-top: 8px !important;
-
         div.videos {
-          display: flex;
-          overflow-x: scroll;
-          padding: 12px 12px;
+          padding: 16px;
 
           a.video {
             width: 60vw;
             a.creator-details img.avatar { display: none; }
-          }
-
-          &::-webkit-scrollbar {
-            height: 4px;
-            &-thumb { background: var(--title); }
           }
         }
       }
@@ -71,6 +63,8 @@ section.home-page {
           }
         }
       }
+
+      label { padding: 0 16px; }
     }
   }
 }

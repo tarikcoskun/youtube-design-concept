@@ -20,8 +20,8 @@ $dark-button: #101010;
   --button: #{$light-bg};
   --search: #{$light-search};
   --hover: #{$light-hover};
-  --base-columns: 1;
-  --util-columns: 1;
+  --base-cols: 1;
+  --util-cols: 1;
 }
 
 html {
@@ -60,6 +60,12 @@ label { color: var(--title); font-size: 18px; font-weight: 600; }
   flex-direction: $direction;
 }
 
+@mixin grid($cols: var(--base-cols), $gap: 0) {
+  gap: $gap;
+  display: grid;
+  grid-template-columns: repeat($cols, minmax(0, 1fr));
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #{$dark-bg};
@@ -73,16 +79,17 @@ label { color: var(--title); font-size: 18px; font-weight: 600; }
 
 // Tablet
 @media only screen and (min-width: 750px) {
-  :root { --base-columns: 3; }
+  :root { --base-cols: 3; }
 
   main {
     padding-top: 72px;
     &.sidebar { padding-left: 256px; }
     &.sidebar-compact { padding-left: 100px; }
+    &.watch-page { padding: 96px 80px 0; }
   }
 }
 
 // PC
 @media only screen and (min-width: 1000px) {
-  :root { --base-columns: 4; --util-columns: 2; }
+  :root { --base-cols: 4; --util-cols: 2; }
 }

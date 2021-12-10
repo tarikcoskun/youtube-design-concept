@@ -1,6 +1,7 @@
 @import "utility.scss";
 @import "explore.scss";
 @import "channel.scss";
+@import "watch.scss";
 @import "home.scss";
 
 body { overflow-x: hidden; background: var(--bg); }
@@ -19,12 +20,7 @@ header {
     aside {
       &.brand {
         @include flex($align: center, $gap: 16px);
-
-        img.mobile-logo {
-          display: none;
-          width: 42px;
-          height: 42px;
-        }
+        img.mobile-logo { display: none; width: 42px; height: 42px; }
       }
 
       &.search {
@@ -43,15 +39,12 @@ header {
         position: absolute; left: 50%; right: 50%;
         @include flex($align: center, $gap: 16px);
 
-        img.mobile-avatar { border-radius: 36px; display: none; position: absolute; right: 12px; }
-
-        i, input::placeholder { color: #A8A8A8; font-weight: 500; }
         input {
           height: 100%;
           font-size: 16px;
           background: transparent;
           width: calc(100% - 108px);
-          position: absolute; left: 54px; top: 0;
+          position: absolute; top: 0; left: 54px;
           &:focus { outline: none; }
         }
 
@@ -75,6 +68,8 @@ header {
       }
 
       .action-icon { font-size: 32px; cursor: pointer; }
+      i, input::placeholder { color: #A8A8A8; font-weight: 500; }
+      img.mobile-avatar { border-radius: 36px; display: none; position: absolute; right: 12px; }
     }
   }
 
@@ -93,7 +88,6 @@ header {
       width: max-content;
       background: var(--button);
       @include flex($align: center, $gap: 8px);
-
       i { font-size: 28px; transition: 200ms color; color: red; }
     }
 
@@ -111,18 +105,19 @@ header {
         transition-property: box-shadow, background, color;
         @include flex($align: center, $gap: 16px);
 
-        i { font-size: 26px; transition: 200ms color; }
-        img { width: 26px; border-radius: 50%; }
         &.router-link-exact-active, &:hover, &:focus {
           background: var(--button);
           color: var(--title);
           box-shadow: 0 4px 8px var(--shadow);
           i { color: red; }
         }
+
+        i { font-size: 26px; transition: 200ms color; }
+        img { width: 26px; border-radius: 50%; }
       }
 
-      &.subscriptions a img { box-shadow: 0 4px 8px var(--shadow); }
       label { font-size: 16px; margin: 4px 32px; }
+      &.subscriptions a img { box-shadow: 0 4px 8px var(--shadow); }
     }
 
     &.sidebar-compact {
@@ -160,6 +155,14 @@ header {
       }
     }
 
+    &.sidebar-floating {
+      display: none;
+
+      &.sidebar-open {
+        display: flex;
+      }
+    }
+
     &::-webkit-scrollbar {
       width: 3px;
       &-thumb { background: transparent; }
@@ -185,13 +188,13 @@ header {
         }
 
         &.search {
-          background: var(--bg);
-          box-shadow: 0 4px 8px var(--shadow);
           transform: unset;
+          background: var(--bg);
           width: 100% !important;
           left: inherit !important;
           padding: 8px 12px !important;
           position: relative !important;
+          box-shadow: 0 4px 8px var(--shadow);
 
           &:hover, &:focus-within {
             border-image: initial !important;

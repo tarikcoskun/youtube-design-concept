@@ -3,7 +3,7 @@
 section.explore-page {
   section {
     &.tags {
-      padding: 8px 12px;
+      padding: 0 16px;
       background: var(--bg);
 
       div.container {
@@ -32,8 +32,7 @@ section.explore-page {
       padding: 16px;
 
       div.container {
-        display: grid; gap: 32px;
-        grid-template-columns: repeat(var(--util-columns), minmax(0, 1fr));
+        @include grid($cols: var(--util-cols), $gap: 32px);
 
         figure.channel-info {
           padding: 16px 0;
@@ -74,10 +73,7 @@ section.explore-page {
       div.container {
         padding-top: 16px;
 
-        div.videos {
-          display: grid; gap: 36px 12px;
-          grid-template-columns: repeat(var(--base-columns), minmax(0, 1fr));
-        }
+        div.videos { @include grid($gap: 36px 12px); }
       }
     }
   }

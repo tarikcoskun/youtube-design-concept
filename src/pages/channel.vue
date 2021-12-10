@@ -3,8 +3,8 @@ import { videos } from "@/utils"
 import { ref, watchEffect } from "vue"
 import Video from "@/components/Video.vue"
 
-const activeTab = ref<HTMLElement>()
-const subscribed = ref<Boolean>(true)
+let activeTab = ref<HTMLElement>()
+let subscribed = ref<Boolean>(true)
 
 watchEffect(() => {
   document.querySelectorAll("a.tab")?.forEach((tab: Element) => tab.classList.remove("active"))
@@ -41,7 +41,7 @@ watchEffect(() => {
         <label>Uploads</label>
         <div class="container">
           <div class="videos">
-            <Video v-for="video in videos.slice(0, 8)" :video="video" />
+            <Video v-for="video in videos['Avdan']" :video="video" />
           </div>
         </div>
       </section>
@@ -55,7 +55,7 @@ watchEffect(() => {
       <section class="community tab-page" v-else-if="activeTab?.innerText === 'COMMUNITY'">
         <label>Community</label>
         <div class="container">
-
+          <CommunityPost />
         </div>
       </section>
 
@@ -94,7 +94,7 @@ watchEffect(() => {
         <label>Season 3</label>
         <div class="container">
           <div class="videos">
-            <Video v-for="video in videos.slice(0, 8)" :video="video" />
+            <Video v-for="video in videos['Avdan']" :video="video" />
           </div>
         </div>
       </section>

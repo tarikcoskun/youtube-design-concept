@@ -7,16 +7,16 @@ import Video from "@/components/Video.vue";
   <main>
     <section class="home-page">
       <section class="watch-later">
-        <label>WATCH LATER</label>
+        <label>EXPLORE</label>
         <div class="videos">
-          <Video v-for="video in videos.slice(8, 12)" :video="video" />
+          <Video v-for="video in videos['Fireship']" :video="video" />
         </div>
       </section>
 
       <section class="home-content">
         <div class="container">
           <div class="videos">
-            <Video v-for="video in videos" :video="video" />
+            <Video v-for="video in [...videos['Avdan'], ...videos['Fireship']]" :video="video" />
           </div>
         </div>
       </section>

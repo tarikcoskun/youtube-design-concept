@@ -1,5 +1,6 @@
 import { RouteRecordRaw, createRouter, createWebHistory } from "vue-router"
 import Home from "@/pages/index.vue"
+import Watch from "@/pages/watch.vue"
 import Explore from "@/pages/explore.vue"
 import Channel from "@/pages/channel.vue"
 
@@ -19,6 +20,12 @@ const routes: RouteRecordRaw[] = [
     alias: "/c",
     name: "channel",
     component: Channel
+  },
+  {
+    path: "/watch",
+    name: "watch",
+    props: true,
+    component: Watch
   },
   {
     path: "/dummypath",
