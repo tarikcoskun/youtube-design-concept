@@ -42,7 +42,7 @@ for (const [channel, vids] of Object.entries(videos)) {
           </div>
           <hr>
           <figure class="channel-info">
-            <img class="avatar" :src="`/${video.publisher}.png`" draggable="false">
+            <img class="avatar" :src="`/${video.publisher.toLowerCase()}.png`" draggable="false">
             <div class="sub-info">
               <aside class="left">
                 <h1 class="name">{{ video.publisher }}</h1>
