@@ -1,10 +1,7 @@
 import type { NuxtConfig } from "@nuxt/types"
 import type { ModuleOptions as ImageOptions } from "@nuxt/image"
 
-const ImageConfig: Partial<ImageOptions> = {
-  domains: ["i.ytimg.com"],
-  dir: "assets/img"
-}
+const ImageConfig: Partial<ImageOptions> = { domains: ["i.ytimg.com"] }
 
 const Config: NuxtConfig = {
   target: "static",
