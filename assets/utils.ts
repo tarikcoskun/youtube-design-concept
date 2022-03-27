@@ -18,7 +18,7 @@ export function splitDate(date: Date): string {
   const diff = now.diff(createdAt, "days")
 
   if (diff === 0) return "Today"
-  else if (diff >= 2 && diff < 7) return "This weeek"
+  else if (diff >= 1 && diff < 7) return "This weeek"
   else if (diff >= 7 && diff < 30) return "This month"
   else if (diff >= 30 && diff < 365) return "This year"
   else return `${Math.floor(diff / 365)} year${Math.floor(diff / 365) > 1 ? "s": ""} ago`
