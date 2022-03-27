@@ -69,8 +69,8 @@ export default Vue.extend({
   <figure
     class="image"
     :style="{
-      backgroundSize: cover ? 'cover' : 'fit',
       width: width + 'px', height: height + 'px',
+      backgroundSize: cover ? 'cover' : 'contain',
       backgroundImage: loaded ? `url(${getBackgroundUrl})`: '',
       borderRadius: radius === 'rounded' ? '9999px' : radius + 'px'
     }"
