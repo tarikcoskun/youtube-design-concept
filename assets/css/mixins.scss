@@ -1,0 +1,68 @@
+@mixin line-clamp($val: 1) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $val;
+  -webkit-box-orient: vertical;
+}
+
+@mixin flex($align: unset, $justify: unset, $dir: row, $gap: 0) {
+  gap: $gap;
+  display: flex;
+  align-items: $align;
+  flex-direction: $dir;
+  justify-content: $justify;
+}
+
+@mixin grid($cols: 2, $gap: 16px, $mb: $cols) {
+  gap: $gap;
+  display: grid;
+  grid-template-columns: repeat($cols, minmax(0, 1fr));
+  @include mobile { grid-template-columns: repeat($mb, minmax(0, 1fr)) }
+}
+
+@mixin button($bg: transparent, $hover: $bg, $text: #f0f0f3, $padding: 10px 40px, $align: center) {
+  color: $text;
+  cursor: pointer;
+  background: $bg;
+  font-weight: 500;
+  padding: $padding;
+  transition: 150ms;
+  text-align: center;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  @include flex(center, $align);
+
+  &:hover, &.active, &.nuxt-link-exact-active { background: $hover }
+
+  @if $bg == white {
+    color: black;
+    background: #f4f4f5;
+
+    &:hover, &.active { background: var(--title) }
+  }
+
+  @if $bg == accent {
+    color: var(--title);
+    background: var(--accent);
+
+    &:hover { background: var(--accentl) }
+  }
+
+  @if $bg == half-transparent {
+    color: var(--title);
+    background: #ffffff1a;
+
+    &:hover, &.active { background: #ffffff33 }
+  }
+
+  @if $bg == transparent {
+    color: var(--title);
+    background: transparent;
+    border-color: #484a56;
+
+    &:hover, &.active { background: #484a56 }
+  }
+}
+
+@mixin mobile { @media (max-width: 700px) { @content }}
+@mixin tablet { @media (max-width: 1200px) { @content }}

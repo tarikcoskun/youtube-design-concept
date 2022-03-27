@@ -1,0 +1,62 @@
+@import "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700";
+@import "mixins.scss";
+
+:root {
+  --bg: white;
+  --fg: black;
+  --red: #d93025;
+  --gray: #f1f3f4;
+  --icon: #5f6368;
+  --hover: #0000000f;
+  --active: #e8eaed;
+  --shadow: #00000048;
+  --bg-red: #d9302532;
+}
+
+* {
+  color: var(--fg);
+  text-decoration: none;
+  scroll-behavior: smooth;
+  padding: 0; margin: 0; border: 0;
+  font: 16px "Inter", sans-serif; font-weight: 400;
+
+  &::-webkit-scrollbar {
+    width: 3px; height: 3px;
+    &-track { background: var(--gray) }
+    &-thumb { background: var(--icon) }
+  }
+
+  &::placeholder { color: var(--icon) }
+
+  &.action {
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 9999px;
+    transition: 150ms background;
+    &:hover { background: var(--hover) }
+  }
+}
+
+body { background: var(--bg) }
+
+svg:not(.logo) {
+  width: 24px;
+  path, rect, polygon { fill: var(--icon) }
+}
+
+button {
+  background: transparent;
+  transition: 150ms background, 150ms border-color;
+  @include flex(center, center);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #151719;
+    --fg: white;
+    --gray: #25292c;
+    --icon: #c5c5c5;
+    --hover: #ffffff0f;
+    --active: #3a3a41;
+  }
+}

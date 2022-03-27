@@ -1,0 +1,177 @@
+<script lang="ts">
+import Vue from "vue"
+
+export default Vue.extend({
+  data: () => ({ sidebarCollapsed: false }),
+
+  computed: {
+    channels() { return this.$accessor.channels }
+  }
+})
+</script>
+
+<template>
+  <div>
+    <header class="navigation">
+      <aside class="brand">
+        <button class="menu" @click="sidebarCollapsed = !sidebarCollapsed"><Icon name="menu" action /></button>
+        <NuxtLink class="home" to="/"><Icon name="logo" /></NuxtLink>
+      </aside>
+
+      <aside class="search">
+        <Icon name="search" action />
+        <input type="text" placeholder="Search" />
+        <Icon name="microphone" action />
+      </aside>
+
+      <aside class="user">
+        <button><Icon name="notifications" action /></button>
+        <button><Icon name="settings" action /></button>
+        <button class="avatar action"><SmartImage src="/avatars/me.png" width="32" height="32" radius="rounded" /></button>
+      </aside>
+    </header>
+
+    <main>
+      <aside :class="{ sidebar: true, compact: sidebarCollapsed }">
+        <aside class="links">
+          <NuxtLink to="/"><Icon name="home" /> <h1>Home</h1></NuxtLink>
+          <NuxtLink to="/explore"><Icon name="explore" /> <h1>Explore</h1></NuxtLink>
+          <NuxtLink to="/subscriptions"><Icon name="subscriptions" /> <h1>Subscriptions</h1></NuxtLink>
+        </aside>
+
+        <aside class="library">
+          <NuxtLink to="/library/history"><Icon name="history" /> <h1>History</h1></NuxtLink>
+          <NuxtLink to="/library/playlists"><Icon name="playlist" /> <h1>Playlists</h1></NuxtLink>
+          <NuxtLink to="/library/playlists?list=WL"><Icon name="watch-later" /> <h1>Watch later</h1></NuxtLink>
+          <NuxtLink to="/library/playlists?list=LV"><Icon name="like" /> <h1>Liked videos</h1></NuxtLink>
+        </aside>
+
+        <aside class="subscriptions">
+          <h1>SUBSCRIPTIONS</h1>
+
+          <NuxtLink :to="`/channel/${channel.url}`" v-for="(channel, index) in channels" :key="index">
+            <SmartImage :src="channel.avatar" width="24" height="24" radius="rounded" /> <h1>{{ channel.name }}</h1>
+          </NuxtLink>
+          <!-- <NuxtLink to="/explore"><Icon name="add-circle" /> <h1>Browse channels</h1></NuxtLink> -->
+        </aside>
+      </aside>
+
+      <Nuxt :class="{ compact: sidebarCollapsed }" />
+    </main>
+  </div>
+</template>
+
+<style lang="scss">
+@import "@/assets/css/mixins.scss";
+
+header.navigation {
+  padding: 8px 12px;
+  background: var(--bg);
+  position: sticky; top: 0;
+  border-bottom: 1px solid var(--gray);
+  @include flex(center, space-between);
+
+  aside {
+    &.brand {
+      @include flex(center, $gap: 8px);
+      button.menu svg { padding: 12px }
+      a.home {
+        @include flex(center, center);
+        svg.logo { width: 90px }
+      }
+    }
+
+    &.search {
+      width: 50%;
+      padding: 4px 10px;
+      border-radius: 8px;
+      background: var(--gray);
+      transition: 150ms background, 150ms box-shadow;
+      @include flex(center);
+
+      input {
+        flex-grow: 1;
+        padding: 8px;
+        font-size: 16px;
+        background: transparent;
+        &:focus { outline: none }
+      }
+
+      &:focus-within {
+        background: white;
+        box-shadow: 0 1px 4px var(--shadow);
+        svg path, input, input::placeholder { fill: #5f6368; color: #5f6368 }
+      }
+    }
+
+    &.user {
+      @include flex(center, $gap: 8px);
+      button.avatar { padding: 4px }
+    }
+  }
+}
+
+main {
+  @include flex(flex-start);
+
+  > aside {
+    &.sidebar {
+      width: 256px;
+      flex-shrink: 0;
+      overflow-y: auto;
+      background: var(--bg);
+      position: sticky; top: 65px;
+      height: calc(100vh - 65px);
+      border-right: 1px solid var(--gray);
+
+      aside {
+        padding: 12px 12px 12px 0;
+        @include flex($dir: column);
+
+        > h1 {
+          margin: 0 0 8px 24px;
+          color: var(--icon); font-size: 14px; font-weight: 600;
+        }
+
+        a {
+          font-weight: 500;
+          padding: 8px 24px;
+          transition: 150ms background;
+          border-radius: 0 9999px 9999px 0;
+          @include flex(center, $gap: 16px);
+
+          &:hover { background: var(--hover) }
+          &.nuxt-link-exact-active {
+            background: var(--active);
+            h1 { font-weight: 600 }
+          }
+        }
+
+        &.links a.nuxt-link-exact-active {
+          background: var(--bg-red);
+          svg path { fill: var(--red) }
+          h1 { color: var(--red) }
+        }
+
+        &:not(:last-child) { border-bottom: 1px solid var(--gray) }
+      }
+
+      &.compact {
+        width: 72px;
+
+        h1 { display: none }
+        aside {
+          margin: 0 24px;
+          padding-right: 0;
+          @include flex(center, center, $dir: column);
+
+          a { padding: 8px; border-radius: 9999px }
+          &.subscriptions { display: none }
+        }
+      }
+    }
+
+    &.content { width: 100%; max-height: calc(100vh - 65px); overflow-y: auto }
+  }
+}
+</style>
