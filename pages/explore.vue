@@ -53,8 +53,8 @@ export default Vue.extend({
 aside.content#explore {
   section {
     &.tags {
-      padding: 16px;
-      @include grid(5, $gap: 12px);
+      padding: 24px;
+      @include grid(5, 12px);
 
       button {
         padding: 16px;
@@ -78,7 +78,7 @@ aside.content#explore {
     }
 
     &.recommended-channel {
-      padding: 16px;
+      padding: 24px;
       @include flex($dir: column, $gap: 16px);
 
       header {
@@ -93,25 +93,18 @@ aside.content#explore {
             span { color: var(--icon); font-size: 14px; font-weight: 500 }
           }
         }
-
-        button.subscribe {
-          color: white;
-          cursor: pointer;
-          font-weight: 500;
-          padding: 10px 20px;
-          border-radius: 9999px;
-          background: var(--red);
-        }
       }
 
       section.videos { @include grid(4) }
     }
 
     &.videos-container {
-      padding: 16px;
+      padding: 24px;
 
       > h1 { padding-bottom: 16px; font-size: 20px; font-weight: 600 }
-      section.videos { @include grid(4) }
+      section.videos {
+        @include grid(4, $mb: 1);
+      }
     }
   }
 }

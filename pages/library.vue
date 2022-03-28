@@ -31,7 +31,7 @@ export default Vue.extend({
 
 aside.content {
   header {
-    padding: 0 16px;
+    padding: 0 24px;
     background: var(--bg);
     position: sticky; top: 0;
     border-bottom: 1px solid var(--gray);

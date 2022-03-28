@@ -25,8 +25,8 @@ export default Vue.extend({
       </aside>
 
       <aside class="user">
-        <button><Icon name="notifications" action /></button>
-        <button><Icon name="settings" action /></button>
+        <button class="notifications action"><Icon name="notifications" /></button>
+        <button class="search action"><Icon name="search" /></button>
         <button class="avatar action"><SmartImage src="/avatars/me.png" width="32" height="32" radius="rounded" /></button>
       </aside>
     </header>
@@ -37,6 +37,7 @@ export default Vue.extend({
           <NuxtLink to="/"><Icon name="home" /> <h1>Home</h1></NuxtLink>
           <NuxtLink to="/explore"><Icon name="explore" /> <h1>Explore</h1></NuxtLink>
           <NuxtLink to="/subscriptions"><Icon name="subscriptions" /> <h1>Subscriptions</h1></NuxtLink>
+          <NuxtLink to="/library"><Icon name="library" /> <h1>Library</h1></NuxtLink>
         </aside>
 
         <aside class="library">
@@ -74,7 +75,12 @@ header.navigation {
   aside {
     &.brand {
       @include flex(center, $gap: 8px);
-      button.menu svg { padding: 12px }
+
+      button.menu {
+        svg { padding: 12px }
+        @include mobile { display: none }
+      }
+
       a.home {
         @include flex(center, center);
         svg.logo { width: 90px }
@@ -88,6 +94,7 @@ header.navigation {
       background: var(--gray);
       transition: 150ms background, 150ms box-shadow;
       @include flex(center);
+      @include mobile { display: none }
 
       input {
         flex-grow: 1;
@@ -106,13 +113,16 @@ header.navigation {
 
     &.user {
       @include flex(center, $gap: 8px);
+      @include mobile { button.search { display: flex !important } }
       button.avatar { padding: 4px }
+      button.search { display: none }
     }
   }
 }
 
 main {
   @include flex(flex-start);
+  @include mobile { flex-direction: column-reverse }
 
   > aside {
     &.sidebar {
@@ -120,13 +130,19 @@ main {
       flex-shrink: 0;
       overflow-y: auto;
       background: var(--bg);
-      position: sticky; top: 65px;
       height: calc(100vh - 65px);
+      position: sticky; top: 65px;
       border-right: 1px solid var(--gray);
+      @include mobile { width: 100%; height: unset; bottom: 0 }
 
       aside {
         padding: 12px 12px 12px 0;
         @include flex($dir: column);
+        @include mobile {
+          padding: 0;
+          @include grid(4, 0);
+          &.library, &.subscriptions { display: none }
+        }
 
         > h1 {
           margin: 0 0 8px 24px;
@@ -139,6 +155,11 @@ main {
           transition: 150ms background;
           border-radius: 0 9999px 9999px 0;
           @include flex(center, $gap: 16px);
+          @include mobile {
+            padding: 8px; border-radius: 0;
+            flex-direction: column; flex-grow: 1; gap: 6px;
+            h1 { font-size: 14px }
+          }
 
           &:hover { background: var(--hover) }
           &.nuxt-link-exact-active {
@@ -147,10 +168,13 @@ main {
           }
         }
 
-        &.links a.nuxt-link-exact-active {
-          background: var(--bg-red);
-          svg path { fill: var(--red) }
-          h1 { color: var(--red) }
+        &.links a {
+          &:last-child { display: none; @include mobile { display: flex } }
+          &.nuxt-link-exact-active {
+            background: var(--bg-red);
+            svg path { fill: var(--red) }
+            h1 { color: var(--red) }
+          }
         }
 
         &:not(:last-child) { border-bottom: 1px solid var(--gray) }
@@ -171,7 +195,10 @@ main {
       }
     }
 
-    &.content { width: 100%; max-height: calc(100vh - 65px); overflow-y: auto }
+    &.content {
+      width: 100%; max-height: calc(100vh - 65px); overflow-y: auto;
+      @include mobile { @include mobile { height: calc(100vh - 57px - 64px) } }
+    }
   }
 }
 </style>

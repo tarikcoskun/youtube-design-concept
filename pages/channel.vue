@@ -51,6 +51,7 @@ aside.content {
     &.channel {
       > footer {
         padding: 24px 32px;
+        @include mobile { padding: 16px }
         @include flex(center, space-between);
 
         aside {
@@ -62,15 +63,6 @@ aside.content {
             h1 { font-size: 24px; font-weight: 600 }
             span { color: var(--icon) }
           }
-
-          &.subscribe button.subscribe {
-            color: white;
-            cursor: pointer;
-            font-weight: 500;
-            padding: 10px 20px;
-            border-radius: 9999px;
-            background: var(--red);
-          }
         }
       }
     }
@@ -78,9 +70,11 @@ aside.content {
     &.tabs {
       @include flex;
       padding: 0 32px;
+      overflow-x: auto;
       background: var(--bg);
       position: sticky; top: 0;
       border-bottom: 1px solid var(--gray);
+      @include mobile { padding: 0 }
 
       a {
         font-weight: 500;
@@ -97,6 +91,8 @@ aside.content {
 
         &.nuxt-link-exact-active::after { background: var(--red) }
       }
+
+      &::-webkit-scrollbar { display: none }
     }
   }
 }

@@ -37,7 +37,7 @@ section.content {
   @include flex(flex-start);
 
   aside {
-    padding: 16px;
+    padding: 24px;
 
     &.videos-container {
       > h1 { padding-bottom: 16px; font-size: 20px; font-weight: 600 }

@@ -25,16 +25,24 @@ export default Vue.extend({
 
 aside.content#subscriptions {
   section.videos-container {
-    padding: 16px;
+    padding: 24px;
+    @include mobile { padding: 0 }
 
-    > h1 { padding-bottom: 16px; font-size: 20px; font-weight: 600 }
+    > h1 {
+      padding-bottom: 16px; font-size: 20px; font-weight: 600;
+      @include mobile { display: none }
+    }
 
     section.videos {
-      @include grid(5);
+      @include grid(5, $mb: 1);
+      @include mobile { gap: 0 }
 
       a.video footer {
-        h1 { font-size: 14px }
-        aside a.channel figure.image { display: none }
+        h1 { font-size: 14px; @include mobile { font-size: unset } }
+        aside a.channel figure.image {
+          display: none;
+          @include mobile { display: block }
+        }
       }
     }
   }

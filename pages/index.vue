@@ -48,6 +48,7 @@ aside.content#home {
         width: 24px; height: 100%;
         position: absolute; left: 0;
         background: linear-gradient(to right, var(--bg), transparent);
+        @include mobile { width: 12px }
       }
 
       button {
@@ -66,6 +67,7 @@ aside.content#home {
           padding: 12px 24px;
           padding-right: 124px;
           @include flex(center, $gap: 8px);
+          @include mobile { padding: 12px }
 
           &::-webkit-scrollbar { display: none }
         }
@@ -75,6 +77,7 @@ aside.content#home {
           height: 100%;
           position: absolute; top: 0; right: 24px;
           @include flex(center, $gap: 4px);
+          @include mobile { display: none }
           button { padding: 6px }
         }
       }
@@ -83,10 +86,15 @@ aside.content#home {
         width: 124px; height: 100%;
         position: absolute; right: 0; top: 0;
         background: linear-gradient(to right, transparent, var(--bg) 16% 100%);
+        @include mobile { width: 12px; background: linear-gradient(to right, transparent, var(--bg)) }
       }
     }
 
-    &.videos { padding: 24px; @include grid(4) }
+    &.videos {
+      padding: 24px;
+      @include grid(4, $mb: 1);
+      @include mobile { padding: 0; gap: 0 }
+    }
   }
 }
 </style>

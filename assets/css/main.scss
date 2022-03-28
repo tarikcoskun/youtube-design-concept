@@ -10,7 +10,7 @@
   --hover: #0000000f;
   --active: #e8eaed;
   --shadow: #00000048;
-  --bg-red: #d9302532;
+  --bg-red: #d9302528;
 }
 
 * {
@@ -48,6 +48,15 @@ button {
   background: transparent;
   transition: 150ms background, 150ms border-color;
   @include flex(center, center);
+
+  &.subscribe {
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 9999px;
+    background: var(--red);
+  }
 }
 
 @media (prefers-color-scheme: dark) {

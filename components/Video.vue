@@ -36,10 +36,16 @@ export default Vue.extend({
 
 a.video {
   @include flex($dir: column, $gap: 16px);
+  @include mobile { gap: 0 }
 
-  figure.image { width: 100%; aspect-ratio: 16/9 }
+  > figure.image {
+    width: 100%; aspect-ratio: 16/9;
+    @include mobile { border-radius: 0 !important}
+  }
+
   footer {
     @include flex($dir: column, $gap: 8px);
+    @include mobile { padding: 16px }
     > h1 { font-weight: 500; @include line-clamp(2) }
 
     aside {
