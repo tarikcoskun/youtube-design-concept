@@ -13,7 +13,7 @@
   justify-content: $justify;
 }
 
-@mixin grid($cols: 2, $gap: 16px, $mb: $cols) {
+@mixin grid($cols: 2, $gap: 48px 16px, $mb: $cols) {
   gap: $gap;
   display: grid;
   grid-template-columns: repeat($cols, minmax(0, 1fr));

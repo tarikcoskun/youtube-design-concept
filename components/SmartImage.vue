@@ -75,7 +75,11 @@ export default Vue.extend({
       borderRadius: radius === 'rounded' ? '9999px' : radius + 'px'
     }"
   >
-    <img :src="getBackgroundUrl" :width="width" :height="height" @error="handleError" @load="loaded = true" />
+    <img
+      :src="getBackgroundUrl"
+      :width="width" :height="height"
+      @error="handleError" @load="loaded = true"
+    />
   </figure>
 </template>
 

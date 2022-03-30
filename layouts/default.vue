@@ -151,7 +151,7 @@ main {
 
         a {
           font-weight: 500;
-          padding: 8px 24px;
+          padding: 10px 24px;
           transition: 150ms background;
           border-radius: 0 9999px 9999px 0;
           @include flex(center, $gap: 16px);
@@ -163,20 +163,13 @@ main {
 
           &:hover { background: var(--hover) }
           &.nuxt-link-exact-active {
-            background: var(--active);
-            h1 { font-weight: 600 }
-          }
-        }
-
-        &.links a {
-          &:last-child { display: none; @include mobile { display: flex } }
-          &.nuxt-link-exact-active {
             background: var(--bg-red);
             svg path { fill: var(--red) }
-            h1 { color: var(--red) }
+            h1 { color: var(--red); font-weight: 600 }
           }
         }
 
+        &.links a:last-child { display: none; @include mobile { display: flex } }
         &:not(:last-child) { border-bottom: 1px solid var(--gray) }
       }
 
@@ -193,6 +186,9 @@ main {
           &.subscriptions { display: none }
         }
       }
+
+      &::-webkit-scrollbar-thumb { background: transparent }
+      &:hover::-webkit-scrollbar-thumb { background: var(--icon) }
     }
 
     &.content {

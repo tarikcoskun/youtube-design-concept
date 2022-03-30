@@ -86,7 +86,7 @@ aside.content {
           height: 3px;
           background: transparent;
           transition: 150ms background;
-          position: absolute; bottom: -1px; left: 0; right: 0;
+          position: absolute; bottom: 0; left: 0; right: 0;
         }
 
         &.nuxt-link-exact-active::after { background: var(--red) }

@@ -3,7 +3,7 @@ import Vue from "vue"
 
 export default Vue.extend({
   data: () => ({
-    selectedTag: "All",
+    activeTag: "All",
     tags: ["All", "Trending", "Music", "Gaming", "Sports", "News", "Piano", "Web development", "Airplane", "Computer", "Animation", "Recently uploaded"]
   }),
 
@@ -18,7 +18,7 @@ export default Vue.extend({
     <section class="tags">
       <div class="overlay-start" />
       <aside class="track" ref="tags">
-        <button @click="selectedTag = tag" :class="{ selected: selectedTag === tag }" v-for="tag in tags" :key="tag">
+        <button @click="activeTag = tag" :class="{ active: activeTag === tag }" v-for="tag in tags" :key="tag">
           {{ tag }}
         </button>
       </aside>
@@ -58,7 +58,7 @@ aside.content#home {
         border-radius: 9999px;
         background: var(--gray);
         &:hover { background: var(--active) }
-        &.selected { color: var(--red); font-weight: 500; background: var(--bg-red); border-color: var(--bg-red) }
+        &.active { color: var(--red); background: var(--bg-red); border-color: var(--bg-red) }
       }
 
       aside {
