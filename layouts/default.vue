@@ -14,14 +14,14 @@ export default Vue.extend({
   <div>
     <header class="navigation">
       <aside class="brand">
-        <button class="menu" @click="sidebarCollapsed = !sidebarCollapsed"><Icon name="menu" action /></button>
+        <button class="menu action" @click="sidebarCollapsed = !sidebarCollapsed"><Icon name="menu" /></button>
         <NuxtLink class="home" to="/"><Icon name="logo" /></NuxtLink>
       </aside>
 
       <aside class="search">
-        <Icon name="search" action />
+        <button class="action"><Icon name="search" /></button>
         <input type="text" placeholder="Search" />
-        <Icon name="microphone" action />
+        <button class="action"><Icon name="microphone" /></button>
       </aside>
 
       <aside class="user">
@@ -77,7 +77,7 @@ header.navigation {
       @include flex(center, $gap: 8px);
 
       button.menu {
-        svg { padding: 12px }
+        padding: 12px;
         @include mobile { display: none }
       }
 
@@ -121,6 +121,7 @@ header.navigation {
 }
 
 main {
+  overflow-y: hidden;
   @include flex(flex-start);
   @include mobile { flex-direction: column-reverse }
 
@@ -193,7 +194,7 @@ main {
 
     &.content {
       width: 100%; max-height: calc(100vh - 65px); overflow-y: auto;
-      @include mobile { @include mobile { height: calc(100vh - 57px - 64px) } }
+      @include mobile { max-height: calc(100vh - 57px - 64px) }
     }
   }
 }

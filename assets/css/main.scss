@@ -16,6 +16,7 @@
 * {
   color: var(--fg);
   text-decoration: none;
+  box-sizing: border-box;
   scroll-behavior: smooth;
   padding: 0; margin: 0; border: 0;
   font: 16px "Inter", sans-serif; font-weight: 400;
@@ -37,7 +38,7 @@
   }
 }
 
-body { background: var(--bg) }
+body { background: var(--bg); overflow-x: hidden }
 
 svg:not(.logo) {
   width: 24px;

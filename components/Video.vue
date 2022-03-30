@@ -19,7 +19,7 @@ export default Vue.extend({
   <NuxtLink class="video" :to="`/watch?v=${video.id}`">
     <SmartImage :src="`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`" radius="4" cover />
     <footer>
-      <h1 :title="video.title">{{ video.title }}</h1>
+      <h1 class="video-title" :title="video.title">{{ video.title }}</h1>
       <aside>
         <NuxtLink class="channel" :to="`/channel/${video.channel.url}`">
           <SmartImage :src="video.channel.avatar" width="24" height="24" radius="rounded" />
@@ -46,7 +46,7 @@ a.video {
   footer {
     @include flex($dir: column, $gap: 8px);
     @include mobile { padding: 16px }
-    > h1 { font-weight: 500; @include line-clamp(2) }
+    h1.video-title { font-weight: 500; @include line-clamp(2) }
 
     aside {
       @include line-clamp;

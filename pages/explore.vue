@@ -27,7 +27,10 @@ export default Vue.extend({
       <header>
         <NuxtLink :to="`/channel/${channel.url}`" class="channel">
           <SmartImage :src="channel.avatar" width="36" height="36" radius="rounded" />
-          <h1>{{ channel.name }} <span>Recommended channel for you</span></h1>
+          <aside>
+            <h1>{{ channel.name }}</h1>
+            <span>Recommended channel for you</span>
+          </aside>
         </NuxtLink>
         <button class="subscribe">Subscribe</button>
       </header>
@@ -54,7 +57,8 @@ aside.content#explore {
   section {
     &.tags {
       padding: 24px;
-      @include grid(5, 12px);
+      @include grid(5, 12px, 3);
+      @include mobile { padding: 0; gap: 0 }
 
       button {
         padding: 16px;
@@ -62,6 +66,7 @@ aside.content#explore {
         border-radius: 8px;
         border: 1px solid var(--gray);
         @include flex(center, $dir: column, $gap: 12px);
+        @include mobile { border-radius: 0 }
 
         svg {
           width: 32px;
@@ -78,32 +83,56 @@ aside.content#explore {
     }
 
     &.recommended-channel {
-      padding: 24px;
-      @include flex($dir: column, $gap: 16px);
+      @include flex($dir: column);
 
       header {
+        padding: 12px 24px;
+        @include mobile { padding: 16px }
         @include flex(center, space-between);
 
         a.channel {
           @include flex(center, $gap: 16px);
+          @include mobile { align-items: flex-start }
 
-          h1 {
+          aside {
             @include flex(flex-end, $gap: 8px);
-            font-size: 20px; font-weight: 600; line-height: 20px;
-            span { color: var(--icon); font-size: 14px; font-weight: 500 }
+            @include mobile { align-items: flex-start; flex-direction: column }
+            h1 { font-size: 20px; font-weight: 600; line-height: 20px; @include mobile { line-height: unset } }
+            span { color: var(--icon); font-size: 14px }
           }
         }
       }
 
-      section.videos { @include grid(4) }
+      section.videos {
+        padding: 12px 24px;
+        @include grid(4);
+        @include mobile {
+          padding: 16px;
+          @include flex($gap: 16px); overflow-x: auto;
+        }
+
+        a.video {
+          @include mobile { flex: 0 0 50%; gap: 16px }
+
+          footer {
+            padding: 0;
+            aside a.channel { display: none }
+          }
+        }
+      }
     }
 
     &.videos-container {
-      padding: 24px;
+      > h1 {
+        padding: 24px;
+        font-size: 20px; font-weight: 600;
+        @include mobile { padding: 16px }
+      }
 
-      > h1 { padding-bottom: 16px; font-size: 20px; font-weight: 600 }
       section.videos {
+        padding: 0 24px 24px;
         @include grid(4, $mb: 1);
+        @include mobile { padding: 0 }
       }
     }
   }
