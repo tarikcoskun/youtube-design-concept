@@ -6,6 +6,7 @@ const ImageConfig: Partial<ImageOptions> = { domains: ["i.ytimg.com"] }
 const Config: NuxtConfig = {
   target: "static",
   server: { port: 8080 },
+  loading: { color: "#d93025" },
 
   dir: {
     static: "public",
