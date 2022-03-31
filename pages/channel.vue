@@ -25,7 +25,7 @@ export default Vue.extend({
 
         <aside class="subscribe">
           <button class="subscribe">Subscribe</button>
-          <Icon name="notifications" action />
+          <button class="action"><Icon name="notifications" /></button>
         </aside>
       </footer>
     </section>
