@@ -131,7 +131,7 @@ aside.content#explore {
       section.videos {
         padding: 0 24px 24px;
         @include grid(4, $mb: 1);
-        @include mobile { padding: 0 }
+        @include mobile { padding: 0; gap: 0 }
       }
     }
   }
