@@ -59,7 +59,10 @@ aside.content#explore {
     &.tags {
       padding: 24px;
       @include grid(6, 12px, 3);
-      @include mobile { padding: 0; gap: 0 }
+      @include mobile {
+        padding: 16px; overflow-x: auto;
+        @include flex($gap: 16px);
+      }
 
       button {
         padding: 16px;
@@ -67,7 +70,7 @@ aside.content#explore {
         border-radius: 8px;
         border: 1px solid var(--gray);
         @include flex(center, $dir: column, $gap: 12px);
-        @include mobile { border-radius: 0 }
+        @include mobile { flex: 0 0 32% }
 
         svg {
           width: 32px;
