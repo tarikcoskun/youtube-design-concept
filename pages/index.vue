@@ -4,7 +4,7 @@ import Vue from "vue"
 export default Vue.extend({
   data: () => ({
     activeTag: "All",
-    tags: ["All", "Trending", "Music", "Gaming", "Sports", "News", "Piano", "Web development", "Airplane", "Computer", "Animation", "Recently uploaded"]
+    tags: ["All", "Trending", "Music", "Gaming", "Sports", "Live", "News", "Piano", "Web development", "Airplane", "Computer", "Animation", "Recently uploaded"]
   }),
 
   computed: {

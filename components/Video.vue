@@ -17,15 +17,18 @@ export default Vue.extend({
 
 <template>
   <NuxtLink class="video" :to="`/watch?v=${video.id}`">
-    <SmartImage :src="`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`" radius="4" cover />
+    <SmartImage class="thumbnail" :src="`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`" radius="4" cover />
     <footer>
-      <h1 class="video-title" :title="video.title">{{ video.title }}</h1>
+      <NuxtLink class="channel" :to="`/channel/${video.channel.url}`">
+        <SmartImage :src="video.channel.avatar" width="32" height="32" radius="rounded" />
+      </NuxtLink>
+
       <aside>
-        <NuxtLink class="channel" :to="`/channel/${video.channel.url}`">
-          <SmartImage :src="video.channel.avatar" width="24" height="24" radius="rounded" />
-          <h1 class="name">{{ video.channel.name }}</h1>
-        </NuxtLink>
-        <span class="date">{{ getReadableDate(video.publishedAt) }}</span>
+        <h1 class="title" :title="video.title">{{ video.title }}</h1>
+        <sub>
+          <NuxtLink class="channel-name" :to="`/channel/${video.channel.url}`">{{ video.channel.name }}</NuxtLink>
+          <span class="date">{{ getReadableDate(video.publishedAt) }}</span>
+        </sub>
       </aside>
     </footer>
   </NuxtLink>
@@ -38,22 +41,26 @@ a.video {
   @include flex($dir: column, $gap: 16px);
   @include mobile { gap: 0 }
 
-  > figure.image {
+  figure.thumbnail {
     width: 100%; aspect-ratio: 16/9;
     @include mobile { border-radius: 0 !important}
   }
 
   footer {
-    @include flex($dir: column, $gap: 8px);
+    @include flex($gap: 12px);
     @include mobile { padding: 16px }
-    h1.video-title { font-weight: 500; @include line-clamp(2) }
 
     aside {
-      @include line-clamp;
-      @include flex(center, $gap: 6px);
-      span.date { color: var(--icon); font-size: 14px; flex-shrink: 0 }
+      @include flex($dir: column, $gap: 8px);
+      h1.title { font-weight: 500; @include line-clamp(2) }
 
-      a.channel { @include flex(center, $gap: 8px) }
+      sub {
+        font-size: 14px;
+        @include flex(center, $gap: 8px);
+
+        a.channel-name, span.date { font-size: inherit }
+        span.date { color: var(--icon); flex-shrink: 0 }
+      }
     }
   }
 }

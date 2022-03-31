@@ -20,6 +20,7 @@ export default Vue.extend({
       <button><Icon name="music" /> <h1>Music</h1></button>
       <button><Icon name="gaming" /> <h1>Gaming</h1></button>
       <button><Icon name="sports" /> <h1>Sports</h1></button>
+      <button><Icon name="live" /> <h1>Live</h1></button>
       <button><Icon name="news" /> <h1>News</h1></button>
     </section>
 
@@ -57,7 +58,7 @@ aside.content#explore {
   section {
     &.tags {
       padding: 24px;
-      @include grid(5, 12px, 3);
+      @include grid(6, 12px, 3);
       @include mobile { padding: 0; gap: 0 }
 
       button {
@@ -71,9 +72,10 @@ aside.content#explore {
         svg {
           width: 32px;
           &.trending path { fill: var(--red) }
-          &.music path { fill: #22c55e }
-          &.gaming * { fill: #14b8a6 }
+          &.music path { fill: #a855f7 }
+          &.gaming path { fill: #06b6d4 }
           &.sports path { fill: #f59e0b }
+          &.live path, circle { fill: #10b981 }
           &.news path { fill: #ef4444 }
         }
 
@@ -113,11 +115,8 @@ aside.content#explore {
 
         a.video {
           @include mobile { flex: 0 0 50%; gap: 16px }
-
-          footer {
-            padding: 0;
-            aside a.channel { display: none }
-          }
+          a.channel, a.channel-name { display: none }
+          footer { padding: 0 }
         }
       }
     }

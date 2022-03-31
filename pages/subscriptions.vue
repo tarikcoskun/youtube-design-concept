@@ -39,7 +39,7 @@ aside.content#subscriptions {
 
       a.video footer {
         h1 { font-size: 14px; @include mobile { font-size: unset } }
-        aside a.channel figure.image {
+        a.channel {
           display: none;
           @include mobile { display: block }
         }

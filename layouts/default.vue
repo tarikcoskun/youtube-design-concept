@@ -134,7 +134,7 @@ main {
       height: calc(100vh - 65px);
       position: sticky; top: 65px;
       border-right: 1px solid var(--gray);
-      @include mobile { width: 100%; height: unset; bottom: 0 }
+      @include mobile { width: 100%; height: unset; bottom: 0; border: none }
 
       aside {
         padding: 12px 12px 12px 0;
@@ -159,7 +159,7 @@ main {
           @include mobile {
             padding: 8px; border-radius: 0;
             flex-direction: column; flex-grow: 1; gap: 6px;
-            h1 { font-size: 14px }
+            h1 { font-size: 12px }
           }
 
           &:hover { background: var(--hover) }
@@ -167,11 +167,22 @@ main {
             background: var(--bg-red);
             svg path { fill: var(--red) }
             h1 { color: var(--red); font-weight: 600 }
+            @include mobile {
+              background: unset;
+              position: relative;
+
+              &::after {
+                content: "";
+                height: 3px;
+                background: var(--red);
+                position: absolute; top: 0; left: 0; right: 0;
+              }
+            }
           }
         }
 
         &.links a:last-child { display: none; @include mobile { display: flex } }
-        &:not(:last-child) { border-bottom: 1px solid var(--gray) }
+        &:not(:last-child) { border-bottom: 1px solid var(--gray); @include mobile { border: none } }
       }
 
       &.compact {
@@ -193,8 +204,8 @@ main {
     }
 
     &.content {
-      width: 100%; max-height: calc(100vh - 65px); overflow-y: auto;
-      @include mobile { max-height: calc(100vh - 57px - 64px) }
+      width: 100%; overflow-y: auto; max-height: calc(100vh - 65px);
+      @include mobile { max-height: calc(100vh - 57px - 61px) }
     }
   }
 }

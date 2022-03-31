@@ -20,7 +20,7 @@ export default Vue.extend({
 
     <aside class="sidebar">
       <figure class="search">
-        <Icon name="search" action />
+        <button class="action"><Icon name="search" /></button>
         <input type="text" placeholder="Search watch history" />
       </figure>
       <button><Icon name="trash" /> <h1>Clear all watch history</h1></button>
@@ -74,7 +74,7 @@ section.content {
         }
       }
 
-      button {
+      > button {
         padding: 8px;
         cursor: pointer;
         border-radius: 4px;
