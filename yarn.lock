@@ -5815,14 +5815,6 @@ number-is-nan@^1.0.0:
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
 
-nuxt-typed-vuex@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/nuxt-typed-vuex/-/nuxt-typed-vuex-0.3.0.tgz#71762db73a66234fb8b581c57af22dbbcf60f112"
-  integrity sha512-XgYOp5QYzqLElINalfdILWZhb7vWnlrJWQkEr5AbUBXb17Sqxiwq5NDka++S45uqpcJnNpFlSLWAAwLlOCnyTA==
-  dependencies:
-    typed-vuex "0.3.0"
-    upath "^2.0.1"
-
 nuxt@^2.15.8:
   version "2.15.8"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-2.15.8.tgz#946cba46bdaaf0e3918aa27fd9ea0fed8ed303b0"
@@ -8262,11 +8254,6 @@ type-fest@^0.8.0:
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.8.1.tgz#09e249ebde851d3b1e48d27c105444667f17b83d"
   integrity sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==
-
-typed-vuex@0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/typed-vuex/-/typed-vuex-0.3.0.tgz#60980e0e7c41fc06d35cdb9dcc4e77da46c54101"
-  integrity sha512-4APLXHWYx+ScNX+O9c/d3OVx13CLyMyqLEM6C/gE1lCM8XqejZ40syG24f/pZj154wMXvBjB0AwynewBTMPo5w==
 
 typedarray@^0.0.6:
   version "0.0.6"

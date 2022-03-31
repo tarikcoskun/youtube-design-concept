@@ -1,15 +1,13 @@
 <script lang="ts">
 import Vue from "vue"
+import { videos } from "@/assets/utils"
 
 export default Vue.extend({
   data: () => ({
+    videos,
     activeTag: "All",
     tags: ["All", "Trending", "Music", "Gaming", "Sports", "Live", "News", "Piano", "Web development", "Airplane", "Computer", "Animation", "Recently uploaded"]
-  }),
-
-  computed: {
-    videos() { return this.$accessor.sortedVideos }
-  }
+  })
 })
 </script>
 

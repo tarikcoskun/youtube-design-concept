@@ -1,15 +1,14 @@
 <script lang="ts">
 import Vue from "vue"
-import { getReadableDate } from "@/assets/utils"
+import { getReadableDate, groupedVideos, videos, channel } from "@/assets/utils"
 
 export default Vue.extend({
   methods: { getReadableDate },
-
-  computed: {
-    videos() { return this.$accessor.unsortedVideos },
-    channel() { return this.$accessor.channel("jdh") },
-    groupedVideos() { return this.$accessor.groupedVideos }
-  }
+  data: () => ({
+    videos,
+    groupedVideos,
+    channel: channel("jdh")
+  })
 })
 </script>
 
@@ -68,7 +67,7 @@ aside.content#explore {
         padding: 16px;
         cursor: pointer;
         border-radius: 8px;
-        border: 1px solid var(--gray);
+        background: var(--gray);
         @include flex(center, $dir: column, $gap: 12px);
         @include mobile { flex: 0 0 32% }
 
@@ -83,7 +82,6 @@ aside.content#explore {
         }
 
         h1 { color: var(--icon); font-size: 18px; font-weight: 500 }
-        &:hover { background: var(--gray) }
       }
     }
 

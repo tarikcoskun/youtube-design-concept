@@ -7,18 +7,13 @@ export default Vue.extend({
       type: String,
       required: false,
       default: "unknown"
-    },
-    action: {
-      type: Boolean,
-      required: false,
-      default: false
     }
   }
 })
 </script>
 
 <template>
-  <svg :viewBox="name === 'logo' ? '0 0 90 20' : '0 0 24 24'" :class="[ name, action ? 'action' : '' ]">
+  <svg :viewBox="name === 'logo' ? '0 0 90 20' : '0 0 24 24'" :class="name">
     <path v-if="name === 'menu'" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
     <path v-else-if="name === 'chevron-right'" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z" />
     <path v-else-if="name === 'chevron-left'" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z" />

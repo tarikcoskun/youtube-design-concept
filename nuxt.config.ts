@@ -6,12 +6,8 @@ const ImageConfig: Partial<ImageOptions> = { domains: ["i.ytimg.com"] }
 const Config: NuxtConfig = {
   target: "static",
   server: { port: 8080 },
+  dir: { static: "public" },
   loading: { color: "#d93025" },
-
-  dir: {
-    static: "public",
-    store: "stores"
-  },
 
   head: {
     title: "YouTube Concept",
@@ -26,7 +22,7 @@ const Config: NuxtConfig = {
 
   components: true,
   css: ["@/assets/css/main"],
-  buildModules: ["@nuxt/typescript-build", "nuxt-typed-vuex", ["@nuxt/image", ImageConfig]]
+  buildModules: ["@nuxt/typescript-build", ["@nuxt/image", ImageConfig]]
 }
 
 export default Config

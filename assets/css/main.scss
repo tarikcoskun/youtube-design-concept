@@ -20,14 +20,16 @@
   scroll-behavior: smooth;
   padding: 0; margin: 0; border: 0;
   font: 16px "Inter", sans-serif; font-weight: 400;
-
-  &::-webkit-scrollbar {
-    width: 3px; height: 3px;
-    &-track { background: transparent }
-    &-thumb { background: var(--icon) }
+  @include pc {
+    &::-webkit-scrollbar {
+      width: 3px; height: 3px;
+      &-track { background: transparent }
+      &-thumb { background: var(--icon) }
+    }
   }
 
   &::placeholder { color: var(--icon) }
+  &::selection { background: var(--active) }
 
   &.action {
     padding: 8px;

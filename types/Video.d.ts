@@ -12,4 +12,5 @@ export interface Channel {
   banner: string
 }
 
-export type Videos = { [key: string]: (Video & { channel: Channel })[] }
+export type Videos = { [key: string]: VideoChannel[] }
+export type VideoChannel = Video & { channel: Channel }

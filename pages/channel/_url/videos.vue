@@ -1,10 +1,11 @@
 <script lang="ts">
 import Vue from "vue"
+import { groupedVideos } from "@/assets/utils"
 
 export default Vue.extend({
-  computed: {
-    videos() {
-      return this.$accessor.groupedVideos[this.$route.params.url]
+  data() {
+    return {
+      videos: groupedVideos[this.$route.params.url]
     }
   }
 })
@@ -25,11 +26,19 @@ export default Vue.extend({
 
 section#videos {
   padding: 24px;
+  @include mobile { padding: 16px }
 
   > h1 { padding-bottom: 16px; font-size: 20px; font-weight: 600 }
   section.videos {
-    @include grid(4);
-    a.video footer aside a.channel { display: none }
+    @include grid(4, $mb: 1);
+    @include mobile { gap: 16px }
+    a.video {
+      footer a.channel { display: none }
+      @include mobile {
+        @include grid(2);
+        footer { padding: 0 }
+      }
+    }
   }
 }
 </style>

@@ -1,15 +1,14 @@
 <script lang="ts">
 import Vue from "vue"
+import { videos } from "@/assets/utils"
 
 export default Vue.extend({
-  computed: {
-    videos() { return this.$accessor.unsortedVideos }
-  }
+  data: () => ({ videos })
 })
 </script>
 
 <template>
-  <section class="content">
+  <aside class="content" id="history">
     <aside class="videos-container">
       <h1>History</h1>
 
@@ -27,37 +26,51 @@ export default Vue.extend({
       <button><Icon name="pause" /> <h1>Pause watch history</h1></button>
       <button><Icon name="settings" /> <h1>Manage all history</h1></button>
     </aside>
-  </section>
+  </aside>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "@/assets/css/mixins.scss";
 
-section.content {
+aside.content#history {
   @include flex(flex-start);
+  @include mobile { flex-direction: column-reverse }
 
-  aside {
+  > aside {
     padding: 24px;
+    @include mobile { padding: 16px }
 
     &.videos-container {
       > h1 { padding-bottom: 16px; font-size: 20px; font-weight: 600 }
-      section.videos { @include grid(3); }
+      section.videos {
+        @include grid(3, $mb: 1);
+        @include mobile { gap: 16px }
+
+        a.video {
+          footer a.channel { display: none }
+          @include mobile {
+            @include grid(2);
+            footer { padding: 0 }
+          }
+        }
+      }
     }
 
     &.sidebar {
       background: var(--bg);
-      position: sticky; top: 49px;
+      position: sticky; top: 0;
+      height: calc(100vh - 65px);
       border-left: 1px solid var(--gray);
-      height: calc(100vh - 65px - 49px - 32px);
       @include flex($dir: column, $gap: 16px);
+      @include mobile { height: unset; padding: 0; width: 100%; position: unset; border: none }
 
       figure.search {
         padding: 4px 4px;
-        margin-bottom: 8px;
         border-radius: 4px;
         background: var(--gray);
         transition: 150ms background, 150ms box-shadow;
         @include flex(center);
+        @include mobile { border-radius: 0 }
 
         input {
           flex-grow: 1;
@@ -81,6 +94,7 @@ section.content {
         border: 1px solid var(--gray);
         transition: 150ms background, 150ms box-shadow;
         @include flex(center, $gap: 20px);
+        @include mobile { display: none }
 
         &:hover { background: var(--hover) }
         &:focus { box-shadow: 0 1px 4px var(--shadow) }

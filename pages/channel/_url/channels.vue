@@ -1,10 +1,13 @@
 <script lang="ts">
 import Vue from "vue"
 import { Channel } from "@/types/Video"
+import { channels } from "@/assets/utils"
 
 export default Vue.extend({
-  computed: {
-    channels() { return this.$accessor.channels.filter((channel: Channel) => channel.url !== this.$route.params.url) }
+  data() {
+    return {
+      channels: channels.filter((channel: Channel) => channel.url !== this.$route.params.url)
+    }
   }
 })
 </script>

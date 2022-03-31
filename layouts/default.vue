@@ -1,12 +1,9 @@
 <script lang="ts">
 import Vue from "vue"
+import { channels } from "@/assets/utils"
 
 export default Vue.extend({
-  data: () => ({ sidebarCollapsed: false }),
-
-  computed: {
-    channels() { return this.$accessor.channels }
-  }
+  data: () => ({ channels, sidebarCollapsed: false })
 })
 </script>
 
@@ -41,6 +38,7 @@ export default Vue.extend({
         </aside>
 
         <aside class="library">
+          <NuxtLink to="/library"><Icon name="library" /> <h1>Library</h1></NuxtLink>
           <NuxtLink to="/library/history"><Icon name="history" /> <h1>History</h1></NuxtLink>
           <NuxtLink to="/library/playlists"><Icon name="playlist" /> <h1>Playlists</h1></NuxtLink>
           <NuxtLink to="/library/playlists?list=WL"><Icon name="watch-later" /> <h1>Watch later</h1></NuxtLink>
@@ -194,7 +192,7 @@ main {
           padding-right: 0;
           @include flex(center, center, $dir: column);
 
-          a { padding: 8px; border-radius: 9999px }
+          a { padding: 10px; border-radius: 9999px }
           &.subscriptions { display: none }
         }
       }

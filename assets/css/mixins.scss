@@ -65,4 +65,4 @@
 }
 
 @mixin mobile { @media (max-width: 700px) { @content }}
-@mixin tablet { @media (max-width: 1200px) { @content }}
+@mixin pc { @media (min-width: 700px) { @content }}
