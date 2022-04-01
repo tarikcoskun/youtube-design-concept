@@ -57,7 +57,6 @@ aside.content#history {
     }
 
     &.sidebar {
-      background: var(--bg);
       position: sticky; top: 0;
       height: calc(100vh - 65px);
       border-left: 1px solid var(--gray);

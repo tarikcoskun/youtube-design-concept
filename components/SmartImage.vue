@@ -40,7 +40,7 @@ export default Vue.extend({
     getBackgroundUrl(): string {
       const { src, width, height, format, error, $img } = this
 
-      if (error) return "/favicon.ico"
+      if (error || !src) return "/favicon.ico"
 
       let modifiers: {
         format?: string

@@ -18,13 +18,13 @@ export default Vue.extend({
     </section>
 
     <section class="playlists">
-      <NuxtLink to="/library/playlists"><Icon name="playlist" /> <h1>Playlists</h1></NuxtLink>
+      <NuxtLink to="/library/playlist"><Icon name="playlist" /> <h1>Playlists</h1></NuxtLink>
 
       <p>Playlists you create or save will show up here.</p>
     </section>
 
     <section class="watch-later">
-      <NuxtLink to="/librar/playlists?list=WL"><Icon name="watch-later" /> <h1>Watch later</h1></NuxtLink>
+      <NuxtLink to="/librar/playlist?list=WL"><Icon name="watch-later" /> <h1>Watch later</h1></NuxtLink>
 
       <section class="videos">
         <Video :video="video" v-for="(video, index) in videos.slice(8, 12)" :key="index" />
@@ -32,7 +32,7 @@ export default Vue.extend({
     </section>
 
     <section class="liked-videos">
-      <NuxtLink to="/library/playlists?list=LV"><Icon name="like" /> <h1>Liked videos</h1></NuxtLink>
+      <NuxtLink to="/library/playlist?list=LV"><Icon name="like" /> <h1>Liked videos</h1></NuxtLink>
 
       <section class="videos">
         <Video :video="video" v-for="(video, index) in videos.slice(12, 16)" :key="index" />

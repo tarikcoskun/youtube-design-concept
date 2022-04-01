@@ -19,14 +19,14 @@ export default Vue.extend({
   <NuxtLink class="video" :to="`/watch?v=${video.id}`">
     <SmartImage class="thumbnail" :src="`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`" radius="4" cover />
     <footer>
-      <NuxtLink class="channel" :to="`/channel/${video.channel.url}`">
+      <NuxtLink class="channel" :to="`/channel/${video.channel.id}`">
         <SmartImage :src="video.channel.avatar" width="32" height="32" radius="rounded" />
       </NuxtLink>
 
       <aside>
         <h1 class="title" :title="video.title">{{ video.title }}</h1>
         <sub>
-          <NuxtLink class="channel-name" :to="`/channel/${video.channel.url}`">{{ video.channel.name }}</NuxtLink>
+          <NuxtLink class="channel-name" :to="`/channel/${video.channel.id}`">{{ video.channel.name }}</NuxtLink>
           <span class="date">{{ getReadableDate(video.publishedAt) }}</span>
         </sub>
       </aside>
@@ -43,7 +43,7 @@ a.video {
 
   figure.thumbnail {
     width: 100%; aspect-ratio: 16/9;
-    @include mobile { border-radius: 0 !important}
+    @include mobile { border-radius: 0 !important }
   }
 
   footer {

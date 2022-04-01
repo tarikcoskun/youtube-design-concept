@@ -24,7 +24,7 @@ export default Vue.extend({
       <aside class="user">
         <button class="notifications action"><Icon name="notifications" /></button>
         <button class="search action"><Icon name="search" /></button>
-        <button class="avatar action"><SmartImage src="/avatars/me.png" width="32" height="32" radius="rounded" /></button>
+        <button class="avatar action"><Icon name="user" /></button>
       </aside>
     </header>
 
@@ -40,15 +40,14 @@ export default Vue.extend({
         <aside class="library">
           <NuxtLink to="/library"><Icon name="library" /> <h1>Library</h1></NuxtLink>
           <NuxtLink to="/library/history"><Icon name="history" /> <h1>History</h1></NuxtLink>
-          <NuxtLink to="/library/playlists"><Icon name="playlist" /> <h1>Playlists</h1></NuxtLink>
-          <NuxtLink to="/library/playlists?list=WL"><Icon name="watch-later" /> <h1>Watch later</h1></NuxtLink>
-          <NuxtLink to="/library/playlists?list=LV"><Icon name="like" /> <h1>Liked videos</h1></NuxtLink>
+          <NuxtLink to="/library/playlist?list=WL"><Icon name="watch-later" /> <h1>Watch later</h1></NuxtLink>
+          <NuxtLink to="/library/playlist?list=LV"><Icon name="like" /> <h1>Liked videos</h1></NuxtLink>
         </aside>
 
         <aside class="subscriptions">
           <h1>SUBSCRIPTIONS</h1>
 
-          <NuxtLink :to="`/channel/${channel.url}`" v-for="(channel, index) in channels" :key="index">
+          <NuxtLink :to="`/channel/${channel.id}`" v-for="(channel, index) in channels" :key="index">
             <SmartImage :src="channel.avatar" width="24" height="24" radius="rounded" /> <h1>{{ channel.name }}</h1>
           </NuxtLink>
           <!-- <NuxtLink to="/explore"><Icon name="add-circle" /> <h1>Browse channels</h1></NuxtLink> -->
@@ -112,7 +111,10 @@ header.navigation {
     &.user {
       @include flex(center, $gap: 8px);
       @include mobile { button.search { display: flex !important } }
-      button.avatar { padding: 4px }
+      button.avatar {
+        padding: 4px;
+        svg { width: 32px }
+      }
       button.search { display: none }
     }
   }

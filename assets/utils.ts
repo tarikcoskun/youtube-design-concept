@@ -19,9 +19,9 @@ export const splitDate = (date: Date): string => {
   const diff = now.diff(createdAt, "days")
 
   if (diff === 0) return "Today"
-  else if (diff >= 1 && diff < 7) return "This weeek"
-  else if (diff >= 7 && diff < 30) return "This month"
-  else if (diff >= 30 && diff < 365) return "This year"
+  else if (diff > 0 && diff <= 7) return "This week"
+  else if (diff > 7 && diff <= 30) return "This month"
+  else if (diff > 30 && diff <= 365) return "This year"
   else return `${Math.floor(diff / 365)} year${Math.floor(diff / 365) > 1 ? "s": ""} ago`
 }
 
@@ -126,12 +126,12 @@ const videosRef = {
   ]
 }
 
-export const channel = (url: string): Channel => {
-  const channel = <Channel>channelsRef.find((channel) => channel.name === url.replace(/\-/g, " "))
+export const channel = (id: string): Channel => {
+  const channel = <Channel>channelsRef.find((channel) => channel.name === id.replace(/\-/g, " "))
   const name = channel.name.replace(/\s/g, "-")
   return {
     ...channel,
-    url: name,
+    id: name,
     avatar: `/avatars/${name.toLowerCase()}.png`,
     banner: `/banners/${name.toLowerCase()}.png`
   }
@@ -153,3 +153,16 @@ export const groupedVideosByDate = videosArray.reduce((reduced: Videos, value: V
   (reduced[splitDate(new Date(value.publishedAt))] = reduced[splitDate(new Date(value.publishedAt))] || []).push(value)
   return reduced
 }, {})
+
+export const playlists = [
+  {
+    id: "WL",
+    name: "Watch later",
+    videos: groupedVideos["Fireship"]
+  },
+  {
+    id: "LV",
+    name: "Liked videos",
+    videos: groupedVideos["TheOdd1sOut"]
+  }
+]

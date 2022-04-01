@@ -1,20 +1,17 @@
 <script lang="ts">
 import Vue from "vue"
-import { Channel } from "@/types/Video"
 import { channels } from "@/assets/utils"
 
 export default Vue.extend({
   data() {
-    return {
-      channels: channels.filter((channel: Channel) => channel.url !== this.$route.params.url)
-    }
+    return { channels: channels.filter((channel) => channel.id !== this.$route.params.id) }
   }
 })
 </script>
 
 <template>
   <section id="channels">
-    <NuxtLink class="channel" :to="`/channel/${channel.url}`" v-for="(channel, index) in channels" :key="index">
+    <NuxtLink class="channel" :to="`/channel/${channel.id}`" v-for="(channel, index) in channels" :key="index">
       <SmartImage :src="channel.avatar" width="80" height="80" radius="rounded" />
       <footer>
         <h1>{{ channel.name }}</h1>

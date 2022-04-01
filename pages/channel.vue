@@ -4,9 +4,11 @@ import { channel } from "@/assets/utils"
 
 export default Vue.extend({
   data() {
-    return {
-      channel: channel(this.$route.params.url)
-    }
+    return { channel: channel(this.$route.params.id) }
+  },
+
+  watch: {
+    $route() { this.channel = channel(this.$route.params.id) }
   }
 })
 </script>
@@ -32,12 +34,12 @@ export default Vue.extend({
     </section>
 
     <section class="tabs">
-      <NuxtLink :to="`/channel/${channel.url}`">Home</NuxtLink>
-      <NuxtLink :to="`/channel/${channel.url}/videos`">Videos</NuxtLink>
-      <NuxtLink :to="`/channel/${channel.url}/playlists`">Playlists</NuxtLink>
-      <NuxtLink :to="`/channel/${channel.url}/community`">Community</NuxtLink>
-      <NuxtLink :to="`/channel/${channel.url}/channels`">Channels</NuxtLink>
-      <NuxtLink :to="`/channel/${channel.url}/about`">About</NuxtLink>
+      <NuxtLink :to="`/channel/${channel.id}`">Home</NuxtLink>
+      <NuxtLink :to="`/channel/${channel.id}/videos`">Videos</NuxtLink>
+      <NuxtLink :to="`/channel/${channel.id}/playlists`">Playlists</NuxtLink>
+      <NuxtLink :to="`/channel/${channel.id}/community`">Community</NuxtLink>
+      <NuxtLink :to="`/channel/${channel.id}/channels`">Channels</NuxtLink>
+      <NuxtLink :to="`/channel/${channel.id}/about`">About</NuxtLink>
     </section>
 
     <NuxtChild />

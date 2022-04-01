@@ -25,7 +25,7 @@ export default Vue.extend({
 
     <section class="recommended-channel">
       <header>
-        <NuxtLink :to="`/channel/${channel.url}`" class="channel">
+        <NuxtLink :to="`/channel/${channel.id}`" class="channel">
           <SmartImage :src="channel.avatar" width="36" height="36" radius="rounded" />
           <aside>
             <h1>{{ channel.name }}</h1>
@@ -68,6 +68,7 @@ aside.content#explore {
         cursor: pointer;
         border-radius: 8px;
         background: var(--gray);
+        &:hover { background: var(--active) }
         @include flex(center, $dir: column, $gap: 12px);
         @include mobile { flex: 0 0 32% }
 

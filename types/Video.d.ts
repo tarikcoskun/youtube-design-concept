@@ -5,7 +5,7 @@ export interface Video {
 }
 
 export interface Channel {
-  url:    string
+  id:     string
   name:   string
   subs:   number
   avatar: string
