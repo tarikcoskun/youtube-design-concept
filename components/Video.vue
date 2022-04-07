@@ -42,7 +42,7 @@ a.video {
   @include mobile { gap: 0 }
 
   figure.thumbnail {
-    width: 100%; aspect-ratio: 16/9;
+    width: 100%; aspect-ratio: 16/8.9;
     @include mobile { border-radius: 0 !important }
   }
 

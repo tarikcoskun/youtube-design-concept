@@ -27,9 +27,11 @@ section#videos {
   @include mobile { padding: 16px }
 
   > h1 { padding-bottom: 16px; font-size: 20px; font-weight: 600 }
+
   section.videos {
     @include grid(4, $mb: 1);
     @include mobile { gap: 16px }
+
     a.video {
       footer a.channel { display: none }
       @include mobile {

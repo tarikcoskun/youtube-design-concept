@@ -7,7 +7,11 @@ export default Vue.extend({
     videos,
     activeTag: "All",
     tags: ["All", "Trending", "Music", "Gaming", "Sports", "Live", "News", "Piano", "Web development", "Airplane", "Computer", "Animation", "Recently uploaded"]
-  })
+  }),
+
+  mounted() {
+    console.log(videos)
+  }
 })
 </script>
 

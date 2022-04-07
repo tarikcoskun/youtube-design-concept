@@ -1,13 +1,14 @@
 <script lang="ts">
 import Vue from "vue"
-import { getReadableDate, groupedVideos, videos, channel } from "@/assets/utils"
+import { getReadableDate, findChannel, videos, groupedVideos } from "@/assets/utils"
 
 export default Vue.extend({
   methods: { getReadableDate },
+
   data: () => ({
     videos,
     groupedVideos,
-    channel: channel("jdh")
+    channel: findChannel("jdh")
   })
 })
 </script>

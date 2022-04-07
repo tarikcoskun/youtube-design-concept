@@ -1,15 +1,15 @@
 <script lang="ts">
 import Vue from "vue"
-import { groupedVideosByDate } from "@/assets/utils"
+import { groupedVideos } from "@/assets/utils"
 
 export default Vue.extend({
-  data: () => ({ groupedVideosByDate })
+  data: () => ({ groupedVideos })
 })
 </script>
 
 <template>
   <aside class="content" id="subscriptions">
-    <section class="videos-container" v-for="([date, videos], index) in Object.entries(groupedVideosByDate)" :key="index">
+    <section class="videos-container" v-for="([date, videos], index) in Object.entries(groupedVideos)" :key="index">
       <h1>{{ date }}</h1>
 
       <section class="videos">

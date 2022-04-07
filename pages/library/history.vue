@@ -48,9 +48,14 @@ aside.content#history {
 
         a.video {
           footer a.channel { display: none }
+
           @include mobile {
             @include grid(2);
-            footer { padding: 0 }
+
+            footer {
+              padding: 0;
+              aside sub span.date { display: none }
+            }
           }
         }
       }

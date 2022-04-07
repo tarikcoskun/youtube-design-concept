@@ -1,10 +1,10 @@
 <script lang="ts">
 import Vue from "vue"
-import { channel } from "@/assets/utils"
+import { findChannel } from "@/assets/utils"
 
 export default Vue.extend({
   data() {
-    return { channel: channel(this.$route.params.id) }
+    return { channel: findChannel(this.$route.params.id) }
   }
 })
 </script>

@@ -1,20 +1,20 @@
 <script lang="ts">
 import Vue from "vue"
-import { channel } from "@/assets/utils"
+import { findChannel } from "@/assets/utils"
 
 export default Vue.extend({
   data() {
-    return { channel: channel(this.$route.params.id) }
+    return { channel: findChannel(this.$route.params.id) }
   },
 
   watch: {
-    $route() { this.channel = channel(this.$route.params.id) }
+    $route() { this.channel = findChannel(this.$route.params.id) }
   }
 })
 </script>
 
 <template>
-  <aside class="content">
+  <aside class="content" id="channel">
     <section class="channel">
       <SmartImage class="banner" :src="channel.banner" height="180" cover />
       <footer>
@@ -46,10 +46,10 @@ export default Vue.extend({
   </aside>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "@/assets/css/mixins.scss";
 
-aside.content {
+aside.content#channel {
   section {
     &.channel {
       > footer {
