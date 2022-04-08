@@ -91,7 +91,7 @@ aside.content#error {
       border-radius: 4px;
       border: 1px solid var(--gray);
       color: var(--red); font-weight: 500;
-      &:hover { background: var(--bg-red) }
+      &:hover { background: var(--bg-red); border-color: var(--bg-red) }
     }
   }
 }

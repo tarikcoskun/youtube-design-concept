@@ -99,7 +99,7 @@ aside.content#history {
         @include flex(center, $gap: 20px);
         @include mobile { display: none }
 
-        &:hover { background: var(--bg-red) }
+        &:hover { background: var(--bg-red); border-color: var(--bg-red) }
       }
     }
   }
