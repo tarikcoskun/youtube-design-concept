@@ -3,6 +3,7 @@ import Vue from "vue"
 import { channels } from "@/assets/utils"
 
 export default Vue.extend({
+  name: "DefaultLayout",
   data: () => ({ channels, sidebarCollapsed: false })
 })
 </script>
@@ -153,7 +154,6 @@ main {
         a {
           font-weight: 500;
           padding: 10px 24px;
-          transition: 150ms background;
           border-radius: 0 9999px 9999px 0;
           @include flex(center, $gap: 16px);
           @include mobile {

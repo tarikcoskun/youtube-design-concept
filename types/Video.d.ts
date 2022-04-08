@@ -2,6 +2,7 @@ export interface Video {
   id:          string
   title:       string
   publishedAt: string
+  channel:     Channel
 }
 
 export interface Channel {
@@ -11,6 +12,3 @@ export interface Channel {
   avatar: string
   banner: string
 }
-
-export type Videos = { [key: string]: VideoChannel[] }
-export type VideoChannel = Video & { channel: Channel }

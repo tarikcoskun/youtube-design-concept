@@ -96,12 +96,10 @@ aside.content#history {
         cursor: pointer;
         border-radius: 4px;
         border: 1px solid var(--gray);
-        transition: 150ms background, 150ms box-shadow;
         @include flex(center, $gap: 20px);
         @include mobile { display: none }
 
-        &:hover { background: var(--hover) }
-        &:focus { box-shadow: 0 1px 4px var(--shadow) }
+        &:hover { background: var(--bg-red) }
       }
     }
   }

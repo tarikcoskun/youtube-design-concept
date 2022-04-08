@@ -1,5 +1,5 @@
 import moment from "moment"
-import type { Videos, Channel, VideoChannel } from "@/types/Video"
+import type { Video, Channel } from "@/types/Video"
 
 export const getReadableDate = (date: Date): string => {
   const now = moment()
@@ -25,12 +25,11 @@ export const splitDate = (date: Date): string => {
   else return `${Math.floor(diff / 365)} year${Math.floor(diff / 365) > 1 ? "s": ""} ago`
 }
 
-export const findChannel = (id: string): Channel => {
-  const channel = <Channel>channelsRef.find((channel) => channel.name === id.replace(/\-/g, " "))
-  const name = channel.name.replace(/\s/g, "-")
+export const findChannel = (name: string): Channel => {
+  const channel = <Channel>channelsRef.find((channel) => channel.name === name.replace(/\-/g, " "))
+  const id = channel.name.replace(/\s/g, "-")
   return {
-    ...channel,
-    id: name,
+    ...channel, id,
     avatar: `/avatars/${name.toLowerCase()}.png`,
     banner: `/banners/${name.toLowerCase()}.png`
   }
@@ -45,7 +44,7 @@ const channelsRef = [
 
 export const channels = channelsRef.map((channel) => findChannel((channel.name).replace(/\-/g, " ")))
 
-export const videos: VideoChannel[] = [
+export const videos: Video[] = [
   {
     id: "BwRWgIRW4Ls",
     title: "Building my indie game: one month of progress",
@@ -142,10 +141,10 @@ export const videos: VideoChannel[] = [
     publishedAt: "2021-06-27T16:05:13Z",
     channel: findChannel("TheOdd1sOut")
   }
-].sort((a: VideoChannel, b: VideoChannel) => (a.publishedAt < b.publishedAt) ? 1 : -1)
+].sort((a: Video, b: Video) => (a.publishedAt < b.publishedAt) ? 1 : -1)
 
-export const groupedVideos = videos.reduce((reduced: Videos, value: VideoChannel) => {
-  (reduced[value.channel.name] = reduced[value.channel.name] || []).push(value)
+export const groupedVideos = videos.reduce((reduced: {[key: string]: Video[]}, video: Video) => {
+  (reduced[video.channel.name] = reduced[video.channel.name] || []).push(video)
   return reduced
 }, {})
 

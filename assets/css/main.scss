@@ -10,7 +10,7 @@
   --hover: #0000000f;
   --active: #e8eaed;
   --shadow: #00000048;
-  --bg-red: #d9302528;
+  --bg-red: #d9302516;
 }
 
 * {
@@ -35,7 +35,6 @@
     padding: 8px;
     cursor: pointer;
     border-radius: 9999px;
-    transition: 150ms background;
     &:hover { background: var(--hover) }
   }
 }
@@ -48,8 +47,8 @@ svg:not(.logo) {
 }
 
 button {
+  cursor: pointer;
   background: transparent;
-  transition: 150ms background, 150ms border-color;
   @include flex(center, center);
 
   &.subscribe {

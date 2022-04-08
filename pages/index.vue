@@ -56,7 +56,7 @@ aside.content#home {
         border-radius: 9999px;
         background: var(--gray);
         &:hover { background: var(--active) }
-        &.active { color: var(--red); background: var(--bg-red); border-color: var(--bg-red) }
+        &.active { color: var(--red); background: var(--bg-red) }
       }
 
       aside {

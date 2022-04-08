@@ -1,9 +1,15 @@
 <script lang="ts">
 import Vue from "vue"
-import { groupedVideos } from "@/assets/utils"
+import type { Video } from "@/types/Video"
+import { splitDate, videos } from "@/assets/utils"
 
 export default Vue.extend({
-  data: () => ({ groupedVideos })
+  data: () => ({
+    groupedVideos: videos.reduce((reduced: {[key: string]: Video[]}, video: Video) => {
+      (reduced[splitDate(new Date(video.publishedAt))] = reduced[splitDate(new Date(video.publishedAt))] || []).push(video)
+      return reduced
+    }, {})
+  })
 })
 </script>
 
