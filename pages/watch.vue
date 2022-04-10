@@ -27,7 +27,7 @@ export default Vue.extend({
             <span class="date">{{ getReadableDate(video.publishedAt) }}</span>
             <aside>
               <button><Icon name="like" /> <h1>10K</h1></button>
-              <button><Icon name="dislike" /> <h1>24</h1></button>
+              <button><Icon name="dislike" /> <h1>120</h1></button>
               <button class="share"><Icon name="share" /> <h1>Share</h1></button>
               <button><Icon name="playlist-add" /> <h1>Save</h1></button>
             </aside>
@@ -136,7 +136,15 @@ aside.content#watch {
               }
             }
 
-            aside.subscribe { @include flex(center, $gap: 16px) }
+            aside.subscribe {
+              @include flex(center, $gap: 16px);
+
+              button.subscribe {
+                text-transform: uppercase;
+                color: var(--icon); font-size: 18px;
+                padding: 0; background: transparent;
+              }
+            }
           }
         }
       }

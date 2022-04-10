@@ -9,7 +9,7 @@ export default Vue.extend({
 </script>
 
 <template>
-  <div :id="$route.name ? $route.name : 'error-page'">
+  <div :id="$route.name ? $route.name + '-page' : 'error-page'">
     <header class="navigation">
       <aside class="brand">
         <button class="menu action" @click="sidebarCollapsed = !sidebarCollapsed"><Icon name="menu" /></button>
@@ -29,7 +29,7 @@ export default Vue.extend({
       </aside>
     </header>
 
-    <main :class="{ compact: sidebarCollapsed }">
+    <main :class="($route.name === null || $route.name === 'watch') ? { sidebar: sidebarCollapsed } : { compact: sidebarCollapsed }">
       <aside class="sidebar">
         <aside class="links">
           <NuxtLink to="/"><Icon name="home" /> <h1>Home</h1></NuxtLink>
@@ -195,32 +195,8 @@ div {
         @include mobile { max-height: calc(100vh - 57px - 61px) }
       }
     }
-  }
 
-  &#watch, &#error-page {
-    main {
-      aside.content { @include mobile { max-height: calc(100vh - 57px) } }
-      &:not(.compact) aside.sidebar { display: none }
-      &.compact aside {
-        &.sidebar { position: fixed; z-index: 10 }
-        &.content {
-          filter: blur(8px);
-          position: relative;
-          pointer-events: none;
-
-          &::after {
-            content: "";
-            background: #00000090;
-            width: 100%; height: 100%;
-            position: fixed; top: 0; right: 0;
-          }
-        }
-      }
-    }
-  }
-
-  &:not(#watch) {
-    main.compact aside.sidebar {
+    &.compact aside.sidebar {
       width: 72px;
 
       h1 { display: none }
@@ -231,6 +207,22 @@ div {
 
         a { padding: 10px; border-radius: 9999px }
         &.subscriptions { display: none }
+      }
+    }
+  }
+
+  &#watch-page, &#error-page {
+    main {
+      aside.content { @include mobile { max-height: calc(100vh - 57px) } }
+
+      &:not(.sidebar) aside.sidebar { display: none }
+      &.sidebar aside {
+        &.sidebar { position: fixed; z-index: 10 }
+        &.content {
+          filter: blur(48px);
+          position: relative;
+          pointer-events: none;
+        }
       }
     }
   }
