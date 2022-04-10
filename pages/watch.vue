@@ -138,11 +138,12 @@ aside.content#watch {
 
             aside.subscribe {
               @include flex(center, $gap: 16px);
-
-              button.subscribe {
-                text-transform: uppercase;
-                color: var(--icon); font-size: 18px;
-                padding: 0; background: transparent;
+              @include mobile {
+                button.subscribe {
+                  text-transform: uppercase;
+                  color: var(--icon); font-size: 18px;
+                  padding: 0; background: transparent;
+                }
               }
             }
           }
