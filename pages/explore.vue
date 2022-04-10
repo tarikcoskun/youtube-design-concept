@@ -62,6 +62,7 @@ aside.content#explore {
       @include mobile {
         padding: 16px; overflow-x: auto;
         @include flex($gap: 16px);
+        &::-webkit-scrollbar { display: none }
       }
 
       button {
@@ -114,6 +115,7 @@ aside.content#explore {
         @include mobile {
           padding: 16px;
           @include flex($gap: 16px); overflow-x: auto;
+          &::-webkit-scrollbar { display: none }
         }
 
         a.video {

@@ -79,34 +79,41 @@ export default Vue.extend({
 aside.content#watch {
   padding: 24px 32px;
   @include flex($gap: 24px);
+  @include mobile { padding: 0; flex-direction: column }
 
   aside {
     &.video {
-      flex: 0 0 64%;
+      flex: 1 0 auto;
       @include flex($dir: column);
 
-      iframe { aspect-ratio: 16/9 }
+      iframe { aspect-ratio: 16/9; border-radius: 2px }
 
       header {
+        padding: 20px 0;
+        @include flex($dir: column, $gap: 20px);
+        @include mobile { padding: 16px }
+
         hr { border-top: 2px solid var(--gray) }
 
-        > aside {
-          padding: 20px 0;
-
+        aside {
           &.video-info {
             @include flex($dir: column, $gap: 8px);
 
             h1 { font-size: 20px }
             sub {
-              @include flex(center, space-between);
+              @include flex(center, space-between, $gap: 16px);
+              @include mobile { flex-direction: column; align-items: flex-start }
 
               span.date { color: var(--icon) }
               aside {
                 @include flex($gap: 24px);
+                @include mobile { width: 100%; overflow-x: auto }
 
                 button {
                   padding: 4px;
+                  flex: 0 0 16%;
                   @include flex(center, $gap: 8px);
+                  @include mobile { flex-direction: column }
 
                   h1 { color: var(--icon); font-size: 16px; font-weight: 500 }
                   &.share svg { transform: rotateY(180deg) }
@@ -136,7 +143,9 @@ aside.content#watch {
     }
 
     &.recommendations {
+      width: 32%;
       @include flex($dir: column, $gap: 16px);
+      @include mobile { width: auto; gap: 0 }
 
       section {
         &.tags {
@@ -155,7 +164,7 @@ aside.content#watch {
           aside {
             &.track {
               overflow-x: auto;
-              padding-right: 116px;
+              padding-right: 100px;
               @include flex(center, $gap: 8px);
               @include mobile { padding: 12px }
 
@@ -165,7 +174,7 @@ aside.content#watch {
             &.controls {
               z-index: 1;
               height: 100%;
-              position: absolute; top: 0; right: 16px;
+              position: absolute; top: 0; right: 0;
               @include flex(center, $gap: 4px);
               @include mobile { display: none }
 
@@ -180,21 +189,23 @@ aside.content#watch {
           }
 
           div.overlay-end {
-            width: 116px; height: 100%;
+            width: 100px; height: 100%;
             position: absolute; right: 0; top: 0;
             background: linear-gradient(to right, transparent, var(--bg) 16% 100%);
-            @include mobile { background: linear-gradient(to right, transparent, var(--bg)) }
+            @include mobile { width: 16px; background: linear-gradient(to right, transparent, var(--bg)) }
           }
         }
 
         &.videos {
-          @include flex($dir: column, $gap: 8px);
+          @include mobile { padding: 16px }
+          @include flex($dir: column, $gap: 12px);
 
           a.video {
             flex-direction: row;
 
-            figure.thumbnail { flex: 0 0 180px }
+            figure.thumbnail { flex: 0 0 180px; height: 100% }
             footer {
+              @include mobile { padding: 0 16px }
               a.channel { display: none }
               aside sub { flex-direction: column; gap: 4px }
             }

@@ -33,15 +33,15 @@ export default Vue.extend({
           <button class="action"><Icon name="notifications" /></button>
         </aside>
       </footer>
-    </section>
 
-    <section class="tabs">
-      <NuxtLink :to="`/channel/${channel.id}`">Home</NuxtLink>
-      <NuxtLink :to="`/channel/${channel.id}/videos`">Videos</NuxtLink>
-      <NuxtLink :to="`/channel/${channel.id}/playlists`">Playlists</NuxtLink>
-      <NuxtLink :to="`/channel/${channel.id}/community`">Community</NuxtLink>
-      <NuxtLink :to="`/channel/${channel.id}/channels`">Channels</NuxtLink>
-      <NuxtLink :to="`/channel/${channel.id}/about`">About</NuxtLink>
+      <section class="tabs">
+        <NuxtLink :to="`/channel/${channel.id}`">Home</NuxtLink>
+        <NuxtLink :to="`/channel/${channel.id}/videos`">Videos</NuxtLink>
+        <NuxtLink :to="`/channel/${channel.id}/playlists`">Playlists</NuxtLink>
+        <NuxtLink :to="`/channel/${channel.id}/community`">Community</NuxtLink>
+        <NuxtLink :to="`/channel/${channel.id}/channels`">Channels</NuxtLink>
+        <NuxtLink :to="`/channel/${channel.id}/about`">About</NuxtLink>
+      </section>
     </section>
 
     <NuxtChild />
@@ -52,34 +52,57 @@ export default Vue.extend({
 @import "@/assets/css/mixins.scss";
 
 aside.content#channel {
-  section {
-    &.channel {
-      footer {
-        padding: 24px 32px;
-        @include mobile { padding: 16px }
-        @include flex(center, space-between);
+  section.channel {
+    @include flex($dir: column);
 
-        aside {
-          @include flex(center, $gap: 16px);
+    figure.banner { height: 120px !important }
 
-          &.information aside {
+    footer {
+      padding: 24px 32px;
+      @include flex(center, space-between, $gap: 16px);
+      @include mobile { padding: 16px; flex-direction: column }
+
+      aside {
+        @include flex(center, $gap: 16px);
+
+        &.information {
+          @include mobile { flex-direction: column }
+
+          figure.image { width: 64px !important; height: 64px !important; flex-shrink: 0 }
+
+          aside {
             @include flex($dir: column, $gap: 4px);
+            @include mobile { align-items: center }
 
-            h1 { font-size: 24px; font-weight: 600 }
+            h1 { font-size: 24px; font-weight: 500 }
             sub { color: var(--icon) }
+          }
+        }
+
+        &.subscribe {
+          @include mobile {
+            position: relative;
+
+            button.subscribe {
+              text-transform: uppercase;
+              color: var(--icon); font-size: 18px;
+              padding: 0; background: transparent;
+            }
+
+            button.action { position: absolute; right: -48px }
           }
         }
       }
     }
 
-    &.tabs {
-      @include flex;
+    section.tabs {
       padding: 0 32px;
       overflow-x: auto;
       background: var(--bg);
       position: sticky; top: 0;
       border-bottom: 1px solid var(--gray);
-      @include mobile { padding: 0 }
+      @include flex;
+      @include mobile { padding: 0; order: -1; border: none }
 
       a {
         font-weight: 500;

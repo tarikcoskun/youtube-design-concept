@@ -199,6 +199,7 @@ div {
 
   &#watch, &#error-page {
     main {
+      aside.content { @include mobile { max-height: calc(100vh - 57px) } }
       &:not(.compact) aside.sidebar { display: none }
       &.compact aside {
         &.sidebar { position: fixed; z-index: 10 }
@@ -209,8 +210,9 @@ div {
 
           &::after {
             content: "";
-            background: var(--shadow);
-            position: absolute; top: 0; bottom: 0; left: 0; right: 0;
+            background: #00000090;
+            width: 100%; height: 100%;
+            position: fixed; top: 0; right: 0;
           }
         }
       }

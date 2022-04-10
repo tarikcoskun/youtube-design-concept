@@ -49,6 +49,7 @@ aside.content#library {
 
   > section {
     padding: 24px;
+    @include mobile { padding: 16px }
     @include flex($dir: column, $gap: 16px);
 
     > a {
@@ -60,7 +61,7 @@ aside.content#library {
 
     section.videos {
       @include grid(4, $mb: 1);
-      @include mobile { gap: 16px }
+      @include mobile { gap: 12px }
 
       a.video {
         footer a.channel { display: none }

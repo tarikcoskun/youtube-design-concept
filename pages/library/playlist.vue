@@ -18,7 +18,7 @@ export default Vue.extend({
   <aside class="content" id="playlist">
     <aside class="sidebar">
       <header>
-        <SmartImage class="thumbnail" :src="`https://i.ytimg.com/vi/${playlist.videos[0].id}/hqdefault.jpg`" radius="4" cover />
+        <SmartImage class="thumbnail" :src="`https://i.ytimg.com/vi/${playlist.videos[0].id}/hqdefault.jpg`" radius="2" cover />
 
         <aside>
           <h1>{{ playlist.name }}</h1>
