@@ -54,8 +54,7 @@ export default Vue.extend({
 aside.content#channel {
   section.channel {
     @include flex($dir: column);
-
-    figure.banner { height: 120px !important }
+    @include mobile { figure.banner { height: 120px !important } }
 
     footer {
       padding: 24px 32px;

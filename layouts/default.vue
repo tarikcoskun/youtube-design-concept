@@ -149,7 +149,7 @@ div {
 
           > h1 {
             margin: 0 0 8px 24px;
-            color: var(--icon); font-size: 14px; font-weight: 600;
+            color: var(--icon); font-size: 14px; font-weight: 500;
           }
 
           a {
@@ -167,7 +167,7 @@ div {
             &.nuxt-link-exact-active {
               background: var(--bg-red);
               svg path { fill: var(--red) }
-              h1 { color: var(--red); font-weight: 600 }
+              h1 { color: var(--red); font-weight: 500 }
               @include mobile {
                 background: unset;
                 position: relative;

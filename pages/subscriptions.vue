@@ -34,7 +34,7 @@ aside.content#subscriptions {
     @include mobile { padding: 0 }
 
     > h1 {
-      padding-bottom: 16px; font-size: 20px; font-weight: 600;
+      padding-bottom: 16px; font-size: 20px; font-weight: 500;
       @include mobile { display: none }
     }
 

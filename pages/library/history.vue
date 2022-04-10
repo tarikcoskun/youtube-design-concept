@@ -42,7 +42,7 @@ aside.content#history {
     @include mobile { padding: 16px }
 
     &.videos-container {
-      > h1 { padding-bottom: 16px; font-size: 20px; font-weight: 600 }
+      > h1 { padding-bottom: 16px; font-size: 20px; font-weight: 500 }
 
       section.videos {
         @include grid(3, $mb: 1);

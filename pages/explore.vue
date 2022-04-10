@@ -103,7 +103,7 @@ aside.content#explore {
           aside {
             @include flex(flex-end, $gap: 8px);
             @include mobile { align-items: flex-start; flex-direction: column }
-            h1 { font-size: 20px; font-weight: 600; line-height: 20px; @include mobile { line-height: unset } }
+            h1 { font-size: 20px; font-weight: 500; line-height: 20px; @include mobile { line-height: unset } }
             span { color: var(--icon); font-size: 14px }
           }
         }
@@ -129,7 +129,7 @@ aside.content#explore {
     &.videos-container {
       > h1 {
         padding: 24px;
-        font-size: 20px; font-weight: 600;
+        font-size: 20px; font-weight: 500;
         @include mobile { padding: 16px }
       }
 
