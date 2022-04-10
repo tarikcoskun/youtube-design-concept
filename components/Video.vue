@@ -17,7 +17,8 @@ export default Vue.extend({
 
 <template>
   <NuxtLink class="video" :to="`/watch?v=${video.id}`">
-    <SmartImage class="thumbnail" :src="`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`" radius="4" cover />
+    <SmartImage class="thumbnail" :src="`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`" radius="2" cover />
+
     <footer>
       <NuxtLink class="channel" :to="`/channel/${video.channel.id}`">
         <SmartImage :src="video.channel.avatar" width="32" height="32" radius="rounded" />
@@ -56,7 +57,7 @@ a.video {
 
       sub {
         font-size: 14px;
-        @include flex(center, $gap: 8px);
+        @include flex($gap: 8px);
 
         a.channel-name, span.date { font-size: inherit }
         span.date { color: var(--icon); flex-shrink: 0 }

@@ -4,7 +4,8 @@ import { findChannel } from "@/assets/utils"
 
 export default Vue.extend({
   data() {
-    return { channel: findChannel(this.$route.params.id) }
+    const channel = findChannel(this.$route.params.id)
+    return { channel }
   }
 })
 </script>
@@ -50,6 +51,7 @@ section#community {
 
     footer {
       @include flex(center, $gap: 12px);
+
       button {
         @include flex(center, $gap: 8px);
         svg { width: 20px }

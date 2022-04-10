@@ -4,7 +4,8 @@ import { playlists } from "@/assets/utils"
 
 export default Vue.extend({
   data() {
-    return { playlist: playlists.find((list) => list.id === this.$route.query.list) }
+    const playlist = playlists.find((list) => list.id === this.$route.query.list)
+    return { playlist }
   },
 
   watch: {
@@ -101,7 +102,7 @@ aside.content#playlist {
         flex-direction: row;
         &:hover { background: var(--hover) }
 
-        figure.thumbnail { width: 128px }
+        figure.thumbnail { flex: 0 0 128px }
         footer a.channel, footer aside sub span.date { display: none }
       }
     }

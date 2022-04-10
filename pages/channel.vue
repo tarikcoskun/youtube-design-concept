@@ -4,7 +4,8 @@ import { findChannel } from "@/assets/utils"
 
 export default Vue.extend({
   data() {
-    return { channel: findChannel(this.$route.params.id) }
+    const channel = findChannel(this.$route.params.id)
+    return { channel }
   },
 
   watch: {
@@ -17,13 +18,14 @@ export default Vue.extend({
   <aside class="content" id="channel">
     <section class="channel">
       <SmartImage class="banner" :src="channel.banner" height="180" cover />
+
       <footer>
         <aside class="information">
           <SmartImage :src="channel.avatar" width="80" height="80" radius="rounded" />
-          <footer>
+          <aside>
             <h1>{{ channel.name }}</h1>
-            <span>{{ Intl.NumberFormat("en-US", { notation: "compact" }).format(channel.subs) }} subscribers</span>
-          </footer>
+            <sub>{{ Intl.NumberFormat("en-US", { notation: "compact" }).format(channel.subs) }} subscribers</sub>
+          </aside>
         </aside>
 
         <aside class="subscribe">
@@ -52,7 +54,7 @@ export default Vue.extend({
 aside.content#channel {
   section {
     &.channel {
-      > footer {
+      footer {
         padding: 24px 32px;
         @include mobile { padding: 16px }
         @include flex(center, space-between);
@@ -60,11 +62,11 @@ aside.content#channel {
         aside {
           @include flex(center, $gap: 16px);
 
-          &.information footer {
+          &.information aside {
             @include flex($dir: column, $gap: 4px);
 
             h1 { font-size: 24px; font-weight: 600 }
-            span { color: var(--icon) }
+            sub { color: var(--icon) }
           }
         }
       }

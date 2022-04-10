@@ -42,13 +42,6 @@ aside.content#home {
       position: relative;
       border-bottom: 1px solid var(--gray);
 
-      div.overlay-start {
-        width: 24px; height: 100%;
-        position: absolute; left: 0;
-        background: linear-gradient(to right, var(--bg), transparent);
-        @include mobile { width: 12px }
-      }
-
       button {
         flex: 0 0 auto;
         cursor: pointer;
@@ -76,8 +69,16 @@ aside.content#home {
           position: absolute; top: 0; right: 24px;
           @include flex(center, $gap: 4px);
           @include mobile { display: none }
+
           button { padding: 6px }
         }
+      }
+
+      div.overlay-start {
+        width: 24px; height: 100%;
+        position: absolute; left: 0;
+        background: linear-gradient(to right, var(--bg), transparent);
+        @include mobile { width: 12px }
       }
 
       div.overlay-end {

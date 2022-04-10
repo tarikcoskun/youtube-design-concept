@@ -4,7 +4,8 @@ import { groupedVideos } from "@/assets/utils"
 
 export default Vue.extend({
   data() {
-    return { videos: groupedVideos[this.$route.params.id] }
+    const videos = groupedVideos[this.$route.params.id]
+    return { videos }
   }
 })
 </script>

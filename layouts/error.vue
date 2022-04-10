@@ -74,7 +74,7 @@ aside.content#error {
 
   pre.details {
     padding: 16px;
-    border-radius: 8px;
+    border-radius: 6px;
     max-width: fit-content;
     border: 1px solid var(--gray);
     @include flex($dir: column, $gap: 8px);
@@ -87,8 +87,8 @@ aside.content#error {
 
     a {
       cursor: pointer;
-      padding: 10px 24px;
-      border-radius: 4px;
+      padding: 10px 28px;
+      border-radius: 6px;
       border: 1px solid var(--gray);
       color: var(--red); font-weight: 500;
       &:hover { background: var(--bg-red); border-color: var(--bg-red) }

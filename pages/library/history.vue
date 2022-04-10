@@ -22,6 +22,7 @@ export default Vue.extend({
         <button class="action"><Icon name="search" /></button>
         <input type="text" placeholder="Search watch history" />
       </figure>
+
       <button><Icon name="trash" /> <h1>Clear all watch history</h1></button>
       <button><Icon name="pause" /> <h1>Pause watch history</h1></button>
       <button><Icon name="settings" /> <h1>Manage all history</h1></button>
@@ -69,37 +70,38 @@ aside.content#history {
       @include mobile { height: unset; padding: 0; width: 100%; position: unset; border: none }
 
       figure.search {
-        padding: 4px 4px;
-        border-radius: 4px;
-        background: var(--gray);
-        transition: 150ms background, 150ms box-shadow;
+        padding: 2px 0;
+        border-bottom: 2px solid var(--icon);
         @include flex(center);
-        @include mobile { border-radius: 0 }
+        @include mobile { background: var(--gray); border: none; border-radius: 0 }
 
         input {
           flex-grow: 1;
-          padding: 8px;
+          padding: 10px;
           font-size: 16px;
           background: transparent;
           &:focus { outline: none }
         }
 
         &:focus-within {
-          background: white;
-          box-shadow: 0 1px 4px var(--shadow);
           svg path, input, input::placeholder { fill: #5f6368; color: #5f6368 }
         }
       }
 
       > button {
-        padding: 8px;
+        padding: 10px;
         cursor: pointer;
-        border-radius: 4px;
+        border-radius: 6px;
         border: 1px solid var(--gray);
-        @include flex(center, $gap: 20px);
+        @include flex(center, $gap: 16px);
         @include mobile { display: none }
+        h1 { color: var(--icon); font-weight: 500 }
 
-        &:hover { background: var(--bg-red); border-color: var(--bg-red) }
+        &:hover {
+          background: var(--bg-red); border-color: var(--bg-red);
+          h1 { color: var(--red) }
+          svg path { fill: var(--red) }
+        }
       }
     }
   }

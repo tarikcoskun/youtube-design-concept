@@ -4,14 +4,15 @@ import { channels } from "@/assets/utils"
 
 export default Vue.extend({
   data() {
-    return { channels: channels.filter((channel) => channel.id !== this.$route.params.id) }
+    const featured = channels.filter((channel) => channel.id !== this.$route.params.id)
+    return { featured }
   }
 })
 </script>
 
 <template>
   <section id="channels">
-    <NuxtLink class="channel" :to="`/channel/${channel.id}`" v-for="(channel, index) in channels" :key="index">
+    <NuxtLink class="channel" :to="`/channel/${channel.id}`" v-for="(channel, index) in featured" :key="index">
       <SmartImage :src="channel.avatar" width="80" height="80" radius="rounded" />
       <footer>
         <h1>{{ channel.name }}</h1>
