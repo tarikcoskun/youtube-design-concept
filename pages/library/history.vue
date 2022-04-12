@@ -52,7 +52,7 @@ aside.content#history {
           footer a.channel { display: none }
 
           @include mobile {
-            @include grid(2);
+            @include grid(2, 12px);
 
             footer {
               padding: 0;
@@ -68,7 +68,7 @@ aside.content#history {
       height: calc(100vh - 65px);
       border-left: 1px solid var(--gray);
       @include flex($dir: column, $gap: 16px);
-      @include mobile { height: unset; padding: 0; width: 100%; position: unset; border: none }
+      @include mobile { height: auto; padding: 0; width: 100%; position: unset; border: none }
 
       figure.search {
         padding: 2px 0;

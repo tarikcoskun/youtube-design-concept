@@ -43,7 +43,11 @@ aside.content#subscriptions {
       @include mobile { gap: 0 }
 
       a.video footer {
-        h1 { font-size: 14px; @include mobile { font-size: unset } }
+        h1 {
+          font-size: 14px;
+          @include mobile { font-size: unset }
+        }
+
         a.channel {
           display: none;
           @include mobile { display: block }

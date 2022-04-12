@@ -26,7 +26,7 @@ export default Vue.extend({
           <sub>
             <span class="date">{{ getReadableDate(video.publishedAt) }}</span>
             <aside>
-              <button><Icon name="like" /> <h1>10K</h1></button>
+              <button><Icon name="like" /> <h1>1K</h1></button>
               <button><Icon name="dislike" /> <h1>120</h1></button>
               <button class="share"><Icon name="share" /> <h1>Share</h1></button>
               <button><Icon name="playlist-add" /> <h1>Save</h1></button>
@@ -79,18 +79,18 @@ export default Vue.extend({
 aside.content#watch {
   padding: 24px 32px;
   @include flex($gap: 24px);
-  @include mobile { padding: 0; flex-direction: column }
+  @include mobile { padding: 0; flex-direction: column; gap: 0 }
 
   aside {
     &.video {
       flex: 1 0 auto;
       @include flex($dir: column);
 
-      iframe { aspect-ratio: 16/9; border-radius: 2px }
+      iframe { aspect-ratio: 16/9 }
 
       header {
         padding: 20px 0;
-        @include flex($dir: column, $gap: 20px);
+        @include flex($dir: column, $gap: 16px);
         @include mobile { padding: 16px }
 
         hr { border-top: 2px solid var(--gray) }
@@ -126,7 +126,10 @@ aside.content#watch {
             @include flex(center, space-between);
 
             a.information {
-              @include flex(center, $gap: 16px);
+              @include flex(center, $gap: 12px);
+              @include mobile {
+                figure.image { width: 40px !important; height: 40px !important }
+              }
 
               aside {
                 @include flex($dir: column, $gap: 4px);
@@ -137,14 +140,8 @@ aside.content#watch {
             }
 
             aside.subscribe {
-              @include flex(center, $gap: 16px);
-              @include mobile {
-                button.subscribe {
-                  text-transform: uppercase;
-                  color: var(--icon); font-size: 18px;
-                  padding: 0; background: transparent;
-                }
-              }
+              @include flex(center, $gap: 12px);
+              @include mobile { gap: 0 }
             }
           }
         }
@@ -166,8 +163,9 @@ aside.content#watch {
             padding: 6px 16px;
             border-radius: 9999px;
             background: var(--gray);
+            border: 1px solid var(--hover);
             &:hover { background: var(--active) }
-            &.active { color: var(--red); background: var(--bg-red) }
+            &.active { color: var(--red); background: var(--bg-red); border-color: var(--bg-red) }
           }
 
           aside {
@@ -211,10 +209,10 @@ aside.content#watch {
 
           a.video {
             flex-direction: row;
+            @include grid(2, 12px);
 
-            figure.thumbnail { flex: 0 0 180px; height: 100% }
             footer {
-              @include mobile { padding: 0 16px }
+              padding: 0;
               a.channel { display: none }
               aside sub { flex-direction: column; gap: 4px }
             }

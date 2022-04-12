@@ -48,8 +48,9 @@ aside.content#home {
         padding: 6px 16px;
         border-radius: 9999px;
         background: var(--gray);
+        border: 1px solid var(--hover);
         &:hover { background: var(--active) }
-        &.active { color: var(--red); background: var(--bg-red) }
+        &.active { color: var(--red); background: var(--bg-red); border-color: var(--bg-red) }
       }
 
       aside {

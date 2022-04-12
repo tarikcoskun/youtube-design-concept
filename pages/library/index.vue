@@ -24,7 +24,7 @@ export default Vue.extend({
     </section>
 
     <section class="watch-later">
-      <NuxtLink to="/librar/playlist?list=WL"><Icon name="watch-later" /> <h1>Watch later</h1></NuxtLink>
+      <NuxtLink to="/library/playlist?list=WL"><Icon name="watch-later" /> <h1>Watch later</h1></NuxtLink>
 
       <section class="videos">
         <Video :video="video" v-for="(video, index) in videos.slice(8, 12)" :key="index" />
@@ -67,7 +67,7 @@ aside.content#library {
         footer a.channel { display: none }
 
         @include mobile {
-          @include grid(2);
+          @include grid(2, 12px);
 
           footer {
             padding: 0;

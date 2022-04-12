@@ -17,7 +17,7 @@ export default Vue.extend({
 
 <template>
   <NuxtLink class="video" :to="`/watch?v=${video.id}`">
-    <SmartImage class="thumbnail" :src="`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`" radius="2" cover />
+    <SmartImage class="thumbnail" :src="`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`" cover />
 
     <footer>
       <NuxtLink class="channel" :to="`/channel/${video.channel.id}`">
@@ -42,10 +42,7 @@ a.video {
   @include flex($dir: column, $gap: 16px);
   @include mobile { gap: 0 }
 
-  figure.thumbnail {
-    width: 100%; aspect-ratio: 16/8.9;
-    @include mobile { border-radius: 0 !important }
-  }
+  figure.thumbnail { width: 100%; aspect-ratio: 16/8.9 }
 
   footer {
     @include flex($gap: 12px);

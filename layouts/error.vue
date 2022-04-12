@@ -52,7 +52,7 @@ export default Vue.extend({
 
 aside.content#error {
   padding: 24px;
-  @include flex(unset, center, $dir: column, $gap: 24px);
+  @include flex($align: center, $dir: column, $gap: 24px);
 
   figure.status {
     @include flex($gap: 16px);

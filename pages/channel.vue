@@ -62,7 +62,7 @@ aside.content#channel {
       @include mobile { padding: 16px; flex-direction: column }
 
       aside {
-        @include flex(center, $gap: 16px);
+        @include flex(center, $gap: 12px);
 
         &.information {
           @include mobile { flex-direction: column }
@@ -81,14 +81,7 @@ aside.content#channel {
         &.subscribe {
           @include mobile {
             position: relative;
-
-            button.subscribe {
-              text-transform: uppercase;
-              color: var(--icon); font-size: 18px;
-              padding: 0; background: transparent;
-            }
-
-            button.action { position: absolute; right: -48px }
+            button.action { position: absolute; right: -36px }
           }
         }
       }

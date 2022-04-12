@@ -103,7 +103,7 @@ aside.content#explore {
           aside {
             @include flex(flex-end, $gap: 8px);
             @include mobile { align-items: flex-start; flex-direction: column }
-            h1 { font-size: 20px; font-weight: 500; line-height: 20px; @include mobile { line-height: unset } }
+            h1 { font-size: 20px; font-weight: 500; line-height: 20px; @include mobile { line-height: auto } }
             span { color: var(--icon); font-size: 14px }
           }
         }

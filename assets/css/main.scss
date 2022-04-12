@@ -58,6 +58,13 @@ button {
     padding: 10px 20px;
     border-radius: 9999px;
     background: var(--red);
+    @include mobile {
+      padding: 10px 14px;
+      color: var(--icon);
+      background: transparent;
+      font-size: 18px; text-transform: uppercase;
+      &:hover { background: var(--hover) }
+    }
   }
 }
 

@@ -36,11 +36,11 @@ section#community {
   padding: 24px;
 
   figure.post {
-    width: 75%;
     padding: 16px;
     border-radius: 8px;
     border: 1px solid var(--gray);
     @include flex($dir: column, $gap: 16px);
+    @include pc { width: 75% }
 
     header {
       @include flex(center, $gap: 12px);

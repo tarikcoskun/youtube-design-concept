@@ -51,7 +51,6 @@ export default Vue.extend({
           <NuxtLink :to="`/channel/${channel.id}`" v-for="(channel, index) in channels" :key="index">
             <SmartImage :src="channel.avatar" width="24" height="24" radius="rounded" /> <h1>{{ channel.name }}</h1>
           </NuxtLink>
-          <!-- <NuxtLink to="/explore"><Icon name="add-circle" /> <h1>Browse channels</h1></NuxtLink> -->
         </aside>
       </aside>
 
@@ -136,7 +135,7 @@ div {
         height: calc(100vh - 65px);
         position: sticky; top: 65px;
         border-right: 1px solid var(--gray);
-        @include mobile { width: 100%; height: unset; bottom: 0; border: none }
+        @include mobile { width: 100%; height: auto; bottom: 0; border: none }
 
         aside {
           padding: 12px 12px 12px 0;
@@ -169,8 +168,8 @@ div {
               svg path { fill: var(--red) }
               h1 { color: var(--red); font-weight: 500 }
               @include mobile {
-                background: unset;
                 position: relative;
+                background: transparent;
 
                 &::after {
                   content: "";

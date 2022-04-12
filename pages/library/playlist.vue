@@ -18,7 +18,7 @@ export default Vue.extend({
   <aside class="content" id="playlist">
     <aside class="sidebar">
       <header>
-        <SmartImage class="thumbnail" :src="`https://i.ytimg.com/vi/${playlist.videos[0].id}/hqdefault.jpg`" radius="2" cover />
+        <SmartImage class="thumbnail" :src="`https://i.ytimg.com/vi/${playlist.videos[0].id}/hqdefault.jpg`" cover />
 
         <aside>
           <h1>{{ playlist.name }}</h1>
@@ -30,10 +30,14 @@ export default Vue.extend({
         </aside>
       </header>
 
-      <button class="shuffle action"><Icon name="shuffle" /></button>
+      <footer>
+        <button class="action"><Icon name="shuffle" /></button>
+        <button class="action"><Icon name="edit" /></button>
+      </footer>
     </aside>
 
     <aside class="videos-container">
+      <button class="action play"><Icon name="play" /></button>
       <Video :video="video" v-for="(video, index) in playlist.videos" :key="index" />
     </aside>
   </aside>
@@ -44,15 +48,21 @@ export default Vue.extend({
 
 aside.content#playlist {
   @include flex(flex-start);
-  @include mobile { flex-direction: column-reverse }
+  @include mobile { flex-direction: column }
 
   > aside {
     &.sidebar {
-      width: 348px;
       padding: 24px;
       position: sticky; top: 0;
-      height: calc(100vh - 65px);
       border-right: 1px solid var(--gray);
+      width: 348px; height: calc(100vh - 65px);
+
+      @include mobile {
+        padding: 16px;
+        position: unset;
+        width: 100%; height: unset;
+        border: none; background: var(--gray)
+      }
 
       header {
         @include flex($dir: column, $gap: 16px);
@@ -61,7 +71,7 @@ aside.content#playlist {
           overflow: hidden;
           position: relative;
           width: 100%; aspect-ratio: 16/8.9;
-          @include mobile { border-radius: 0 !important }
+          @include mobile { display: none }
 
           &::after {
             content: "PLAY ALL";
@@ -90,20 +100,38 @@ aside.content#playlist {
         }
       }
 
-      button.shuffle { margin: 16px 0 0 -8px }
+      footer {
+        @include flex;
+        margin: 16px 0 0 -8px
+      }
     }
 
     &.videos-container {
       flex-grow: 1;
+      position: relative;
       @include flex($dir: column);
+      @include mobile { padding-top: 36px }
+
+      button.play {
+        display: none;
+        padding: 16px;
+        position: absolute; top: -28px; right: 16px;
+        background: var(--red);
+        svg path { fill: white }
+        @include mobile { display: flex }
+      }
 
       a.video {
         padding: 16px;
         flex-direction: row;
         &:hover { background: var(--hover) }
+        @include mobile { @include grid(2, 12px) }
 
         figure.thumbnail { flex: 0 0 128px }
-        footer a.channel, footer aside sub span.date { display: none }
+        footer {
+          @include mobile { padding: 0 }
+          a.channel, aside sub span.date { display: none }
+        }
       }
     }
   }
