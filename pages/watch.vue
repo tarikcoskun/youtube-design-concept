@@ -128,14 +128,21 @@ aside.content#watch {
             a.information {
               @include flex(center, $gap: 12px);
               @include mobile {
-                figure.image { width: 40px !important; height: 40px !important }
+                figure.image { flex-shrink: 0; width: 40px !important; height: 40px !important }
               }
 
               aside {
                 @include flex($dir: column, $gap: 4px);
 
-                h1 { font-size: 18px; font-weight: 500 }
-                sub { color: var(--icon); font-size: 14px }
+                h1 {
+                  font-size: 18px; font-weight: 500;
+                  @include mobile { font-size: 16px }
+                }
+
+                sub {
+                  color: var(--icon); font-size: 14px;
+                  @include mobile { font-size: 12px }
+                }
               }
             }
 

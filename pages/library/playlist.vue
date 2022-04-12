@@ -115,10 +115,10 @@ aside.content#playlist {
       button.play {
         display: none;
         padding: 16px;
-        position: absolute; top: -28px; right: 16px;
         background: var(--red);
-        svg path { fill: white }
+        position: absolute; top: -28px; right: 16px;
         @include mobile { display: flex }
+        svg path { fill: white }
       }
 
       a.video {
