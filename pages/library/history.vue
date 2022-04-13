@@ -9,7 +9,7 @@ export default Vue.extend({
 
 <template>
   <aside class="content" id="history">
-    <aside class="videos-container">
+    <aside class="container">
       <h1>History</h1>
 
       <section class="videos">
@@ -41,9 +41,7 @@ aside.content#history {
     padding: 24px;
     @include mobile { padding: 16px }
 
-    &.videos-container {
-      > h1 { padding-bottom: 16px; font-size: 20px; font-weight: 500 }
-
+    &.container {
       section.videos {
         @include grid(3, $mb: 1);
         @include mobile { gap: 16px }
@@ -65,8 +63,8 @@ aside.content#history {
 
     &.sidebar {
       position: sticky; top: 0;
-      height: calc(100vh - 65px);
       border-left: 1px solid var(--gray);
+      height: calc(100vh - var(--nav-height));
       @include flex($dir: column, $gap: 16px);
       @include mobile { height: auto; padding: 0; width: 100%; position: unset; border: none }
 

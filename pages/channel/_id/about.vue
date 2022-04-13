@@ -1,5 +1,5 @@
 <template>
-  <section id="about">
+  <section class="container" id="about">
 
   </section>
 </template>
@@ -8,6 +8,5 @@
 @import "@/assets/css/mixins.scss";
 
 section#about {
-  padding: 24px;
 }
 </style>

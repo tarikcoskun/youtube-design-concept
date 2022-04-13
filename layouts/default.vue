@@ -103,6 +103,7 @@ div {
         }
 
         &:focus-within {
+          --hover: #0000000f;
           background: white;
           box-shadow: 0 1px 4px var(--shadow);
           svg path, input, input::placeholder { fill: #5f6368; color: #5f6368 }
@@ -132,9 +133,9 @@ div {
         flex-shrink: 0;
         overflow-y: auto;
         background: var(--bg);
-        height: calc(100vh - 65px);
-        position: sticky; top: 65px;
         border-right: 1px solid var(--gray);
+        height: calc(100vh - var(--nav-height));
+        position: sticky; top: var(--nav-height);
         @include mobile { width: 100%; height: auto; bottom: 0; border: none }
 
         aside {
@@ -158,7 +159,7 @@ div {
             @include flex(center, $gap: 16px);
             @include mobile {
               padding: 8px; border-radius: 0;
-              flex-direction: column; flex-grow: 1; gap: 6px;
+              flex-direction: column; flex-grow: 1; gap: 4px;
               h1 { font-size: 12px }
             }
 
@@ -190,8 +191,8 @@ div {
       }
 
       &.content {
-        width: 100%; overflow-y: auto; max-height: calc(100vh - 65px);
-        @include mobile { max-height: calc(100vh - 57px - 61px) }
+        width: 100%; overflow-y: auto; max-height: calc(100vh - var(--nav-height));
+        @include mobile { max-height: calc(100vh - var(--nav-height) - 59px) }
       }
     }
 
@@ -212,7 +213,7 @@ div {
 
   &#watch-page, &#error-page {
     main {
-      aside.content { @include mobile { max-height: calc(100vh - 57px) } }
+      aside.content { @include mobile { max-height: calc(100vh - var(--nav-height)) } }
 
       &:not(.sidebar) aside.sidebar { display: none }
       &.sidebar aside {

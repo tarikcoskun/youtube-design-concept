@@ -11,7 +11,7 @@ export default Vue.extend({
 </script>
 
 <template>
-  <section id="channels">
+  <section class="container" id="channels">
     <NuxtLink class="channel" :to="`/channel/${channel.id}`" v-for="(channel, index) in featured" :key="index">
       <SmartImage :src="channel.avatar" width="80" height="80" radius="rounded" />
       <footer>
@@ -26,9 +26,8 @@ export default Vue.extend({
 @import "@/assets/css/mixins.scss";
 
 section#channels {
-  padding: 24px;
   @include flex(center, $gap: 24px);
-  @include mobile { padding: 16px; flex-direction: column }
+  @include mobile { flex-direction: column }
 
   a.channel {
     width: 128px;

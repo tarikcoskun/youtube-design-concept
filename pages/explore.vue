@@ -15,7 +15,7 @@ export default Vue.extend({
 
 <template>
   <aside class="content" id="explore">
-    <section class="tags">
+    <section class="tags container">
       <button><Icon name="trending" /> <h1>Trending</h1></button>
       <button><Icon name="music" /> <h1>Music</h1></button>
       <button><Icon name="gaming" /> <h1>Gaming</h1></button>
@@ -24,7 +24,7 @@ export default Vue.extend({
       <button><Icon name="news" /> <h1>News</h1></button>
     </section>
 
-    <section class="recommended-channel">
+    <section class="recommended-channel container">
       <header>
         <NuxtLink :to="`/channel/${channel.id}`" class="channel">
           <SmartImage :src="channel.avatar" width="36" height="36" radius="rounded" />
@@ -41,7 +41,7 @@ export default Vue.extend({
       </section>
     </section>
 
-    <section class="videos-container">
+    <section class="videos-container container">
       <h1>Trending Videos</h1>
 
       <section class="videos">
@@ -57,10 +57,9 @@ export default Vue.extend({
 aside.content#explore {
   section {
     &.tags {
-      padding: 24px;
       @include grid(6, 12px, 3);
       @include mobile {
-        padding: 16px; overflow-x: auto;
+        overflow-x: auto;
         @include flex($gap: 16px);
         &::-webkit-scrollbar { display: none }
       }
@@ -70,7 +69,6 @@ aside.content#explore {
         cursor: pointer;
         border-radius: 8px;
         background: var(--gray);
-        &:hover { background: var(--active) }
         @include flex(center, $dir: column, $gap: 12px);
         @include mobile { flex: 0 0 32% }
 
@@ -84,21 +82,21 @@ aside.content#explore {
           &.news path { fill: #ef4444 }
         }
 
-        h1 { color: var(--icon); font-size: 18px; font-weight: 500 }
+        &:hover { background: var(--active) }
+        h1 { font-size: 18px; font-weight: 500 }
       }
     }
 
     &.recommended-channel {
-      @include flex($dir: column);
-
+      gap: 24px;
       header {
-        padding: 12px 24px;
-        @include mobile { padding: 16px }
-        @include flex(center, space-between);
+        @include flex(center, space-between, $gap: 16px);
 
         a.channel {
           @include flex(center, $gap: 16px);
           @include mobile { align-items: flex-start }
+
+          figure.image { flex-shrink: 0 }
 
           aside {
             @include flex(flex-end, $gap: 8px);
@@ -110,34 +108,26 @@ aside.content#explore {
       }
 
       section.videos {
-        padding: 12px 24px;
         @include grid(4);
         @include mobile {
-          padding: 16px;
+          margin: 0 -16px; padding: 0 16px;
           @include flex($gap: 16px); overflow-x: auto;
           &::-webkit-scrollbar { display: none }
         }
 
         a.video {
-          @include mobile { flex: 0 0 50%; gap: 16px }
-          a.channel, a.channel-name { display: none }
-          footer { padding: 0 }
+          @include mobile { flex: 0 0 44%; gap: 16px }
+          footer {
+            padding: 0;
+            a.channel, a.channel-name { display: none }
+          }
         }
       }
     }
 
-    &.videos-container {
-      > h1 {
-        padding: 24px;
-        font-size: 20px; font-weight: 500;
-        @include mobile { padding: 16px }
-      }
-
-      section.videos {
-        padding: 0 24px 24px;
-        @include grid(4, $mb: 1);
-        @include mobile { padding: 0; gap: 0 }
-      }
+    &.videos-container section.videos {
+      @include grid(4, $mb: 1);
+      @include mobile { margin: 0 -16px; gap: 0 }
     }
   }
 }

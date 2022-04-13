@@ -36,7 +36,7 @@ export default Vue.extend({
       </footer>
     </aside>
 
-    <aside class="videos-container">
+    <aside class="container">
       <button class="action play"><Icon name="play" /></button>
       <Video :video="video" v-for="(video, index) in playlist.videos" :key="index" />
     </aside>
@@ -55,7 +55,7 @@ aside.content#playlist {
       padding: 24px;
       position: sticky; top: 0;
       border-right: 1px solid var(--gray);
-      width: 348px; height: calc(100vh - 65px);
+      width: 348px; height: calc(100vh - var(--nav-height));
 
       @include mobile {
         padding: 16px;
@@ -106,7 +106,7 @@ aside.content#playlist {
       }
     }
 
-    &.videos-container {
+    &.container {
       flex-grow: 1;
       position: relative;
       @include flex($dir: column);

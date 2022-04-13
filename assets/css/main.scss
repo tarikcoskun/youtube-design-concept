@@ -10,7 +10,20 @@
   --hover: #0000000f;
   --active: #e8eaed;
   --shadow: #00000048;
-  --bg-red: #d9302516;
+  --bg-red: #d9302520;
+  --nav-height: 65px;
+
+  @media (prefers-color-scheme: dark) {
+    --bg: #151719;
+    --fg: white;
+    --gray: #25292c;
+    --icon: #c5c5c5;
+    --hover: #ffffff0f;
+    --bg-red: #d9302532;
+    --active: #3a3a41;
+  }
+
+  @include mobile { --nav-height: 57px }
 }
 
 * {
@@ -20,6 +33,7 @@
   scroll-behavior: smooth;
   padding: 0; margin: 0; border: 0;
   font: 16px "Inter", sans-serif; font-weight: 400;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
   @include pc {
     &::-webkit-scrollbar {
       width: 3px; height: 3px;
@@ -39,42 +53,41 @@
   }
 }
 
-body { background: var(--bg); overflow-x: hidden }
+body {
+  background: var(--bg);
 
-svg:not(.logo) {
-  width: 24px;
-  path, rect, polygon { fill: var(--icon) }
-}
-
-button {
-  cursor: pointer;
-  background: transparent;
-  @include flex(center, center);
-
-  &.subscribe {
-    color: white;
-    cursor: pointer;
-    font-weight: 500;
-    padding: 10px 20px;
-    border-radius: 9999px;
-    background: var(--red);
-    @include mobile {
-      padding: 10px;
-      color: var(--icon);
-      background: transparent;
-      font-size: 18px; text-transform: uppercase;
-      &:hover { background: var(--hover) }
-    }
+  svg:not(.logo) {
+    width: 24px;
+    path, rect, polygon { fill: var(--icon) }
   }
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #151719;
-    --fg: white;
-    --gray: #25292c;
-    --icon: #c5c5c5;
-    --hover: #ffffff0f;
-    --active: #3a3a41;
+  .container {
+    padding: 24px;
+    @include flex($dir: column, $gap: 16px);
+    @include mobile { padding: 16px }
+
+    > h1 { font-size: 20px; font-weight: 500 }
+  }
+
+  button {
+    cursor: pointer;
+    background: transparent;
+    @include flex(center, center);
+
+    &.subscribe {
+      color: white;
+      cursor: pointer;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 9999px;
+      background: var(--red);
+      @include mobile {
+        padding: 10px;
+        color: var(--red);
+        background: transparent;
+        font-size: 18px; text-transform: uppercase;
+        &:hover { background: var(--hover) }
+      }
+    }
   }
 }

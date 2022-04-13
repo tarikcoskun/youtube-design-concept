@@ -11,7 +11,7 @@ export default Vue.extend({
 </script>
 
 <template>
-  <section id="home">
+  <section class="container" id="home">
     <h1>Uploads</h1>
 
     <section class="videos">
@@ -24,10 +24,6 @@ export default Vue.extend({
 @import "@/assets/css/mixins.scss";
 
 section#home {
-  padding: 24px;
-  @include mobile { padding: 16px }
-
-  > h1 { padding-bottom: 16px; font-size: 20px; font-weight: 500 }
   section.videos {
     @include grid(4, $mb: 1);
     @include mobile { gap: 16px }

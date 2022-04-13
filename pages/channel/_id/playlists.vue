@@ -1,5 +1,5 @@
 <template>
-  <section id="playlists">
+  <section class="container" id="playlists">
     <h1>Playlists</h1>
   </section>
 </template>
@@ -8,8 +8,5 @@
 @import "@/assets/css/mixins.scss";
 
 section#playlists {
-  padding: 24px;
-
-  > h1 { padding-bottom: 16px; font-size: 20px; font-weight: 500 }
 }
 </style>

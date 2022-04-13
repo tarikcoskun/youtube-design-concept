@@ -11,7 +11,7 @@ export default Vue.extend({
 </script>
 
 <template>
-  <section id="community">
+  <section class="container" id="community">
     <figure class="post">
       <header>
         <SmartImage :src="channel.avatar" width="36" height="36" radius="rounded" />
@@ -33,8 +33,6 @@ export default Vue.extend({
 @import "@/assets/css/mixins.scss";
 
 section#community {
-  padding: 24px;
-
   figure.post {
     padding: 16px;
     border-radius: 8px;
