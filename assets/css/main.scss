@@ -34,7 +34,7 @@
   padding: 0; margin: 0; border: 0;
   font: 16px "Inter", sans-serif; font-weight: 400;
   -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-  @include breakpoint(max) {
+  @include breakpoint(min) {
     &::-webkit-scrollbar {
       width: 3px; height: 3px;
       &-track { background: transparent }
