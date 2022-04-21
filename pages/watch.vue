@@ -79,7 +79,7 @@ export default Vue.extend({
 aside.content#watch {
   padding: 24px 32px;
   @include flex($gap: 24px);
-  @include mobile { padding: 0; flex-direction: column; gap: 0 }
+  @include breakpoint { padding: 0; flex-direction: column; gap: 0 }
 
   aside {
     &.video {
@@ -91,7 +91,7 @@ aside.content#watch {
       header {
         padding: 20px 0;
         @include flex($dir: column, $gap: 16px);
-        @include mobile { padding: 16px }
+        @include breakpoint { padding: 16px }
 
         hr { border-top: 2px solid var(--gray) }
 
@@ -102,18 +102,18 @@ aside.content#watch {
             h1 { font-size: 20px }
             sub {
               @include flex(center, space-between, $gap: 16px);
-              @include mobile { flex-direction: column; align-items: flex-start }
+              @include breakpoint { flex-direction: column; align-items: flex-start }
 
               span.date { color: var(--icon) }
               aside {
                 @include flex($gap: 24px);
-                @include mobile { width: 100%; overflow-x: auto }
+                @include breakpoint { width: 100%; overflow-x: auto }
 
                 button {
                   padding: 4px;
                   flex: 0 0 16%;
                   @include flex(center, $gap: 8px);
-                  @include mobile { flex-direction: column }
+                  @include breakpoint { flex-direction: column }
 
                   h1 { color: var(--icon); font-size: 16px; font-weight: 500 }
                   &.share svg { transform: rotateY(180deg) }
@@ -127,7 +127,7 @@ aside.content#watch {
 
             a.information {
               @include flex(center, $gap: 12px);
-              @include mobile {
+              @include breakpoint {
                 figure.image { flex-shrink: 0; width: 40px !important; height: 40px !important }
               }
 
@@ -136,19 +136,19 @@ aside.content#watch {
 
                 h1 {
                   font-size: 18px; font-weight: 500;
-                  @include mobile { font-size: 16px }
+                  @include breakpoint { font-size: 16px }
                 }
 
                 sub {
                   color: var(--icon); font-size: 14px;
-                  @include mobile { font-size: 12px }
+                  @include breakpoint { font-size: 12px }
                 }
               }
             }
 
             aside.subscribe {
               @include flex(center, $gap: 12px);
-              @include mobile { gap: 0 }
+              @include breakpoint { gap: 0 }
             }
           }
         }
@@ -158,7 +158,7 @@ aside.content#watch {
     &.recommendations {
       width: 32%;
       @include flex($dir: column, $gap: 16px);
-      @include mobile { width: auto; gap: 0 }
+      @include breakpoint { width: auto; gap: 0 }
 
       section {
         &.tags {
@@ -180,7 +180,7 @@ aside.content#watch {
               overflow-x: auto;
               padding-right: 100px;
               @include flex(center, $gap: 8px);
-              @include mobile { padding: 12px }
+              @include breakpoint { padding: 12px }
 
               &::-webkit-scrollbar { display: none }
             }
@@ -190,7 +190,7 @@ aside.content#watch {
               height: 100%;
               position: absolute; top: 0; right: 0;
               @include flex(center, $gap: 4px);
-              @include mobile { display: none }
+              @include breakpoint { display: none }
 
               button { padding: 6px }
             }
@@ -206,12 +206,12 @@ aside.content#watch {
             width: 100px; height: 100%;
             position: absolute; right: 0; top: 0;
             background: linear-gradient(to right, transparent, var(--bg) 16% 100%);
-            @include mobile { width: 16px; background: linear-gradient(to right, transparent, var(--bg)) }
+            @include breakpoint { width: 16px; background: linear-gradient(to right, transparent, var(--bg)) }
           }
         }
 
         &.videos {
-          @include mobile { padding: 16px }
+          @include breakpoint { padding: 16px }
           @include flex($dir: column, $gap: 12px);
 
           a.video {

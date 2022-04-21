@@ -26,11 +26,13 @@ export default Vue.extend({
 section#videos {
   section.videos {
     @include grid(4, $mb: 1);
-    @include mobile { gap: 16px }
+    @include breakpoint { gap: 16px }
+    @include breakpoint(min, 1920px) { @include grid(5) }
+    @include breakpoint(min, 2250px) { @include grid(6) }
 
     a.video {
       footer a.channel { display: none }
-      @include mobile {
+      @include breakpoint {
         @include grid(2);
         footer { padding: 0 }
       }

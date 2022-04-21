@@ -58,14 +58,17 @@ aside.content#library {
 
     section.videos {
       @include grid(4);
-      @include mobile {
+      @include breakpoint {
         margin: 0 -16px; padding: 0 16px;
         @include flex($gap: 16px); overflow-x: auto;
         &::-webkit-scrollbar { display: none }
       }
 
+      @include breakpoint(min, 1920px) { @include grid(5) }
+      @include breakpoint(min, 2250px) { @include grid(6) }
+
       a.video {
-        @include mobile { flex: 0 0 44%; gap: 16px }
+        @include breakpoint { flex: 0 0 44%; gap: 16px }
         footer {
           padding: 0;
           a.channel, span.date { display: none }
@@ -74,7 +77,7 @@ aside.content#library {
     }
 
     &:not(.history) :is(section.videos, p) {
-      @include mobile { display: none }
+      @include breakpoint { display: none }
     }
   }
 }

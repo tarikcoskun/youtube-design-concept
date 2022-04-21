@@ -48,7 +48,7 @@ export default Vue.extend({
 
 aside.content#playlist {
   @include flex(flex-start);
-  @include mobile { flex-direction: column }
+  @include breakpoint { flex-direction: column }
 
   > aside {
     &.sidebar {
@@ -57,7 +57,7 @@ aside.content#playlist {
       border-right: 1px solid var(--gray);
       width: 348px; height: calc(100vh - var(--nav-height));
 
-      @include mobile {
+      @include breakpoint {
         padding: 16px;
         position: unset;
         width: 100%; height: unset;
@@ -71,7 +71,7 @@ aside.content#playlist {
           overflow: hidden;
           position: relative;
           width: 100%; aspect-ratio: 16/8.9;
-          @include mobile { display: none }
+          @include breakpoint { display: none }
 
           &::after {
             content: "PLAY ALL";
@@ -110,14 +110,14 @@ aside.content#playlist {
       flex-grow: 1;
       position: relative;
       @include flex($dir: column);
-      @include mobile { padding-top: 36px }
+      @include breakpoint { padding-top: 36px }
 
       button.play {
         display: none;
         padding: 16px;
         background: var(--red);
         position: absolute; top: -28px; right: 16px;
-        @include mobile { display: flex }
+        @include breakpoint { display: flex }
         svg path { fill: white }
       }
 
@@ -125,11 +125,11 @@ aside.content#playlist {
         padding: 16px;
         flex-direction: row;
         &:hover { background: var(--hover) }
-        @include mobile { @include grid(2, 12px) }
+        @include breakpoint { @include grid(2, 12px) }
 
         figure.thumbnail { flex: 0 0 128px }
         footer {
-          @include mobile { padding: 0 }
+          @include breakpoint { padding: 0 }
           a.channel, aside sub span.date { display: none }
         }
       }

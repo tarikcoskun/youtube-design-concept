@@ -15,10 +15,6 @@ export default Vue.extend({
 
 <template>
   <aside class="content" id="subscriptions">
-    <section class="stories-container container">
-
-    </section>
-
     <section class="videos-container container" v-for="([date, videos], index) in Object.entries(groupedVideos)" :key="index">
       <h1>{{ date }}</h1>
 
@@ -36,17 +32,19 @@ aside.content#subscriptions {
   section.videos-container {
     section.videos {
       @include grid(5, $mb: 1);
-      @include mobile { margin: 0 -16px; gap: 0 }
+      @include breakpoint { margin: 0 -16px; gap: 0 }
+      @include breakpoint(min, 1920px) { @include grid(6) }
+      @include breakpoint(min, 2250px) { @include grid(6) }
 
       a.video footer {
         h1 {
           font-size: 14px;
-          @include mobile { font-size: unset }
+          @include breakpoint { font-size: unset }
         }
 
         a.channel {
           display: none;
-          @include mobile { display: block }
+          @include breakpoint { display: block }
         }
       }
     }

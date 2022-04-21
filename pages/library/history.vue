@@ -35,21 +35,23 @@ export default Vue.extend({
 
 aside.content#history {
   @include flex(flex-start);
-  @include mobile { flex-direction: column-reverse }
+  @include breakpoint { flex-direction: column-reverse }
 
   > aside {
     padding: 24px;
-    @include mobile { padding: 16px }
+    @include breakpoint { padding: 16px }
 
     &.container {
       section.videos {
         @include grid(3, $mb: 1);
-        @include mobile { gap: 16px }
+        @include breakpoint { gap: 16px }
+        @include breakpoint(min, 1920px) { @include grid(5) }
+        @include breakpoint(min, 2250px) { @include grid(6) }
 
         a.video {
           footer a.channel { display: none }
 
-          @include mobile {
+          @include breakpoint {
             @include grid(2, 12px);
 
             footer {
@@ -66,13 +68,13 @@ aside.content#history {
       border-left: 1px solid var(--gray);
       height: calc(100vh - var(--nav-height));
       @include flex($dir: column, $gap: 16px);
-      @include mobile { height: auto; padding: 0; width: 100%; position: unset; border: none }
+      @include breakpoint { height: auto; padding: 0; width: 100%; position: unset; border: none }
 
       figure.search {
         padding: 2px 0;
         border-bottom: 2px solid var(--icon);
         @include flex(center);
-        @include mobile { background: var(--gray); border: none; border-radius: 0 }
+        @include breakpoint { background: var(--gray); border: none; border-radius: 0 }
 
         input {
           flex-grow: 1;
@@ -93,7 +95,7 @@ aside.content#history {
         border-radius: 6px;
         border: 1px solid var(--gray);
         @include flex(center, $gap: 16px);
-        @include mobile { display: none }
+        @include breakpoint { display: none }
         h1 { color: var(--icon); font-weight: 500 }
 
         &:hover {

@@ -68,7 +68,7 @@ div {
     background: var(--bg);
     position: sticky; top: 0;
     border-bottom: 1px solid var(--gray);
-    @include flex(center, space-between);
+    @include flex(center, space-between, $gap: 16px);
 
     aside {
       &.brand {
@@ -76,7 +76,7 @@ div {
 
         button.menu {
           padding: 12px;
-          @include mobile { display: none }
+          @include breakpoint { display: none }
         }
 
         a.home {
@@ -86,13 +86,13 @@ div {
       }
 
       &.search {
-        width: 50%;
+        width: 640px;
         padding: 4px 10px;
         border-radius: 8px;
         background: var(--gray);
         transition: 150ms background, 150ms box-shadow;
         @include flex(center);
-        @include mobile { display: none }
+        @include breakpoint { display: none }
 
         input {
           flex-grow: 1;
@@ -112,7 +112,7 @@ div {
 
       &.user {
         @include flex(center, $gap: 8px);
-        @include mobile { button.search { display: flex !important } }
+        @include breakpoint { button.search { display: flex !important } }
         button.avatar {
           padding: 4px;
           svg { width: 32px }
@@ -125,7 +125,7 @@ div {
   main {
     overflow-y: hidden;
     @include flex(flex-start);
-    @include mobile { flex-direction: column-reverse }
+    @include breakpoint { flex-direction: column-reverse }
 
     > aside {
       &.sidebar {
@@ -136,12 +136,12 @@ div {
         border-right: 1px solid var(--gray);
         height: calc(100vh - var(--nav-height));
         position: sticky; top: var(--nav-height);
-        @include mobile { width: 100%; height: auto; bottom: 0; border: none }
+        @include breakpoint { width: 100%; height: auto; bottom: 0; border: none }
 
         aside {
           padding: 12px 12px 12px 0;
           @include flex($dir: column);
-          @include mobile {
+          @include breakpoint {
             padding: 0;
             @include grid(4, 0);
             &.library, &.subscriptions { display: none }
@@ -157,7 +157,7 @@ div {
             padding: 10px 24px;
             border-radius: 0 9999px 9999px 0;
             @include flex(center, $gap: 16px);
-            @include mobile {
+            @include breakpoint {
               padding: 8px; border-radius: 0;
               flex-direction: column; flex-grow: 1; gap: 4px;
               h1 { font-size: 12px }
@@ -168,7 +168,7 @@ div {
               background: var(--bg-red);
               svg path { fill: var(--red) }
               h1 { color: var(--red); font-weight: 500 }
-              @include mobile {
+              @include breakpoint {
                 position: relative;
                 background: transparent;
 
@@ -182,8 +182,8 @@ div {
             }
           }
 
-          &.links a:last-child { display: none; @include mobile { display: flex } }
-          &:not(:last-child) { border-bottom: 1px solid var(--gray); @include mobile { border: none } }
+          &.links a:last-child { display: none; @include breakpoint { display: flex } }
+          &:not(:last-child) { border-bottom: 1px solid var(--gray); @include breakpoint { border: none } }
         }
 
         &::-webkit-scrollbar-thumb { background: transparent }
@@ -192,7 +192,7 @@ div {
 
       &.content {
         width: 100%; overflow-y: auto; max-height: calc(100vh - var(--nav-height));
-        @include mobile { max-height: calc(100vh - var(--nav-height) - 59px) }
+        @include breakpoint { max-height: calc(100vh - var(--nav-height) - 59px) }
       }
     }
 
@@ -213,7 +213,7 @@ div {
 
   &#watch-page, &#error-page {
     main {
-      aside.content { @include mobile { max-height: calc(100vh - var(--nav-height)) } }
+      aside.content { @include breakpoint { max-height: calc(100vh - var(--nav-height)) } }
 
       &:not(.sidebar) aside.sidebar { display: none }
       &.sidebar aside {

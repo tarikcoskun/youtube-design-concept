@@ -40,13 +40,13 @@ export default Vue.extend({
 
 a.video {
   @include flex($dir: column, $gap: 16px);
-  @include mobile { gap: 0 }
+  @include breakpoint { gap: 0 }
 
   figure.thumbnail { width: 100%; aspect-ratio: 16/8.9 }
 
   footer {
     @include flex($gap: 12px);
-    @include mobile { padding: 16px }
+    @include breakpoint { padding: 16px }
 
     aside {
       @include flex($dir: column, $gap: 8px);

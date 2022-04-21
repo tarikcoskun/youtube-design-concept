@@ -54,24 +54,24 @@ export default Vue.extend({
 aside.content#channel {
   section.channel {
     @include flex($dir: column);
-    @include mobile { figure.banner { height: 120px !important } }
+    @include breakpoint { figure.banner { height: 120px !important } }
 
     footer {
       padding: 24px 32px;
       @include flex(center, space-between, $gap: 16px);
-      @include mobile { padding: 16px; flex-direction: column }
+      @include breakpoint { padding: 16px; flex-direction: column }
 
       aside {
         @include flex(center, $gap: 12px);
 
         &.information {
-          @include mobile { flex-direction: column }
+          @include breakpoint { flex-direction: column }
 
           figure.image { width: 64px !important; height: 64px !important; flex-shrink: 0 }
 
           aside {
             @include flex($dir: column, $gap: 4px);
-            @include mobile { align-items: center }
+            @include breakpoint { align-items: center }
 
             h1 { font-size: 24px; font-weight: 500 }
             sub { color: var(--icon) }
@@ -79,7 +79,7 @@ aside.content#channel {
         }
 
         &.subscribe {
-          @include mobile {
+          @include breakpoint {
             position: relative;
             button.action { position: absolute; right: -36px }
           }
@@ -94,7 +94,7 @@ aside.content#channel {
       position: sticky; top: 0;
       border-bottom: 1px solid var(--gray);
       @include flex;
-      @include mobile { padding: 0; order: -1; border: none }
+      @include breakpoint { padding: 0; order: -1; border: none }
 
       a {
         font-weight: 500;

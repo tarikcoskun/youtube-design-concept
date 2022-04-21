@@ -23,7 +23,7 @@
     --active: #3a3a41;
   }
 
-  @include mobile { --nav-height: 57px }
+  @include breakpoint { --nav-height: 57px }
 }
 
 * {
@@ -34,7 +34,7 @@
   padding: 0; margin: 0; border: 0;
   font: 16px "Inter", sans-serif; font-weight: 400;
   -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-  @include pc {
+  @include breakpoint(max) {
     &::-webkit-scrollbar {
       width: 3px; height: 3px;
       &-track { background: transparent }
@@ -64,7 +64,7 @@ body {
   .container {
     padding: 24px;
     @include flex($dir: column, $gap: 16px);
-    @include mobile { padding: 16px }
+    @include breakpoint { padding: 16px }
 
     > h1 { font-size: 20px; font-weight: 500 }
   }
@@ -81,7 +81,7 @@ body {
       padding: 10px 20px;
       border-radius: 9999px;
       background: var(--red);
-      @include mobile {
+      @include breakpoint {
         padding: 10px;
         color: var(--red);
         background: transparent;

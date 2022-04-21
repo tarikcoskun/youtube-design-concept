@@ -58,7 +58,7 @@ aside.content#explore {
   section {
     &.tags {
       @include grid(6, 12px, 3);
-      @include mobile {
+      @include breakpoint {
         overflow-x: auto;
         @include flex($gap: 16px);
         &::-webkit-scrollbar { display: none }
@@ -70,7 +70,7 @@ aside.content#explore {
         border-radius: 8px;
         background: var(--gray);
         @include flex(center, $dir: column, $gap: 12px);
-        @include mobile { flex: 0 0 32% }
+        @include breakpoint { flex: 0 0 32% }
 
         svg {
           width: 32px;
@@ -94,14 +94,14 @@ aside.content#explore {
 
         a.channel {
           @include flex(center, $gap: 16px);
-          @include mobile { align-items: flex-start }
+          @include breakpoint { align-items: flex-start }
 
           figure.image { flex-shrink: 0 }
 
           aside {
             @include flex(flex-end, $gap: 8px);
-            @include mobile { align-items: flex-start; flex-direction: column }
-            h1 { font-size: 20px; font-weight: 500; line-height: 20px; @include mobile { line-height: auto } }
+            @include breakpoint { align-items: flex-start; flex-direction: column }
+            h1 { font-size: 20px; font-weight: 500; line-height: 20px; @include breakpoint { line-height: auto } }
             span { color: var(--icon); font-size: 14px }
           }
         }
@@ -109,14 +109,17 @@ aside.content#explore {
 
       section.videos {
         @include grid(4);
-        @include mobile {
+        @include breakpoint {
           margin: 0 -16px; padding: 0 16px;
           @include flex($gap: 16px); overflow-x: auto;
           &::-webkit-scrollbar { display: none }
         }
 
+        @include breakpoint(min, 1920px) { @include grid(5) }
+        @include breakpoint(min, 2250px) { @include grid(6) }
+
         a.video {
-          @include mobile { flex: 0 0 44%; gap: 16px }
+          @include breakpoint { flex: 0 0 44%; gap: 16px }
           footer {
             padding: 0;
             a.channel, a.channel-name { display: none }
@@ -127,7 +130,9 @@ aside.content#explore {
 
     &.videos-container section.videos {
       @include grid(4, $mb: 1);
-      @include mobile { margin: 0 -16px; gap: 0 }
+      @include breakpoint { margin: 0 -16px; gap: 0 }
+      @include breakpoint(min, 1920px) { @include grid(5) }
+      @include breakpoint(min, 2250px) { @include grid(6) }
     }
   }
 }

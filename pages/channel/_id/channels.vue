@@ -27,16 +27,16 @@ export default Vue.extend({
 
 section#channels {
   @include flex(center, $gap: 24px);
-  @include mobile { flex-direction: column }
+  @include breakpoint { flex-direction: column }
 
   a.channel {
     width: 128px;
     @include flex(center, $dir: column, $gap: 16px);
-    @include mobile { width: 100%; flex-grow: 1; flex-direction: row }
+    @include breakpoint { width: 100%; flex-grow: 1; flex-direction: row }
 
     footer {
       @include flex(center, $dir: column, $gap: 4px);
-      @include mobile { align-items: flex-start }
+      @include breakpoint { align-items: flex-start }
       h1 { font-size: 20px; font-weight: 500 }
       span { color: var(--icon); font-size: 14px }
     }

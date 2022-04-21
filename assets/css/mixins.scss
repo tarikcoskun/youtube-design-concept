@@ -17,7 +17,7 @@
   gap: $gap;
   display: grid;
   grid-template-columns: repeat($cols, minmax(0, 1fr));
-  @include mobile { grid-template-columns: repeat($mb, minmax(0, 1fr)) }
+  @include breakpoint { grid-template-columns: repeat($mb, minmax(0, 1fr)) }
 }
 
 @mixin button($bg: transparent, $hover: $bg, $text: #f0f0f3, $padding: 10px 40px, $align: center) {
@@ -63,5 +63,16 @@
   }
 }
 
-@mixin mobile { @media (max-width: 700px) { @content }}
-@mixin pc { @media (min-width: 700px) { @content }}
+@mixin breakpoint($minmax: max, $breakpoint: 700px) {
+  @if $minmax == max {
+    @media (max-width: $breakpoint) {
+      @content;
+    }
+  }
+
+  @if $minmax == min {
+    @media (min-width: $breakpoint) {
+      @content;
+    }
+  }
+}
