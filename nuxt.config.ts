@@ -5,7 +5,9 @@ const ImageConfig: Partial<ImageOptions> = { domains: ["i.ytimg.com"] }
 
 const Config: NuxtConfig = {
   target: "static",
-  server: { port: 8080 },
+  router: {
+    base: "/youtube-design-concept/"
+  },
   dir: { static: "public" },
   loading: { color: "#d93025" },
 
